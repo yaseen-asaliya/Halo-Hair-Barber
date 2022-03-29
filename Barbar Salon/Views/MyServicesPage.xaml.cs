@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Barbar_Salon.Models;
+using Xamarin.Forms;
+using Barbar_Salon.Views;
+using Xamarin.Forms.Xaml;
+
+namespace Barbar_Salon.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MyServicesPage : ContentPage
+    {
+        public MyServicesPage()
+        {
+            InitializeComponent();
+        }
+        public async void OnItemSelected(object sender, ItemTappedEventArgs args)
+        {
+            var MyServicesData = args.Item as MyServicesModel;
+            if (MyServicesData != null)
+            {
+                //await Navigation.PushModalAsync(new EditServicesPage(MyServicesData));
+                MyServices.SelectedItem = null;
+            }
+        }
+    }
+}

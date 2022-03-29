@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels"
+             x:Class="Barbar_Salon.Views.MyServicesPage">
+    <ContentPage.BindingContext>
+        <viewmodels:MyServicesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding Services}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Margin="50,25" Padding="10" >
+                                    <StackLayout Orientation="Horizontal" >
+                                        <StackLayout Orientation="Vertical">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Service Name :" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Service_Name}" VerticalOptions="StartAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Prices :" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Prices}" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Time Needed :" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Time_Needed}" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                                <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                    TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                    Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                     HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
