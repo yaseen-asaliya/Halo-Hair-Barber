@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.ReservationRequest">
+  <ContentView.Content>
+        <StackLayout>
+            <Frame Margin="50,25,30,25" Padding="10" HasShadow="True" >
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding PersonName}" VerticalOptions="StartAndExpand"/>
+                        <Label Text="{Binding ListOfService}" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Time}" VerticalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                        <Button Text="Accept" Command="{Binding Accept }" TextColor="White" FontSize="Micro"
+                                                    BackgroundColor="#603D8F" CornerRadius="15"
+                                                    HeightRequest="40"/>
+                        <Button Text="Refused" Command="{Binding Refused  }" TextColor="Black" BackgroundColor="#E3E3E3"
+                                                    HeightRequest="40" CornerRadius="15" FontSize="Micro"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -77,3 +77,38 @@ C:\Users\abood\Desktop\2532022\Test\Barbar Salon\Barbar Salon\Barbar Salon\obj\D
 C:\Users\abood\Desktop\2532022\Test\Barbar Salon\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.dll
 C:\Users\abood\Desktop\2532022\Test\Barbar Salon\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\ref\Barbar Salon.dll
 C:\Users\abood\Desktop\2532022\Test\Barbar Salon\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.pdb
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\bin\Debug\netstandard2.0\Barbar Salon.deps.json
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\bin\Debug\netstandard2.0\Barbar Salon.dll
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\bin\Debug\netstandard2.0\ref\Barbar Salon.dll
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\bin\Debug\netstandard2.0\Barbar Salon.pdb
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.csproj.AssemblyReference.cache
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\AddOfferPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\AddServicesPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\AddTimePage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\EditServicesPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\MyServicesPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\NewPasswordPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ProfilePage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ProfileSettingsPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ReservationsPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ResetPasswordCodePage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ResetPasswordPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\SignUpPage.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.AssemblyInfoInputs.cache
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.AssemblyInfo.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.csproj.CoreCompileInputs.cache
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.dll
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\ref\Barbar Salon.dll
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.pdb
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ComponentsView\ButtonsProfile.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ComponentsView\ReservationRequest.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ComponentsView\ReservationView.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\ComponentsView\Serviceview.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\AddTimeField.xaml.g.cs
+C:\Users\MSI\Desktop\MobileProjects\Barber\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\Calendar.xaml.g.cs

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Barbar_Salon.ViewModels;
 
 namespace Barbar_Salon.Views
 {
@@ -15,6 +16,8 @@ namespace Barbar_Salon.Views
         public AddTimePage()
         {
             InitializeComponent();
+            BindingContext = new AddTimeViewModel();
+          
         }
     }
 }

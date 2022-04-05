@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.ButtonsProfile">
+  <ContentView.Content>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout Orientation="Vertical" x:Name="Button1">
+                <Button x:Name="aboutbutton" Text="About" Command="{Binding About}" Clicked="aboutbutton_Clicked" BackgroundColor="White"
+                    TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                    Padding="0,0,0,0" HeightRequest="20" WidthRequest="50" />
+                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="50" HorizontalOptions="CenterAndExpand" IsVisible="True" />
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Button x:Name="settingsbutton" Text="Settings" Command="{Binding Settings}" Clicked="settingsbutton_Clicked" BackgroundColor="White"
+                    TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                    Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="50" 
+                     HorizontalOptions="CenterAndExpand" IsVisible="False"/>
+            </StackLayout>
+        </StackLayout> 
+  </ContentView.Content>
+</ContentView>

@@ -4,9 +4,7 @@
              x:Class="Barbar_Salon.Views.ProfilePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Clicked="Button_Clicked" Text="Add Time" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
