@@ -68,6 +68,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Forms.Xaml.dll",
 		"Xamarin.Google.Android.Material.dll",
 		"Xamarin.Google.Guava.ListenableFuture.dll",
+		"XamForms.Controls.Calendar.dll",
+		"XamForms.Controls.Calendar.Droid.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};
