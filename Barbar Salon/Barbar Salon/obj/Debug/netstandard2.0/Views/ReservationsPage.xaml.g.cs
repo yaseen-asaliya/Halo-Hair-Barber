@@ -17,8 +17,12 @@ namespace Barbar_Salon.Views {
     public partial class ReservationsPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::XamForms.Controls.Calendar calendar;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ReservationsPage));
+            calendar = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::XamForms.Controls.Calendar>(this, "calendar");
         }
     }
 }

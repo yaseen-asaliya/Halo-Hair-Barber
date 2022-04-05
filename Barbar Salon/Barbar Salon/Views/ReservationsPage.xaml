@@ -1,12 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar"
              x:Class="Barbar_Salon.Views.ReservationsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <controls:Calendar Grid.Column="0" Grid.Row="0"  SelectedDate="{Binding CalendarSelectedDate, Mode=TwoWay}" 
+                            x:Name="calendar" DateCommand="{Binding DateSelectedcommand}" HorizontalOptions="Center"
+                            VerticalOptions="Center" WidthRequest="371" HeightRequest="340" BackgroundColor="White"
+                            BorderColor="White" SelectedBackgroundColor="#603D8F" SelectedTextColor="White"
+                            SelectedBorderColor="#603D8F" TitleRightArrowTextColor= "Black"
+                            TitleLeftArrowTextColor="Black" TitleLabelFontFamily="" TitleLabelFontSize="20"
+                            />
+            </Grid>
+                
+          
+             
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
