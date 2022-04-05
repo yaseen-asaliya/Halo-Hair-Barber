@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Barbar_Salon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace Barbar_Salon.Views
         public MyServicesPage()
         {
             InitializeComponent();
+        }
+        public async void OnItemSelected(object sender, ItemTappedEventArgs args)
+        {
+            var MyServicesData = args.Item as MyServicesModel;
+            if (MyServicesData != null)
+            {
+                /*
+                await Navigation.PushModalAsync(new EditServicesPage(MyServicesData));
+                MyServices.SelectedItem = null;*/
+
+            }
+
         }
     }
 }

@@ -1569,24 +1569,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\abood\\.nuget\\packages\\": {},
+    "C:\\Users\\MSI\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\MSI\\Desktop\\MobileProjects\\Barber\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
       "projectName": "Barbar Salon.iOS",
-      "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
-      "packagesPath": "C:\\Users\\abood\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
+      "projectPath": "C:\\Users\\MSI\\Desktop\\MobileProjects\\Barber\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MSI\\Desktop\\MobileProjects\\Barber\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\abood\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1600,8 +1600,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-              "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+            "C:\\Users\\MSI\\Desktop\\MobileProjects\\Barber\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+              "projectPath": "C:\\Users\\MSI\\Desktop\\MobileProjects\\Barber\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
             }
           }
         }
