@@ -4,6 +4,8 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Firebase;
+using Firebase;
 
 namespace Barbar_Salon.iOS
 {
@@ -24,7 +26,7 @@ namespace Barbar_Salon.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            Firebase.Core.App.Configure();
             return base.FinishedLaunching(app, options);
         }
     }

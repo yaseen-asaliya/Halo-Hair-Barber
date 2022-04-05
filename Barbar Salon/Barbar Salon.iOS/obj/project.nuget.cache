@@ -1,18 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "fx4d3yc/tY9LsXfGjhzUsLPFotddwhkBophW8875ajoa5Hu726iMJNYFjpQqR2ufc0+a6jBbzYbpQlwuKv9SkA==",
+  "dgSpecHash": "R3yTRxDam/e1kwsNgI7Ej33kehDbTC26DVmF1FI8tTJo9p20T+T+wF/YB3cE9yjzdzVKW+M2QalcYp7Xv0IYnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+  "projectFilePath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abood\\.nuget\\packages\\firebasedatabase.net\\4.0.7\\firebasedatabase.net.4.0.7.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\abood\\.nuget\\packages\\refractored.mvvmhelpers\\1.6.2\\refractored.mvvmhelpers.1.6.2.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.reactive\\4.0.0\\system.reactive.4.0.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\abood\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\abood\\.nuget\\packages\\xamarin.build.download\\0.11.0\\xamarin.build.download.0.11.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\abood\\.nuget\\packages\\xamarin.firebase.ios.auth\\8.10.0\\xamarin.firebase.ios.auth.8.10.0.nupkg.sha512",
+    "C:\\Users\\abood\\.nuget\\packages\\xamarin.firebase.ios.core\\8.10.0\\xamarin.firebase.ios.core.8.10.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
   "logs": []

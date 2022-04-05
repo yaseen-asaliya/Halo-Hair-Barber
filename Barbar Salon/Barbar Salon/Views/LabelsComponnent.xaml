@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.LabelsComponnent">
+    <StackLayout>
+        <StackLayout>
+            <Grid>
+                <Frame BorderColor="#603D8F" CornerRadius="10" HasShadow="False"/>
+                <Label x:Name="fancyEntryLabel" AnchorY="1" AnchorX="0" Margin="10" Padding="3" TextColor="Black" BackgroundColor="White"
+                      HorizontalOptions="Start"/>
+                <Entry VerticalOptions="Center"
+                   Text="Password"
+                   TextColor="black"
+                   IsReadOnly="False" />
+            </Grid>
+
+
+            <Grid>
+                <Frame
+            BorderColor="#603D8F"
+            CornerRadius="10" 
+            HasShadow="False"/>
+
+                <Label
+            x:Name="fancyEntryLabel1"
+            AnchorY="1"
+            AnchorX="0"
+            Margin="10"
+            Padding="3"
+            TextColor="Black"
+            BackgroundColor="White"
+            HorizontalOptions="Start"/>
+                <Entry VerticalOptions="Center"
+                   Text="Phone"
+                   TextColor="black"
+                   IsReadOnly="False" />
+            </Grid>
+        </StackLayout>
+
+        <StackLayout>
+
+            <Grid>
+                <Frame
+            BorderColor="#603D8F"
+            CornerRadius="10" 
+            HasShadow="False"/>
+
+                <Label
+            x:Name="fancyEntryLabel2"
+            AnchorY="1"
+            AnchorX="0"
+            Margin="10"
+            Padding="3"
+            TextColor="Black"
+            BackgroundColor="White"
+            HorizontalOptions="Start"/>
+                <Entry VerticalOptions="Center"
+                   Text="Password"
+                   TextColor="black"
+                   IsReadOnly="False" />
+            </Grid>
+
+
+            <Grid>
+                <Frame
+            BorderColor="#603D8F"
+            CornerRadius="10" 
+            HasShadow="False"/>
+
+                <Label
+            x:Name="fancyEntryLabel3"
+            AnchorY="1"
+            AnchorX="0"
+            Margin="10"
+            Padding="3"
+            TextColor="Black"
+            BackgroundColor="White"
+            HorizontalOptions="Start"/>
+                <Entry VerticalOptions="Center"
+                   Text="Phone"
+                   TextColor="black"
+                   IsReadOnly="False" />
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

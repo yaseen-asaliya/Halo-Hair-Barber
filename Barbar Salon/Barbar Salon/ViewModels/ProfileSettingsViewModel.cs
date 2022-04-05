@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Barbar_Salon.ViewModels
 {
-    public class ProfileSettingsViewModel
+    internal class ProfileSettingsViewModel
     {
     }
 }
