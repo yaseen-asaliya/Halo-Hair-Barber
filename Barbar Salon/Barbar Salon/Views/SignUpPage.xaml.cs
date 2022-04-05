@@ -12,9 +12,15 @@ namespace Barbar_Salon.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignUpPage : ContentPage
     {
+
         public SignUpPage()
         {
             InitializeComponent();
+          
+
+        }
+
+       
+
         }
     }
-}

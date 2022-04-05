@@ -7,13 +7,21 @@ namespace Barbar_Salon
 {
     public partial class App : Application
     {
-
+        IAuth auth;
         public App()
         {
             InitializeComponent();
 
+            auth=DependencyService.Get<IAuth>();   
             
-            MainPage = new AppShell();
+            if(auth.IsSigIn())
+            {
+                MainPage = new AppShell();
+            }
+            else
+            {
+                MainPage = new LoginPage();
+            }
         }
 
         protected override void OnStart()

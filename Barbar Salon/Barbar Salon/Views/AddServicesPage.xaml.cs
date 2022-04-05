@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Barbar_Salon.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,8 @@ namespace Barbar_Salon.Views
         public AddServicesPage()
         {
             InitializeComponent();
+            BindingContext= new AddServicesViewModel(); 
         }
+
     }
 }

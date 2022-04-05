@@ -1,12 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Barbar_Salon.ViewModels" 
              x:Class="Barbar_Salon.Views.EditServicesPage">
+
+    <ContentPage.BindingContext>
+        <viewmodel:EditServicesViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout>
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Frame Margin="16" >
+                        <StackLayout>
+                            <Label Text =" Service_Name"  />
+                            <Frame CornerRadius="10" Padding="0" >
+                                <Entry x:Name="Service_Name"  Text="{Binding Service_Name}" TextColor="Black"   />
+                            </Frame>
+                            <Label Text="Time"/>
+                            <Frame CornerRadius="10" Padding="0">
+                                <Entry x:Name="Time" Text="{Binding Time_Needed}"/>
+                            </Frame>
+                            <Label Text ="Prices" />
+                            <Frame CornerRadius="10" Padding="0"  >
+                                <Entry x:Name="Prices" Text="{Binding Prices}"/>
+                            </Frame >
+                          
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Button Margin="110"
+                WidthRequest="207"
+                HeightRequest="46"
+                Text="UpDate"
+                TextColor="#FFFFFF"
+                FontAttributes="Bold"
+                BackgroundColor="#603D8F"
+                CornerRadius="20"
+                Font="Segoe UI"
+                FontSize="16"
+                    Command="{Binding UpDateDataServices}"
+                >
+                    </Button>
+                </StackLayout>
+
+            </StackLayout>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
