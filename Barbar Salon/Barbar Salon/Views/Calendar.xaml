@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar" xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" x:DataType="viewmodels:AddTimeViewModel"
+
+             x:Class="Barbar_Salon.Views.Calendar">
+  <ContentView.Content>
+        <StackLayout Margin="16,10,16,0">
+            <controls:Calendar  SelectedDate="{Binding CalendarSelectedDate, Mode=TwoWay}" 
+                            x:Name="calendar" DateCommand="{Binding DateSelectedCommand}" HorizontalOptions="Center" VerticalOptions="Center" 
+                            WidthRequest="371" HeightRequest="340" BackgroundColor="White"
+                            BorderColor="White" SelectedBackgroundColor="#603D8F" SelectedTextColor="White"
+                            SelectedBorderColor="#603D8F" TitleRightArrowTextColor= "Black"
+                            TitleLeftArrowTextColor="Black" TitleLabelFontFamily="" TitleLabelFontSize="20"
+                            />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

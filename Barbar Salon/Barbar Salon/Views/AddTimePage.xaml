@@ -1,12 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Barbar_Salon.Views.AddTimePage">
+             xmlns:controls="clr-namespace:XamForms.Controls;assembly=XamForms.Controls.Calendar" xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" xmlns:views="clr-namespace:Barbar_Salon.Views" x:DataType="viewmodels:AddTimeViewModel"
+             x:Class="Barbar_Salon.Views.AddTimePage" >
+    <ContentPage.BindingContext>        <viewmodels:AddTimeViewModel/>    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <views:Calendar Grid.Row="0" Grid.Column="0"/>
+                <views:AddTimeField Grid.Row="1" Grid.Column="0"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

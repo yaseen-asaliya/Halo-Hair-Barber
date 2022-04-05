@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" x:DataType="viewmodels:AddTimeViewModel"
+             x:Class="Barbar_Salon.Views.AddTimeField">
+  <ContentView.Content>
+       <StackLayout>
+            <StackLayout>
+                <Label Text="Select Time " FontSize="Small" TextColor="Black" Margin="16,0,0,0"/>
+
+                <StackLayout Margin="18,0,5,0" BackgroundColor="White" Padding="0,0,0,15">
+                    <Label Text="Start Time"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Frame CornerRadius="10" WidthRequest="190" HeightRequest="45" Margin="18,0,0,0" Padding="0">
+                            <Entry Text="{Binding StartTime}"/>
+                        </Frame>
+                    </StackLayout>
+                    <Label Text="End Time"/>
+                    <StackLayout Orientation="Horizontal" Margin="18,0,0,0" >
+                        <Frame Padding="0" CornerRadius="10" WidthRequest="190" HeightRequest="45">
+                            <Entry Text="{Binding EndTime}"/>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="18,0,0,0">
+                    <CheckBox IsChecked="False" CheckedChanged="CheckBox_CheckedChanged" Color="Black"/>
+                    <Label Text="Off Time" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout >
+                    <StackLayout Margin="18,0,5,0" BackgroundColor="White" Padding="0,0,0,15" x:Name="OffTime" IsVisible="false">
+                        <Label Text="Start Off Time"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame CornerRadius="10" WidthRequest="190" HeightRequest="45" Margin="18,0,0,0" Padding="0">
+                                <TimePicker Time="{Binding .}"/>
+                            </Frame>
+                        </StackLayout>
+                        <Label Text="End Off Time"/>
+                        <StackLayout Orientation="Horizontal" Margin="18,0,0,0" >
+                            <Frame Padding="0" CornerRadius="10" WidthRequest="190" HeightRequest="45">
+                                <TimePicker Time="{Binding .}"/>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout>
+                <Button Margin="110"
+                WidthRequest="207"
+                HeightRequest="46"
+                Text="Add Time"
+                TextColor="#FFFFFF"
+                FontAttributes="Bold"
+                BackgroundColor="#603D8F"
+                CornerRadius="20"
+                Font="Segoe UI"
+                FontSize="16"
+                    Command="{Binding AddTimeCommand}"/>
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
