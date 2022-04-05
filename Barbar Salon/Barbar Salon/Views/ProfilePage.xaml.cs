@@ -16,5 +16,9 @@ namespace Barbar_Salon.Views
         {
             InitializeComponent();
         }
+         private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new MyServicesPage());
+        }
     }
 }
