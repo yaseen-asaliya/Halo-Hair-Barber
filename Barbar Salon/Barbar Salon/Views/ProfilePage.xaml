@@ -7,6 +7,8 @@
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button Text="Add Serives" Clicked="AddSerives" ></Button>
+            <Button Text="MySerives" Clicked="EditService" ></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

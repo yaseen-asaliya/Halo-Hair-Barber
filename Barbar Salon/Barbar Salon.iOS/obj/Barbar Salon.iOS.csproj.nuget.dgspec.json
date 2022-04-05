@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {}
+    "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {
+    "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
         "projectName": "Barbar Salon.iOS",
-        "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+        "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
         "packagesPath": "C:\\Users\\abood\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
+        "outputPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-                "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+              "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+                "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
               }
             }
           }
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+    "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
+        "projectUniqueName": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
         "projectName": "Barbar Salon",
-        "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
+        "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
         "packagesPath": "C:\\Users\\abood\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\obj\\",
+        "outputPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

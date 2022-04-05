@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F9j4XM1IFJJamVjX72Sk5QjoVORXhYUW8xBNWDIqWJEq5JOPHJYTygl8ETLurfMhevA/UU8hxvRNK31PTA6Uqw==",
+  "dgSpecHash": "7z238L3I7eOFBcc4oF/4xk+pLeM2cK/lTh3xSo9mJ8196ejUuB6ZDSp35L4so2rUsjD6rVL0OjAUwFQ6njzJMA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
+  "projectFilePath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abood\\.nuget\\packages\\firebasedatabase.net\\4.0.7\\firebasedatabase.net.4.0.7.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",

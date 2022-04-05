@@ -1575,11 +1575,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
       "projectName": "Barbar Salon.iOS",
-      "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
       "packagesPath": "C:\\Users\\abood\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
+      "outputPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1600,8 +1600,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-              "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+            "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+              "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
             }
           }
         }

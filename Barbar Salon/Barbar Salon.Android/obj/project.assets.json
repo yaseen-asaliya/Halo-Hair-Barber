@@ -3533,11 +3533,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
+      "projectUniqueName": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
       "projectName": "Barbar Salon.Android",
-      "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
+      "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
       "packagesPath": "C:\\Users\\abood\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon.Android\\obj\\",
+      "outputPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3558,8 +3558,8 @@
       "frameworks": {
         "monoandroid12.0": {
           "projectReferences": {
-            "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-              "projectPath": "C:\\Users\\abood\\Desktop\\2532022\\Test\\Barbar Salon\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+            "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+              "projectPath": "C:\\Users\\abood\\Desktop\\Pro\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
             }
           }
         }
