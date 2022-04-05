@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.ServicView">
+  <ContentView.Content>
+        <StackLayout>
+            <Frame Margin="50,25,30,25" Padding="10" HasShadow="True">
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout>
+                        <Frame CornerRadius="100" 
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               HorizontalOptions="Center"
+                               Padding="0"
+                               IsClippedToBounds="True">
+                            <Image x:Name="image" Source="{Binding Image}" 
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" >
+                        <Label Text="{Binding SirviceName}" VerticalOptions="StartAndExpand"/>
+                        <Label Text="{Binding Price}" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding Time}" VerticalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <CheckBox  Color="Black" />
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
