@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.HomePage"
+             xmlns:control="clr-namespace:Barbar_Salon.Views.Components"
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels"
+            
+             Title="Halo Hair" 
+             
+             >
+    <ContentPage.BindingContext>
+        <viewmodels:HomePageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content  >
+
+
+        <StackLayout BackgroundColor="#F2F2F2">
+            <Label Text="Reservation Request" Margin="0,10,0,0" HorizontalOptions="Center" FontSize="17" FontFamily="Segoe UI" TextColor="#0E0909" ></Label>
+            <ListView x:Name="MyReservationsRequest" HasUnevenRows="True"   ItemsSource="{Binding FilltedReservationsRequest}"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Frame Margin="25,10,25,0" Padding="10" HasShadow="True"  CornerRadius="15"  >
+                                    <StackLayout Orientation="Horizontal" >
+                                        <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding PersonName}" VerticalOptions="StartAndExpand" FontSize="Medium" FontFamily="Segoe UI" TextColor="#0E0909"/>
+                                            <Label Text="{Binding ListOfService}" Margin="3,0,0,0" VerticalOptions="CenterAndExpand" FontFamily="Segoe UI" TextColor="#0E0909" />
+                                            <Label Text="{Binding Time}" VerticalOptions="EndAndExpand" FontFamily="Segoe UI" TextColor="#0E0909" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                            <Button Text= "Accept" Command="{Binding Path=BindingContext.Accept,Source={x:Reference MyReservationsRequest}}" TextColor="#FFFFFF"
+                                                        FontSize="Micro" 
+                                                        FontFamily="Segoe UI"
+                                                        BackgroundColor="#603D8F"
+                                                        CornerRadius="15"  Margin="1"  WidthRequest="70" HeightRequest="30"
+                                                    CommandParameter="{Binding .}"
+                                                    />
+                                            <Button Text= "Refused" Command="{Binding Path=BindingContext.Refused,Source={x:Reference MyReservationsRequest}}" TextColor="#0F0000"
+                                                        FontSize="Micro" 
+                                                        FontFamily="Segoe UI"
+                                                        BackgroundColor="#F2F2F2"
+                                                        CornerRadius="15"  Margin="1"  WidthRequest="70" HeightRequest="30"
+                                                        CommandParameter="{Binding .}"/>
+                                            
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
