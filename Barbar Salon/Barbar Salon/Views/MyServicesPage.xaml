@@ -11,7 +11,7 @@
             <controls:NavigationComponent Titles="My Services">
             </controls:NavigationComponent>
             <StackLayout HeightRequest="500">
-            <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding Services}">
+                <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding FilltedServices}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

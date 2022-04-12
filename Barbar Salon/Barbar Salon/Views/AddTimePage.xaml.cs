@@ -21,7 +21,7 @@ namespace Barbar_Salon.Views
             am.BackgroundColor = Color.Gray;
                 dateTime = DateTime.Now;
 
-                label.Text = dateTime.ToString("dddd, dd MMMM yyyy");
+              //  label.Text = dateTime.ToString("dddd, dd MMMM yyyy");
                 Year = DateTime.Now.Year;
                 Month = DateTime.Now.Month;
                 Day = DateTime.Now.Day;
@@ -95,7 +95,7 @@ namespace Barbar_Salon.Views
     DateTime nowDate = new DateTime(Year, Month, Day);
 
     var previewDate = nowDate.AddDays(-1);
-    label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
+  //  label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
     Year = previewDate.Year;
     Month = previewDate.Month;
     Day = previewDate.Day;
@@ -105,7 +105,7 @@ namespace Barbar_Salon.Views
     {
     DateTime nowDate = new DateTime(Year, Month, Day);
     var previewDate = nowDate.AddDays(1);
-    label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
+   // label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
     Year = previewDate.Year;
     Month = previewDate.Month;
     Day = previewDate.Day;

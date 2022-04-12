@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Barbar_Salon.Views.AddTimePage"
-             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels">
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components">
     <ContentPage.BindingContext>
         <viewmodels:AddTimeViewModel/>
     </ContentPage.BindingContext>
-
     <ContentPage.Content>
         <StackLayout>
+            <controls:NavigationComponent Titles="Add Time">
+            </controls:NavigationComponent>
             <StackLayout >
                 <ScrollView>
                     <StackLayout>

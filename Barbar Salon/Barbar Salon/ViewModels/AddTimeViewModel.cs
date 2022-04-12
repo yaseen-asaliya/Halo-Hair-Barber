@@ -53,7 +53,7 @@ namespace Barbar_Salon.ViewModels
             FireBase = new HaloHairServices();
 
             AddTimeCommand = new Command(async () => await AddTime(StartTime, EndTime, CalendarSelectedDate));
-
+            dateTime = DateTime.Now;
             Date = dateTime.ToString("dddd, dd MMMM yyyy");
             year = DateTime.Now.Year;
             month = DateTime.Now.Month;
