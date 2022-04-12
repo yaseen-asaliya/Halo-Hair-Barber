@@ -2265,6 +2265,49 @@ Barbar Salon/Barbar Salon/obj/Debug/netstandard2.0/Barbar Salon.GeneratedMSBuild
 Barbar Salon/Barbar Salon/obj/Debug/netstandard2.0/Barbar Salon.pdb
 Barbar Salon/Barbar Salon/obj/project.assets.json
 Barbar Salon/Barbar Salon/obj/project.nuget.cache
+<<<<<<< HEAD
 Barbar Salon/Barbar Salon.Android/obj/Debug/120/Barbar Salon.Android.csproj.AssemblyReference.cache
 Barbar Salon/Barbar Salon.Android/obj/Debug/120/devices.cache
 Barbar Salon/Barbar Salon/obj/Debug/netstandard2.0/Barbar Salon.csproj.AssemblyReference.cache
+=======
+Barbar Salon/Barbar Salon.Android/Barbar Salon.Android.csproj
+Barbar Salon/Barbar Salon.Android/obj/Barbar Salon.Android.csproj.nuget.dgspec.json
+Barbar Salon/Barbar Salon.Android/obj/Barbar Salon.Android.csproj.nuget.g.props
+Barbar Salon/Barbar Salon.Android/obj/Barbar Salon.Android.csproj.nuget.g.targets
+Barbar Salon/Barbar Salon.Android/obj/project.assets.json
+Barbar Salon/Barbar Salon.Android/obj/project.nuget.cache
+Barbar Salon/Barbar Salon.iOS/obj/Barbar Salon.iOS.csproj.nuget.dgspec.json
+Barbar Salon/Barbar Salon.iOS/obj/Barbar Salon.iOS.csproj.nuget.g.props
+Barbar Salon/Barbar Salon.iOS/obj/Barbar Salon.iOS.csproj.nuget.g.targets
+Barbar Salon/Barbar Salon.iOS/obj/iPhone/Debug/Barbar Salon.iOS.csproj.AssemblyReference.cache
+Barbar Salon/Barbar Salon.iOS/obj/project.assets.json
+Barbar Salon/Barbar Salon.iOS/obj/project.nuget.cache
+Barbar Salon/Barbar Salon/obj/Barbar Salon.csproj.nuget.dgspec.json
+Barbar Salon/Barbar Salon/obj/Barbar Salon.csproj.nuget.g.props
+Barbar Salon/Barbar Salon/obj/Barbar Salon.csproj.nuget.g.targets
+Barbar Salon/Barbar Salon/obj/Debug/netstandard2.0/Barbar Salon.assets.cache
+Barbar Salon/Barbar Salon/obj/project.assets.json
+Barbar Salon/Barbar Salon/obj/project.nuget.cache
+>>>>>>> 6edd3b0b3a161b2b36a178fa9d5b51cec4063f45
+Barbar Salon/Barbar Salon.Android/Barbar Salon.Android.csproj
+Barbar Salon/Barbar Salon.Android/obj/Barbar Salon.Android.csproj.nuget.dgspec.json
+Barbar Salon/Barbar Salon.Android/obj/Barbar Salon.Android.csproj.nuget.g.props
+Barbar Salon/Barbar Salon.Android/obj/Barbar Salon.Android.csproj.nuget.g.targets
+Barbar Salon/Barbar Salon.Android/obj/Debug/120/designtime/build.props
+Barbar Salon/Barbar Salon.Android/obj/Debug/120/designtime/Resource.designer.cs
+Barbar Salon/Barbar Salon.Android/obj/Debug/120/DesignTimeResolveAssemblyReferencesInput.cache
+Barbar Salon/Barbar Salon.Android/obj/Debug/120/libraryprojectimports.cache
+Barbar Salon/Barbar Salon.Android/obj/project.assets.json
+Barbar Salon/Barbar Salon.Android/obj/project.nuget.cache
+Barbar Salon/Barbar Salon.iOS/obj/Barbar Salon.iOS.csproj.nuget.dgspec.json
+Barbar Salon/Barbar Salon.iOS/obj/Barbar Salon.iOS.csproj.nuget.g.props
+Barbar Salon/Barbar Salon.iOS/obj/Barbar Salon.iOS.csproj.nuget.g.targets
+Barbar Salon/Barbar Salon.iOS/obj/iPhone/Debug/Barbar Salon.iOS.csproj.AssemblyReference.cache
+Barbar Salon/Barbar Salon.iOS/obj/project.assets.json
+Barbar Salon/Barbar Salon.iOS/obj/project.nuget.cache
+Barbar Salon/Barbar Salon/obj/Barbar Salon.csproj.nuget.dgspec.json
+Barbar Salon/Barbar Salon/obj/Barbar Salon.csproj.nuget.g.props
+Barbar Salon/Barbar Salon/obj/Barbar Salon.csproj.nuget.g.targets
+Barbar Salon/Barbar Salon/obj/Debug/netstandard2.0/Barbar Salon.assets.cache
+Barbar Salon/Barbar Salon/obj/project.assets.json
+Barbar Salon/Barbar Salon/obj/project.nuget.cache
