@@ -19,12 +19,12 @@ namespace Barbar_Salon.Views
         }
         public async void OnItemSelected(object sender, ItemTappedEventArgs args)
         {
-            var MyServicesData = args.Item as MyServicesModel;
-            if (MyServicesData != null)
-            {
-                await Navigation.PushModalAsync(new EditServicesPage(MyServicesData));
-                MyServices.SelectedItem = null;
-            }
+           // var MyServicesData = args.Item as MyServicesModel;
+            //if (MyServicesData != null)
+            //{
+              //  await Navigation.PushModalAsync(new EditServicesPage(MyServicesData));
+               // MyServices.SelectedItem = null;
+            //}
         }
 
         private void Button_Clicked(object sender, EventArgs e)

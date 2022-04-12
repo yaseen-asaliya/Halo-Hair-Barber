@@ -91,17 +91,18 @@ namespace Barbar_Salon.Services
             await firebaseClient.Child("ReservationsRequest").Child(todelete.Key).DeleteAsync();
         }
 
-        public async Task UpdateService(string servicesName, int time_Needed, int Prices, string Deseription)
+        public async Task UpdateService(MyServicesModel myServices)
         {
             var toUpdatePerson = (await firebaseClient
               .Child("Services")
-              .OnceAsync<MyServicesModel>()).Where(a => a.Object.Service_Name == servicesName).FirstOrDefault();
+              .OnceAsync<MyServicesModel>()).Where(a => a.Object.Service_Name == myServices.Service_Name).FirstOrDefault();
+            myServices.AccessToken = accessToken;
             try
             {
                 await firebaseClient
                   .Child("Services")
                   .Child(toUpdatePerson.Key)
-                  .PutAsync(new MyServicesModel() { Service_Name = servicesName, Time_Needed = time_Needed, Prices = Prices, Deseription = Deseription });
+                  .PutAsync(myServices);
             }
             catch (Exception ex)
             {

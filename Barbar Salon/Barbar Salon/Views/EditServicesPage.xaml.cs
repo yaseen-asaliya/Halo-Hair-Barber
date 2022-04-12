@@ -7,7 +7,7 @@ using Barbar_Salon.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Barbar_Salon.ViewModels;
 namespace Barbar_Salon.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -17,17 +17,12 @@ namespace Barbar_Salon.Views
         public EditServicesPage(MyServicesModel data)
         {
             InitializeComponent();
-            GetInfoSalon(data);
-        }
 
-        public void GetInfoSalon(MyServicesModel data)
-        {
-            Service_Name.Text = data.Service_Name;
-            Prices.Text=data.Prices.ToString();
-            Time.Text = data.Time_Needed.ToString();
-
-
+            EditServicesViewModel editServicesViewModel = new  EditServicesViewModel(data);
+            BindingContext = editServicesViewModel;
 
         }
+
+
     }
 }

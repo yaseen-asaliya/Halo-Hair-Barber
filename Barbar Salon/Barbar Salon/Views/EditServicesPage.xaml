@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Barbar_Salon.ViewModels" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
              x:Class="Barbar_Salon.Views.EditServicesPage">
-    <ContentPage.BindingContext>
-        <viewmodel:EditServicesViewModel/>
-    </ContentPage.BindingContext>
+   
     <ContentPage.Content>
         <StackLayout>
             <controls:NavigationComponent Titles="Edit Services">
             </controls:NavigationComponent>
             <StackLayout>
-                <StackLayout VerticalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="CenterAndExpand" BindingContext="{Binding MyServices}">
                     <Frame Margin="16" >
                         <StackLayout>
                             <Label Text =" Service_Name"  />

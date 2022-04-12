@@ -11,7 +11,7 @@
             <controls:NavigationComponent Titles="My Services">
             </controls:NavigationComponent>
             <StackLayout HeightRequest="500">
-                <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding FilltedServices}">
+                <ListView x:Name="MyServices" HasUnevenRows="True"   ItemsSource="{Binding FilltedServices}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -35,7 +35,10 @@
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                                                <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                                                        <Button Text="EDIT" 
+                                                                Command="{Binding Path=BindingContext.EditCommand,Source={x:Reference MyServices}}"
+                                                                CommandParameter="{Binding .}"
+                                                                BackgroundColor="White"
                                                   TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
                                                       Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
                                                 <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 

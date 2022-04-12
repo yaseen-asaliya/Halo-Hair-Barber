@@ -9,6 +9,7 @@ using Barbar_Salon.Models;
 using Barbar_Salon.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Barbar_Salon.Views;
 namespace Barbar_Salon.ViewModels
 {
     public class MyServicesViewModel : BaseViewModel
@@ -62,7 +63,7 @@ namespace Barbar_Salon.ViewModels
             }
         }
 
-
+        public ICommand EditCommand { get; }
         public MyServicesViewModel()
         {
             AccessToken();
@@ -72,6 +73,7 @@ namespace Barbar_Salon.ViewModels
             MyServices = firebase.getServices();
 
             MyServices.CollectionChanged += serviceschanged;
+            EditCommand = new Command(onEditTapped);
 
 
         }
@@ -98,7 +100,15 @@ namespace Barbar_Salon.ViewModels
 
             }
         }
+      
+    
+        private async void onEditTapped(object obj)
+        {
+            MyServicesModel serviceModel = (MyServicesModel)obj;
+            await Application.Current.MainPage.Navigation.PushModalAsync(new EditServicesPage(serviceModel));
 
+
+        }
 
 
 
