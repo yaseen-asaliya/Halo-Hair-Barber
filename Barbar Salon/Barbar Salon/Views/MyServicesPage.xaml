@@ -10,7 +10,7 @@
         <StackLayout>
             <controls:NavigationComponent Titles="My Services">
             </controls:NavigationComponent>
-            <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding Services}">
+            <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding FilltedServices}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
