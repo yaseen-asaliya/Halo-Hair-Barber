@@ -179,6 +179,7 @@
                                 BackgroundColor="#603D8F"
                                 CornerRadius="20"
                                 Font="Segoe UI"
+                                Clicked="Button_Clicked_1"
                                 Command="{Binding LogOut}"
                                 FontSize="16"/> 
                     </StackLayout>

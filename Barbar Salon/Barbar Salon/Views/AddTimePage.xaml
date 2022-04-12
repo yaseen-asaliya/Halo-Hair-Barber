@@ -1,12 +1,113 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Barbar_Salon.Views.AddTimePage">
+             x:Class="Barbar_Salon.Views.AddTimePage"
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components">
+    <ContentPage.BindingContext>
+        <viewmodels:AddTimeViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <controls:NavigationComponent Titles="Add Time">
+            </controls:NavigationComponent>
+            <StackLayout >
+                <ScrollView>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="20" Margin="20">
+                            <ImageButton Source="arrowleft.png"
+                                         HorizontalOptions="StartAndExpand"
+                                         Command="{Binding DecreaseDateCommand}"/>
+
+                            <Label Text="{Binding Date}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
+                            <ImageButton
+                                         Source="arrowright.png"
+                                         HorizontalOptions="EndAndExpand"
+                                         Command="{Binding IncreaseDateCommand}"
+                                         IsEnabled="True"/>
+                        </StackLayout>
+
+                        <StackLayout>
+                            <StackLayout>
+                                <Label Text="Select Time " FontSize="Large" TextColor="Black" Margin="16,0,0,0"/>
+                                <StackLayout Margin="18,30,5,0" BackgroundColor="White" Padding="0,0,0,15">
+                                    <Label Text="Start Time" TextColor="Black"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame CornerRadius="10" WidthRequest="190" HeightRequest="45" Margin="18,0,0,0" Padding="0">
+                                            <Entry Text="{Binding StartTime}"/>
+                                         </Frame>
+                                        <Frame Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="40">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Button Text="AM" BackgroundColor="{Binding StartAMButtonColor}" Command="{Binding StartAMTimeCommand}" TextColor="Black" WidthRequest="50" />
+                                                <Button Text="PM" BackgroundColor="{Binding StartPMButtonColor}" Command="{Binding StartPMTimeCommand}"  TextColor="Black" WidthRequest="50"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                    <Label Text="End Time" TextColor="Black"/>
+                                    <StackLayout Orientation="Horizontal" Margin="18,0,0,0" >
+                                        <Frame Padding="0" CornerRadius="10" WidthRequest="190" HeightRequest="45">
+                                            <Entry Text="{Binding EndTime}"/>
+                                        </Frame>
+                                        <Frame Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="40">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Button Text="AM" BackgroundColor="{Binding EndAMButtonColor}" Command="{Binding EndAMTimeCommand}" TextColor="Black" WidthRequest="50"/>
+                                                <Button Text="PM" BackgroundColor="{Binding EndPMButtonColor}" Command="{Binding EndPMTimeCommand}" TextColor="Black" WidthRequest="50"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="18,0,0,0">
+                                    <CheckBox IsChecked="False" CheckedChanged="CheckBox_CheckedChanged" Color="Black"/>
+                                    <Label Text="Off Time" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                                <StackLayout >
+                                    <StackLayout Margin="18,0,5,0" BackgroundColor="White" Padding="0,0,0,15" x:Name="OffTime" IsVisible="false">
+                                        <Label Text="Start Off Time" TextColor="Black"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Frame CornerRadius="10" WidthRequest="190" HeightRequest="45" Margin="18,0,0,0" Padding="0">
+                                                <Entry/>
+                                            </Frame>
+                                            <Frame Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="25">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Button x:Name="amOs" Text="AM" BackgroundColor="Gray" TextColor="Black" Clicked="amOs_Clicked"  WidthRequest="50"/>
+                                                    <Button x:Name="pmOs" Text="PM" BackgroundColor="White" TextColor="Black" Clicked="pmOs_Clicked" WidthRequest="50"/>
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                        <Label Text="End Off Time" TextColor="Black"/>
+                                        <StackLayout Orientation="Horizontal" Margin="18,0,0,0" >
+                                            <Frame Padding="0" CornerRadius="10" WidthRequest="190" HeightRequest="45">
+                                                <Entry/>
+                                            </Frame>
+                                            <Frame Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HeightRequest="25">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Button x:Name="amOe" Text="AM" BackgroundColor="Gray" TextColor="Black" Clicked="amOe_Clicked"  WidthRequest="50"/>
+                                                    <Button x:Name="pmOe" Text="PM" BackgroundColor="White" TextColor="Black" Clicked="pmOe_Clicked" WidthRequest="50"/>
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout>
+                                <Button Margin="110"
+                                        WidthRequest="207"
+                                        HeightRequest="46"
+                                        Text="Add Services"
+                                        TextColor="#FFFFFF"
+                                        FontAttributes="Bold"
+                                        BackgroundColor="#603D8F"
+                                        CornerRadius="20"
+                                        Font="Segoe UI"
+                                        FontSize="16"
+                                        Command="{Binding AddTimeCommand}"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
