@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {}
+    "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {
+    "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
         "projectName": "Barbar Salon.iOS",
-        "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
-        "packagesPath": "C:\\Users\\MT2X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
+        "projectPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MT2X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-                "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+              "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+                "projectPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
               }
             }
           }
@@ -65,17 +69,21 @@
         }
       }
     },
-    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+    "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
+        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
         "projectName": "Barbar Salon",
-        "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
-        "packagesPath": "C:\\Users\\MT2X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\obj\\",
+        "projectPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
+        "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\MT2X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
