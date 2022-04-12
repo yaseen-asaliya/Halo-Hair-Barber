@@ -26,7 +26,7 @@
                     </StackLayout>
                 </Frame>
             </StackLayout>
-            <controls:ButtonComponent NameButton="Add Services"
+            <controls:ButtonComponent NameButton="Add"
                                      CommandParameter="{Binding AddServicesCommand}">
             </controls:ButtonComponent>
         </StackLayout>

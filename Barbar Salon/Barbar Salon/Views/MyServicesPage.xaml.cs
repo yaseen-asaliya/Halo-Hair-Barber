@@ -26,5 +26,15 @@ namespace Barbar_Salon.Views
                 MyServices.SelectedItem = null;
             }
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AddServicesPage());
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AddOfferPage());
+        }
     }
 }

@@ -10,12 +10,14 @@
         <StackLayout>
             <controls:NavigationComponent Titles="My Services">
             </controls:NavigationComponent>
-            <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding FilltedServices}">
+            <StackLayout HeightRequest="500">
+            <ListView x:Name="MyServices" HasUnevenRows="True"  ItemTapped="OnItemSelected"  ItemsSource="{Binding Services}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Frame Margin="50,25" Padding="10" >
+                                <ScrollView>
+                                <Frame Margin="35,16" Padding="10" >
                                     <StackLayout Orientation="Horizontal" >
                                         <StackLayout Orientation="Vertical">
                                             <StackLayout Orientation="Horizontal">
@@ -30,7 +32,6 @@
                                                 <Label Text="Time Needed :" FontAttributes="Bold"/>
                                                 <Label Text="{Binding Time_Needed}" VerticalOptions="CenterAndExpand"/>
                                             </StackLayout>
-
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
@@ -43,12 +44,35 @@
                                         </StackLayout>
                                     </StackLayout>
                                 </Frame>
+                                </ScrollView>
                             </StackLayout>
                         </ViewCell>
-
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" WidthRequest="150" VerticalOptions="CenterAndExpand">
+                <Button HeightRequest="46"
+                        Text= "Add Service"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        BackgroundColor="#603D8F"
+                        CornerRadius="20"
+                        Font="Segoe UI"
+                        FontSize="16"
+                        Clicked="Button_Clicked">
+                </Button>
+                <Button HeightRequest="46"
+                        Text= "Add Offer"
+                        TextColor="#FFFFFF"
+                        FontAttributes="Bold"
+                        BackgroundColor="#603D8F"
+                        CornerRadius="20"
+                        Font="Segoe UI"
+                        FontSize="16"
+                        Clicked="Button_Clicked_1">
+                </Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
