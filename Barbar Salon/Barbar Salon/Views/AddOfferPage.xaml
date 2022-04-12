@@ -1,13 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
              x:Class="Barbar_Salon.Views.AddOfferPage"
              >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <controls:NavigationComponent Titles="Add Offer">
+            </controls:NavigationComponent>
+            <StackLayout>
+                <Frame Padding="10" Margin="20">
+                <StackLayout>
+                    <StackLayout >
+                        <Label Text="Title" />
+                        <Entry />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Description" />
+                        <Entry />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Description" />
+                        <Entry />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Time" />
+                        <Entry />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Button Margin="110"
+                WidthRequest="207"
+                HeightRequest="46"
+                Text="Add"
+                TextColor="#FFFFFF"
+                FontAttributes="Bold"
+                BackgroundColor="#603D8F"
+                CornerRadius="20"
+                Font="Segoe UI"
+                FontSize="16"
+                    Command="{Binding AddOffer}"/>
+        </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
