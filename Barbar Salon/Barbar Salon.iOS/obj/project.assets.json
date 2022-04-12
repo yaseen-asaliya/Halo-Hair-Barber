@@ -1796,32 +1796,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/omarbanna/.nuget/packages/": {}
+    "C:\\Users\\MT2X\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.iOS/Barbar Salon.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
       "projectName": "Barbar Salon.iOS",
-      "projectPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.iOS/Barbar Salon.iOS.csproj",
-      "packagesPath": "/Users/omarbanna/.nuget/packages/",
-      "outputPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.iOS/obj/",
+      "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "packagesPath": "C:\\Users\\MT2X\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "/Users/omarbanna/.config/NuGet/NuGet.Config"
+        "C:\\Users\\MT2X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj": {
-              "projectPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj"
+            "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+              "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
             }
           }
         }

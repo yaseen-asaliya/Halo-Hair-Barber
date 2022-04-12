@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj": {}
+    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {}
   },
   "projects": {
-    "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj": {
+    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj",
+        "projectUniqueName": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
         "projectName": "Barbar Salon",
-        "projectPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj",
-        "packagesPath": "/Users/omarbanna/.nuget/packages/",
-        "outputPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/obj/",
+        "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
+        "packagesPath": "C:\\Users\\MT2X\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/omarbanna/.config/NuGet/NuGet.Config"
+          "C:\\Users\\MT2X\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +69,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
