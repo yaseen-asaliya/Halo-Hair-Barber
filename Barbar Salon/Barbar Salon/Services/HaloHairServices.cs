@@ -126,16 +126,18 @@ namespace Barbar_Salon.Services
             await firebaseClient.Child("Users").PostAsync(addUser);
 
         }
-        public async Task AddTime(int StartTime, int EndTime, string CalendarSelectedDate)
+        public async Task AddTime(ScheduleTimeModel scheduleTimeModel)
         {
 
-            ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel();
-            {
-                scheduleTimeModel.StartTime = StartTime;
-                scheduleTimeModel.EndTime = EndTime;
-                scheduleTimeModel.DateSelected = CalendarSelectedDate;
-                scheduleTimeModel.AccessToken = accessToken;
-            }
+            //ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel();
+            //{
+            //    scheduleTimeModel.StartTime = StartTime;
+            //    scheduleTimeModel.EndTime = EndTime;
+            //    scheduleTimeModel.DateSelected = CalendarSelectedDate;
+            //    scheduleTimeModel.AccessToken = accessToken;
+            //}
+
+            scheduleTimeModel.AccessToken = accessToken;
 
             await firebaseClient.Child("ScheduleTime").PostAsync(scheduleTimeModel);
 

@@ -12,6 +12,9 @@ namespace Barbar_Salon.ViewModels
     public class AddTimeViewModel : BindableObject
     {
 
+        public string StartTime { set; get; }
+        public string EndTime { set; get; }
+
         private string startAMButtonColor;
         public string StartAMButtonColor
         {
@@ -89,39 +92,28 @@ namespace Barbar_Salon.ViewModels
 
         public ICommand IncreaseDateCommand { get; }
         public ICommand DecreaseDateCommand { get; }
-        public ICommand StartTimeCommand { get; }
-        public ICommand EndTimeCommand { get; }
+        public ICommand StartAMTimeCommand { get; }
+        public ICommand StartPMTimeCommand { get; }
+        public ICommand EndAMTimeCommand { get; }
+        public ICommand EndPMTimeCommand { get; }
+        public ICommand AddTimeCommand { get; }
 
-
-
-
-
-
-        public int StartTime { get; set; }
-        public int EndTime { get; set; }
-
-        public string CalendarSelectedDate { get; set; }
-
-        public ICommand DateSelectedCommand { get; }
-        public Command AddTimeCommand { get; }
-
-
-
-
-
-        HaloHairServices FireBase;
+        private HaloHairServices fireBase;
 
 
         public AddTimeViewModel()
         {
-            FireBase = new HaloHairServices();
+            fireBase = new HaloHairServices();
 
-            AddTimeCommand = new Command(async () => await AddTime(StartTime, EndTime, CalendarSelectedDate));
+           
             dateTime = DateTime.Now;
             Date = dateTime.ToString("dddd, dd MMMM yyyy");
             year = DateTime.Now.Year;
             month = DateTime.Now.Month;
             day = DateTime.Now.Day;
+
+            StartTime = "";
+            EndTime = "";
 
             startAMButtonColor = "Gray";
             startPMButtonColor = "White";
@@ -131,39 +123,43 @@ namespace Barbar_Salon.ViewModels
 
 
 
-            StartTimeCommand = new Command(OnStartTapped);
-            EndTimeCommand = new Command(OnEndTapped);
+            StartAMTimeCommand = new Command(OnStartAMTapped);
+            StartPMTimeCommand = new Command(OnStartPMTapped);
+
+            EndAMTimeCommand = new Command(OnEndAMTapped);
+            EndPMTimeCommand = new Command(OnEndtPMTapped);
+
+
             IncreaseDateCommand = new Command(OnIncreaseTapped);
             DecreaseDateCommand = new Command(OnDecreaseTapped);
 
+            AddTimeCommand = new Command(OnAddTimeTapped);
         }
 
-        private void OnStartTapped(object obj)
-        {
-            string x = (string)obj;
-            if (x == startAMButtonColor)
-            {
-                startAMButtonColor = "Gray";
-                startPMButtonColor = "White";
-            }
-            
-
-            else if (x == startPMButtonColor)
-            {
-                startAMButtonColor = "White";
-                startPMButtonColor = "Gray";
-            }
-            else
-            {
-                Application.Current.MainPage.DisplayAlert("x",x,"ok");
-                Application.Current.MainPage.DisplayAlert("x",obj.ToString(),"ok");
-            }
-        }
         
 
-        private void OnEndTapped(object obj)
+        private void OnStartAMTapped(object obj)
         {
-            
+            StartAMButtonColor = "Gray";
+            StartPMButtonColor = "White";
+        }
+
+        private void OnStartPMTapped(object obj)
+        {
+            StartAMButtonColor = "White";
+            StartPMButtonColor = "Gray";
+        }
+    
+        private void OnEndAMTapped(object obj)
+        {
+            EndAMButtonColor = "Gray";
+            EndPMButtonColor = "White";
+        }
+
+        private void OnEndtPMTapped(object obj)
+        {
+            EndAMButtonColor = "White";
+            EndPMButtonColor = "Gray";
         }
 
         private void OnDecreaseTapped(object obj)
@@ -186,11 +182,43 @@ namespace Barbar_Salon.ViewModels
             day = previewDate.Day;
         }
 
-        public async Task AddTime(int startTime, int endTime, string CalendarSelectedDate)
+        
+
+        private async void OnAddTimeTapped(object obj)
         {
-            await FireBase.AddTime(startTime, endTime, CalendarSelectedDate);
+            if (StartTime.Equals(""))
+            {
+                await Application.Current.MainPage.DisplayAlert("Faild", "Start time can not be empty" ,"Ok");
+                return;
+            }
+            if (EndTime.Equals(""))
+            {
+                await Application.Current.MainPage.DisplayAlert("Faild", "End time can not be empty", "Ok");
+                return;
+            }
+
+            if (StartAMButtonColor == "Gray")
+                StartTime += " AM";
+
+            else
+                StartTime += " PM";
+
+            if (EndAMButtonColor == "Gray")
+                EndTime += " AM";
+
+            else
+                EndTime += " PM";
 
 
+            ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
+            {
+                DateSelected = Date,
+                StartTime = StartTime,
+                EndTime = EndTime
+            };
+
+
+            await fireBase.AddTime(scheduleTimeModel);
         }
 
 
