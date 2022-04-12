@@ -12,19 +12,19 @@ namespace Barbar_Salon.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddTimePage : ContentPage
     {
-         DateTime dateTime;
-        DateTime date;
-        int Year, Month, Day;
+        // DateTime dateTime;
+        //DateTime date;
+        //int Year, Month, Day;
         public AddTimePage()
         {
             InitializeComponent();
             am.BackgroundColor = Color.Gray;
-                dateTime = DateTime.Now;
+              //  dateTime = DateTime.Now;
 
-              //  label.Text = dateTime.ToString("dddd, dd MMMM yyyy");
-                Year = DateTime.Now.Year;
-                Month = DateTime.Now.Month;
-                Day = DateTime.Now.Day;
+              ////  label.Text = dateTime.ToString("dddd, dd MMMM yyyy");
+              //  Year = DateTime.Now.Year;
+              //  Month = DateTime.Now.Month;
+              //  Day = DateTime.Now.Day;
 
         }
 
@@ -90,26 +90,26 @@ namespace Barbar_Salon.Views
             pmOe.BackgroundColor = Color.Gray;
         }
 
-        private async void ImageButton_Clicked(object sender, EventArgs e)
-    {
-    DateTime nowDate = new DateTime(Year, Month, Day);
+  //      private async void ImageButton_Clicked(object sender, EventArgs e)
+  //  {
+  //  DateTime nowDate = new DateTime(Year, Month, Day);
 
-    var previewDate = nowDate.AddDays(-1);
-  //  label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
-    Year = previewDate.Year;
-    Month = previewDate.Month;
-    Day = previewDate.Day;
-    }
+  //  var previewDate = nowDate.AddDays(-1);
+  ////  label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
+  //  Year = previewDate.Year;
+  //  Month = previewDate.Month;
+  //  Day = previewDate.Day;
+  //  }
 
-    private void ImageButton_Clicked_1(object sender, EventArgs e)
-    {
-    DateTime nowDate = new DateTime(Year, Month, Day);
-    var previewDate = nowDate.AddDays(1);
-   // label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
-    Year = previewDate.Year;
-    Month = previewDate.Month;
-    Day = previewDate.Day;
+   // private void ImageButton_Clicked_1(object sender, EventArgs e)
+   // {
+   // DateTime nowDate = new DateTime(Year, Month, Day);
+   // var previewDate = nowDate.AddDays(1);
+   //// label.Text = previewDate.ToString("dddd, dd MMMM yyyy");
+   // Year = previewDate.Year;
+   // Month = previewDate.Month;
+   // Day = previewDate.Day;
            
-    }
+   // }
     }
 }
