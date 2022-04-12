@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj": {}
+    "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.Android/Barbar Salon.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj": {
+    "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.Android/Barbar Salon.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
+        "projectUniqueName": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.Android/Barbar Salon.Android.csproj",
         "projectName": "Barbar Salon.Android",
-        "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.Android\\Barbar Salon.Android.csproj",
-        "packagesPath": "C:\\Users\\MT2X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.Android\\obj\\",
+        "projectPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.Android/Barbar Salon.Android.csproj",
+        "packagesPath": "/Users/omarbanna/.nuget/packages/",
+        "outputPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon.Android/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "configFilePaths": [
-          "C:\\Users\\MT2X\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/omarbanna/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "monoandroid12.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "monoandroid12.0": {
             "projectReferences": {
-              "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-                "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+              "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj": {
+                "projectPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj"
               }
             }
           }
@@ -58,24 +56,22 @@
         }
       }
     },
-    "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+    "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
+        "projectUniqueName": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj",
         "projectName": "Barbar Salon",
-        "projectPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj",
-        "packagesPath": "C:\\Users\\MT2X\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MT2X\\Documents\\GitHub\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\obj\\",
+        "projectPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/Barbar Salon.csproj",
+        "packagesPath": "/Users/omarbanna/.nuget/packages/",
+        "outputPath": "/Users/omarbanna/Desktop/Github/Halo-Hair---barber/Barbar Salon/Barbar Salon/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MT2X\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/omarbanna/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -123,7 +119,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
         }
       }
     }
