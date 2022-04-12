@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -98,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Barbar Salon\Barbar Salon.csproj">
-      <Project>{64A8EFD3-6515-4BEC-9355-029E45FBD509}</Project>
+      <Project>{1F3428EE-479A-4E17-AAEE-5ACD20492637}</Project>
       <Name>Barbar Salon</Name>
     </ProjectReference>
   </ItemGroup>
