@@ -30,7 +30,17 @@ namespace Barbar_Salon.ViewModels
 
         private async Task AddServices(string Service_Name, int Time_Neede, int Prices, string Deseription)
         {
-            await fireBaseHaloHair.AddService(Service_Name, Time_Neede, Prices, Deseription);
+            if(Service_Name !=null && Time_Neede !=null&& Prices !=null && Deseription!=null)
+            {
+                await fireBaseHaloHair.AddService(Service_Name, Time_Neede, Prices, Deseription);
+                await Application.Current.MainPage.DisplayAlert("Successful", "Services Added ", "Ok");
+
+
+            }
+            else
+
+                await Application.Current.MainPage.DisplayAlert("Failed", "please fill all field to and services ", "Ok");
+
         }
 
     }

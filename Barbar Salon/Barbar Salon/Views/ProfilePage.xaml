@@ -1,49 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" 
+             xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
+             Shell.NavBarIsVisible="False"
              x:Class="Barbar_Salon.Views.ProfilePage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ProfileViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
+
         <StackLayout>
-        <StackLayout>
-            <StackLayout Margin="0,50,0,0" >
+            <controls:NavigationComponent Titles="Profile Page">
+            </controls:NavigationComponent>
+            <StackLayout>
+
+
                 <Frame CornerRadius="100" 
-                    HeightRequest="120"
-                    WidthRequest="120"
-                    HorizontalOptions="Center"
-                    Padding="0"
-                    HasShadow="False">
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    HorizontalOptions="Center"
+                                    Padding="0"
+                                    HasShadow="False">
                     <Image Source="profile.png"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
                 </Frame>
             </StackLayout>
             <StackLayout  Margin="60,15,50,15">
-                    <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
-                        <StackLayout Orientation="Vertical" x:Name="Button1">
-                            <Button x:Name="aboutbutton" Text="About" Clicked="aboutbutton_Clicked" BackgroundColor="White"
+                <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                    <StackLayout Orientation="Vertical" x:Name="Button1">
+                        <Button x:Name="aboutbutton" Text="About" Clicked="aboutbutton_Clicked" BackgroundColor="White"
                                     TextColor="Black" BorderColor="White"
                                     Padding="0" HeightRequest="20" WidthRequest="70" />
-                            <BoxView x:Name="BoxAbout" Color="#603D8F" HeightRequest="3" WidthRequest="90" HorizontalOptions="CenterAndExpand" IsVisible="True" />
-                        </StackLayout>
-                        <StackLayout Orientation="Vertical" Margin="80,0,50,0" >
-                            <Button x:Name="settingsbutton" Text="SETTINGS" Clicked="settingsbutton_Clicked" BackgroundColor="White"
+                        <BoxView x:Name="BoxAbout" Color="#603D8F" HeightRequest="3" WidthRequest="90" HorizontalOptions="CenterAndExpand" IsVisible="True" />
+                    </StackLayout  >
+                    <StackLayout Orientation="Vertical" Margin="80,0,50,0" >
+                        <Button x:Name="settingsbutton" Text="SETTINGS" Clicked="settingsbutton_Clicked" BackgroundColor="White"
                                     TextColor="Black" BorderColor="White" 
                                     Padding="0" HeightRequest="20" WidthRequest="70"  />
-                            <BoxView x:Name="BoxSettings" Color="#603D8F" HeightRequest="3" WidthRequest="90" 
+                        <BoxView x:Name="BoxSettings" Color="#603D8F" HeightRequest="3" WidthRequest="90" 
                                      HorizontalOptions="CenterAndExpand" IsVisible="False" />
-                        </StackLayout>
                     </StackLayout>
-                    <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,40,0,0" IsVisible="True" HeightRequest="300" >
-                        <ScrollView>
-                            <StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,40,0,0" IsVisible="True" HeightRequest="350"  >
+
+                    <ScrollView>
+                        <StackLayout>
                             <Frame>
-                                <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Horizontal" >
                                     <StackLayout>
                                         <Label Text="Name :"/>
                                         <Label Text= "{Binding .}"/>
                                     </StackLayout>
                                     <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                                        <Button Text="EDIT" Command="{Binding }" BackgroundColor="White"
                                         TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
                                         Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
                                         <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
@@ -68,7 +82,7 @@
                             </Frame>
                             <Frame>
                                 <StackLayout Orientation="Horizontal">
-                                    <StackLayout>
+                                    <StackLayout  >
                                         <Label Text="Phone Number :"/>
                                         <Label Text= "{Binding .}"/>
                                     </StackLayout>
@@ -111,26 +125,16 @@
                                     </StackLayout>
                                 </StackLayout>
                             </Frame>
-                            <Frame>
-                                <StackLayout Orientation="Horizontal">
-                                    <StackLayout>
-                                        <Label Text="Password :"/>
-                                        <Label Text= "{Binding .}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
-                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
-                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
-                                        <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
-                                         HorizontalOptions="CenterAndExpand" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                            </StackLayout>
-                        </ScrollView>
-                    </StackLayout>
-                    <StackLayout x:Name="Settingsview" Orientation="Vertical" Padding="0,40,0,0" IsVisible="false" HeightRequest="200">
-                        <Frame Padding="0">
+
+
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </StackLayout>
+
+                <StackLayout >
+                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,15,50,15" Padding="0,40,0,0" IsVisible="false" HeightRequest="350">
+                    <Frame Padding="0">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                         </Frame.GestureRecognizers>
@@ -151,13 +155,13 @@
                     <Frame Padding="12">
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Language" FontSize="Medium"/>
-                                <Frame Padding="0" HorizontalOptions="EndAndExpand" HeightRequest="25">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Button Text="AR" BackgroundColor="Gray" FontSize="Micro" TextColor="Black" WidthRequest="25"/>
-                                        <Button Text="EN" BackgroundColor="White" FontSize="Micro" TextColor="Black" WidthRequest="22"/>
-                                    </StackLayout>
-                                </Frame>
-                            </StackLayout>
+                            <Frame Padding="0" HorizontalOptions="EndAndExpand" HeightRequest="25">
+                                <StackLayout Orientation="Horizontal">
+                                    <Button Text="AR" BackgroundColor="Gray" FontSize="Micro" TextColor="Black" WidthRequest="25"/>
+                                    <Button Text="EN" BackgroundColor="White" FontSize="Micro" TextColor="Black" WidthRequest="22"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
                     </Frame>
                     <Frame Padding="12">
                         <StackLayout Orientation="Horizontal" >
@@ -165,13 +169,13 @@
                             <Switch HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </Frame>
-                        <Frame Padding="12">
-                            <StackLayout Orientation="Horizontal" >
-                                <Label Text="Alarm" FontSize="Medium"/>
-                                <Switch HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
-                        </Frame>
-                        <Button Margin="20"
+                    <Frame Padding="12">
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Alarm" FontSize="Medium"/>
+                            <Switch HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                            <Button Margin="20"
                                 HeightRequest="46"
                                 Text="Log Out"
                                 TextColor="#FFFFFF"
@@ -179,12 +183,14 @@
                                 BackgroundColor="#603D8F"
                                 CornerRadius="20"
                                 Font="Segoe UI"
-                                Clicked="Button_Clicked_1"
                                 Command="{Binding LogOut}"
-                                FontSize="16"/> 
+                                FontSize="16"/>
                     </StackLayout>
+
+
             </StackLayout>
-        </StackLayout>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

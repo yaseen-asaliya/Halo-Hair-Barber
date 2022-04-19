@@ -12,8 +12,8 @@ namespace Barbar_Salon.ViewModels
     public class AddTimeViewModel : BindableObject
     {
 
-        public string StartTime { set; get; }
-        public string EndTime { set; get; }
+        public int StartTime { set; get; }
+        public int EndTime { set; get; }
 
         private string startAMButtonColor;
         public string StartAMButtonColor
@@ -112,9 +112,6 @@ namespace Barbar_Salon.ViewModels
             month = DateTime.Now.Month;
             day = DateTime.Now.Day;
 
-            StartTime = "";
-            EndTime = "";
-
             startAMButtonColor = "Gray";
             startPMButtonColor = "White";
 
@@ -198,16 +195,16 @@ namespace Barbar_Salon.ViewModels
             }
 
             if (StartAMButtonColor == "Gray")
-                StartTime += " AM";
+                StartTime += 0;
 
             else
-                StartTime += " PM";
+                StartTime += 12;
 
             if (EndAMButtonColor == "Gray")
-                EndTime += " AM";
+                EndTime += 0;
 
             else
-                EndTime += " PM";
+                EndTime += 12;
 
 
             ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
@@ -216,9 +213,20 @@ namespace Barbar_Salon.ViewModels
                 StartTime = StartTime,
                 EndTime = EndTime
             };
+            
+            if(Date!=null&& StartTime!=null && EndTime!=null)
+            {
+                await fireBase.AddTime(scheduleTimeModel);
+                await Application.Current.MainPage.DisplayAlert("Successful", " Add Time ", "Ok");
 
 
-            await fireBase.AddTime(scheduleTimeModel);
+            }
+            else
+            {
+
+                await Application.Current.MainPage.DisplayAlert("Failed", "please fill all field to Add Time ", "Ok");
+            }
+
         }
 
 

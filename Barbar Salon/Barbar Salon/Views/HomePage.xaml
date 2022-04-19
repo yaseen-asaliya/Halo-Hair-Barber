@@ -4,8 +4,7 @@
              x:Class="Barbar_Salon.Views.HomePage"
              xmlns:control="clr-namespace:Barbar_Salon.Views.Components"
              xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels"
-            
-             Title="Halo Hair" 
+             Shell.NavBarIsVisible="False"
              
              >
     <ContentPage.BindingContext>
@@ -13,8 +12,10 @@
     </ContentPage.BindingContext>
     <ContentPage.Content  >
 
-
+      
         <StackLayout BackgroundColor="#F2F2F2">
+            <control:NavigationComponent Titles="Home Page">
+            </control:NavigationComponent>
             <Label Text="Reservation Request" Margin="0,10,0,0" HorizontalOptions="Center" FontSize="17" FontFamily="Segoe UI" TextColor="#0E0909" ></Label>
             <ListView x:Name="MyReservationsRequest" HasUnevenRows="True"   ItemsSource="{Binding FilltedReservationsRequest}"  >
                 <ListView.ItemTemplate>

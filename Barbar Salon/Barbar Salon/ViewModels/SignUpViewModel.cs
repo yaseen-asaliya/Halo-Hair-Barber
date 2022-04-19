@@ -49,8 +49,13 @@ namespace Barbar_Salon.ViewModels
                 if (null != ulr)
                 {
                     AddUser(name, namesalon, phone, ulr, location);
-                }
+                    await Application.Current.MainPage.DisplayAlert("Successful", "Register User", "ok");
 
+                }
+                else if (ulr == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Failed", "Register User", "ok");
+                }
             }
             catch (Exception ex)
             {

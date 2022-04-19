@@ -13,15 +13,15 @@
                         <StackLayout>
                             <Label Text =" Service_Name"  />
                             <Frame CornerRadius="10" Padding="0" >
-                                <Entry x:Name="Service_Name"  Text="{Binding Service_Name}" TextColor="Black"   />
+                                <Entry x:Name="Service_Name" IsReadOnly="True" Text="{Binding Service_Name}" TextColor="Black"   />
                             </Frame>
                             <Label Text="Time"/>
                             <Frame CornerRadius="10" Padding="0">
-                                <Entry x:Name="Time" Text="{Binding Time_Needed}"/>
+                                <Entry x:Name="Time" Keyboard="Numeric" Text="{Binding Time_Needed}"/>
                             </Frame>
                             <Label Text ="Prices" />
                             <Frame CornerRadius="10" Padding="0"  >
-                                <Entry x:Name="Prices" Text="{Binding Prices}"/>
+                                <Entry x:Name="Prices"  Keyboard="Numeric"  Text="{Binding Prices}"/>
                             </Frame >
 
                         </StackLayout>

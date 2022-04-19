@@ -78,7 +78,7 @@ namespace Barbar_Salon.ViewModels
 
 
 
-       
+
 
 
 
@@ -90,7 +90,7 @@ namespace Barbar_Salon.ViewModels
                 ReservationsRequestModel reservationRequest = e.NewItems[0] as ReservationsRequestModel;
                 Console.WriteLine( e.NewItems[0]);
                 Console.WriteLine(e.NewItems[0].GetType());
-                if (reservationRequest.AccessToken == accessToken)
+                if (reservationRequest.AccessToken_Barbar == accessToken)
                 {
 
                     FilltedReservationsRequest.Add(reservationRequest);

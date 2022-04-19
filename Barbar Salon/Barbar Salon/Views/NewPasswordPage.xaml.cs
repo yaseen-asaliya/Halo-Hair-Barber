@@ -16,5 +16,11 @@ namespace Barbar_Salon.Views
         {
             InitializeComponent();
         }
+
+
+
+
+
+
     }
 }

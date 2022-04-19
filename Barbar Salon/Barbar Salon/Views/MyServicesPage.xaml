@@ -11,10 +11,9 @@
             <controls:NavigationComponent Titles="My Services">
             </controls:NavigationComponent>
             <StackLayout HeightRequest="500">
-                <ListView x:Name="MyServices" HasUnevenRows="True"   ItemsSource="{Binding FilltedServices}">
-                <ListView.ItemTemplate>
+                <CollectionView x:Name="MyServices"   ItemsSource="{Binding FilltedServices}">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
                             <StackLayout>
                                 <ScrollView>
                                 <Frame Margin="35,16" Padding="10" >
@@ -49,10 +48,9 @@
                                 </Frame>
                                 </ScrollView>
                             </StackLayout>
-                        </ViewCell>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
             </StackLayout>
             <StackLayout Orientation="Vertical" HorizontalOptions="Center" WidthRequest="150" VerticalOptions="CenterAndExpand">
                 <Button HeightRequest="46"

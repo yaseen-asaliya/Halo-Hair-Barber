@@ -85,7 +85,7 @@ namespace Barbar_Salon.ViewModels
                
                     ReservationsModel reservation = e.NewItems[0] as ReservationsModel;
 
-                    if (reservation.AccessToken == accessToken)
+                    if (reservation.AccessToken_Barbar == accessToken)
                     {
                        FilltedReservations.Add(reservation);
                     }

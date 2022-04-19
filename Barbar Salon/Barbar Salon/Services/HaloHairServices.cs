@@ -9,26 +9,34 @@ using Firebase.Database.Query;
 using System.Collections.ObjectModel;
 using Xamarin.Essentials;
 using System.Collections.Specialized;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Barbar_Salon.Services
 {
     public class HaloHairServices
     {
         FirebaseClient firebaseClient;
-
         public HaloHairServices()
         {
             firebaseClient = new FirebaseClient("https://halo-hair-676ed-default-rtdb.firebaseio.com");
             AccessToken();
         }
         private static string accessToken { get; set; }
+        private static string nameSoaln { get; set; }
+        private static string location { get; set; }
 
         private async Task AccessToken()
         {
             try
             {
                 var oauthToken = await SecureStorage.GetAsync("oauth_token");
+                var onameSoaln = await SecureStorage.GetAsync("NameSoaln");
+                var olocation = await SecureStorage.GetAsync("location");
+
                 accessToken = oauthToken;
+                nameSoaln = onameSoaln;
+                location = olocation;
+
             }
             catch (Exception ex)
             {
@@ -46,7 +54,7 @@ namespace Barbar_Salon.Services
                 addServices.Time_Needed = timeNeede;
                 addServices.Prices = prices;
                 addServices.Deseription = deseription;
-                addServices.AccessToken = accessToken;
+                addServices.AccessToken_Barbar = accessToken;
             }
 
             await firebaseClient.Child("Services").PostAsync(addServices);
@@ -61,12 +69,15 @@ namespace Barbar_Salon.Services
                 await firebaseClient
                   .Child("ReservationsRequest")
                   .Child(toUpdatePerson.Key)
-                  .PutAsync(new ReservationsRequestModel() { PersonName = control.PersonName, Time = control.Time, Accept = true, ListOfService = control.ListOfService, AccessToken = control.AccessToken,DataSelected=control.DataSelected });
+                  .PutAsync(new ReservationsRequestModel() { PersonName = control.PersonName, Time = control.Time,
+                      Accept = true, ListOfService = control.ListOfService,
+                      AccessToken_Barbar = control.AccessToken_Barbar,
+                      DataSelected=control.DataSelected });
                    ReservationsModel reservationsModel = new ReservationsModel();
                    {
-                    reservationsModel.AccessToken = control.AccessToken;
+                    reservationsModel.AccessToken_Barbar = control.AccessToken_Barbar;
                     reservationsModel.PersonName = control.PersonName;
-                    reservationsModel.ListOfService= control.ListOfService;
+                     reservationsModel.ListOfService = control.ListOfService;
                     reservationsModel.Time= control.Time;
                     reservationsModel.Accept = control.Accept;
 
@@ -96,13 +107,17 @@ namespace Barbar_Salon.Services
             var toUpdatePerson = (await firebaseClient
               .Child("Services")
               .OnceAsync<MyServicesModel>()).Where(a => a.Object.Service_Name == myServices.Service_Name).FirstOrDefault();
-            myServices.AccessToken = accessToken;
+            myServices.AccessToken_Barbar = accessToken;
             try
             {
                 await firebaseClient
                   .Child("Services")
                   .Child(toUpdatePerson.Key)
                   .PutAsync(myServices);
+                await Xamarin.Forms.Shell.Current.DisplayAlert("Successful", "Update Services ", "Ok");
+
+
+
             }
             catch (Exception ex)
             {
@@ -113,13 +128,12 @@ namespace Barbar_Salon.Services
 
         public async Task AddNewUser(string name, string namesalon, long phone, string ulr, string location)
         {
-            Console.WriteLine(ulr.ToString());
             AuthenticationModel addUser = new AuthenticationModel();
             {
                 addUser.Name = name;
                 addUser.NameSalon = namesalon;
                 addUser.Phone = phone;
-                addUser.ulr = ulr;
+                addUser.AccessToken_Barbar = ulr;
                 addUser.location = location;
 
 
@@ -127,6 +141,7 @@ namespace Barbar_Salon.Services
             await firebaseClient.Child("Users").PostAsync(addUser);
 
         }
+
         public async Task AddTime(ScheduleTimeModel scheduleTimeModel)
         {
 
@@ -138,9 +153,17 @@ namespace Barbar_Salon.Services
             //    scheduleTimeModel.AccessToken = accessToken;
             //}
 
-            scheduleTimeModel.AccessToken = accessToken;
+            scheduleTimeModel.AccessToken_Barbar = accessToken;
+            scheduleTimeModel.NameSalon = nameSoaln;
+            scheduleTimeModel.location = location;
+
+
+
 
             await firebaseClient.Child("ScheduleTime").PostAsync(scheduleTimeModel);
+            await Xamarin.Forms.Shell.Current.DisplayAlert("Successful", "Schedule Time", "Ok");
+
+
 
         }
 
@@ -195,7 +218,7 @@ namespace Barbar_Salon.Services
 
 
 
-
+       
 
     }
 

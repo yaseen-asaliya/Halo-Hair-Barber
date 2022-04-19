@@ -85,7 +85,7 @@ namespace Barbar_Salon.ViewModels
                 MyServicesModel services = e.NewItems[0] as MyServicesModel;
                 Console.WriteLine(e.NewItems[0]);
                 Console.WriteLine(e.NewItems[0].GetType());
-                if (services.AccessToken == accessToken)
+                if (services.AccessToken_Barbar == accessToken)
                 {
 
                     FilltedServices.Add(services);

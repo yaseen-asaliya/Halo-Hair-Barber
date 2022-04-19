@@ -11,6 +11,8 @@
 
     <ContentPage.Content >
         <StackLayout BackgroundColor="#F2F2F2" >
+            <control:NavigationComponent Titles="Reservations Page">
+            </control:NavigationComponent>
             <Frame Margin="25" >
             <ScrollView>
                     <ListView x:Name="MyReservations" HasUnevenRows="True"  ItemsSource="{Binding FilltedReservations}">
