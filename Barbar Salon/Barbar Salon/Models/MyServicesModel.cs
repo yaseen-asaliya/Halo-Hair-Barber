@@ -10,7 +10,7 @@ namespace Barbar_Salon.Models
         public int Prices { get; set; }
         public int Time_Needed { get; set; }
         public string Deseription { get; set; }
-        public string AccessToken { get; set; }
+        public string AccessToken_Barbar { get; set; }
 
 
     }

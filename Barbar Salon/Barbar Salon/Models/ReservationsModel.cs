@@ -14,7 +14,7 @@ namespace Barbar_Salon.Models
 
         public bool Accept { get; set; }
 
-        public string AccessToken { get; set; }
+        public string AccessToken_Barbar { get; set; }
 
 
         public string DataSelected { get; set; }

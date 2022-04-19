@@ -13,6 +13,7 @@ namespace Barbar_Salon.Models
         public string Name { get; set; }
         public long Phone { get; set; }
         public string location { get; set; }
+        public string AccessToken_Barbar { get; set; }
 
     }
 }
