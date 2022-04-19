@@ -216,9 +216,15 @@ namespace Barbar_Salon.Services
             await firebaseClient.Child("Reservations").Child(todelete.Key).DeleteAsync();
         }
 
+        public ObservableCollection<ProfilePageModel> ProfilePage()
+        {
+            var Users_Customer = firebaseClient.Child("Users").AsObservable<ProfilePageModel>().AsObservableCollection();
 
 
-       
+            return Users_Customer;
+        }
+
+
 
     }
 

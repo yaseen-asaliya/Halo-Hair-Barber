@@ -47,92 +47,99 @@
                 </StackLayout>
 
                 <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,40,0,0" IsVisible="True" HeightRequest="350"  >
+                    <CollectionView x:Name="MyServices"   ItemsSource="{Binding Myprofile}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <ScrollView>
+                                    <StackLayout>
+                                        <Frame>
+                                            <StackLayout Orientation="Horizontal" >
+                                                <StackLayout>
+                                                    <Label Text="Name :"/>
+                                                    <Label Text= "{Binding Name}"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                    <Button Text="EDIT" Command="{Binding }" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                    <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout>
+                                                    <Label Text="Salon Name :"/>
+                                                    <Label Text= "{Binding NameSalon}"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                    <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                    <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout  >
+                                                    <Label Text="Phone Number :"/>
+                                                    <Label Text= "{Binding Phone}"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                    <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                    <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout>
+                                                    <Label Text="Address :"/>
+                                                    <Label Text= "{Binding location}"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                    <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                    <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                        <Frame>
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout>
+                                                    <Label Text="Email :"/>
+                                                    <Label Text= "{Binding Email}"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                    <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                    <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
 
-                    <ScrollView>
-                        <StackLayout>
-                            <Frame>
-                                <StackLayout Orientation="Horizontal" >
-                                    <StackLayout>
-                                        <Label Text="Name :"/>
-                                        <Label Text= "{Binding .}"/>
+
                                     </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding }" BackgroundColor="White"
-                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
-                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
-                                        <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
-                                         HorizontalOptions="CenterAndExpand" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                            <Frame>
-                                <StackLayout Orientation="Horizontal">
-                                    <StackLayout>
-                                        <Label Text="Salon Name :"/>
-                                        <Label Text= "{Binding .}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
-                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
-                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
-                                        <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
-                                         HorizontalOptions="CenterAndExpand" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                            <Frame>
-                                <StackLayout Orientation="Horizontal">
-                                    <StackLayout  >
-                                        <Label Text="Phone Number :"/>
-                                        <Label Text= "{Binding .}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
-                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
-                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
-                                        <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
-                                         HorizontalOptions="CenterAndExpand" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                            <Frame>
-                                <StackLayout Orientation="Horizontal">
-                                    <StackLayout>
-                                        <Label Text="Address :"/>
-                                        <Label Text= "{Binding .}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
-                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
-                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
-                                        <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
-                                         HorizontalOptions="CenterAndExpand" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                            <Frame>
-                                <StackLayout Orientation="Horizontal">
-                                    <StackLayout>
-                                        <Label Text="Email :"/>
-                                        <Label Text= "{Binding .}"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                        <Button Text="EDIT" Command="{Binding}" BackgroundColor="White"
-                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
-                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
-                                        <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
-                                         HorizontalOptions="CenterAndExpand" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
+                                </ScrollView>
 
 
-                        </StackLayout>
-                    </ScrollView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </StackLayout>
             </StackLayout>
 
-                <StackLayout >
+            <StackLayout >
                 <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,15,50,15" Padding="0,40,0,0" IsVisible="false" HeightRequest="350">
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
@@ -140,7 +147,7 @@
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label x:Name="labe" Text="Add Time" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
-                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand"/>
+                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
                         </StackLayout>
                     </Frame>
                     <Frame Padding="0">
@@ -149,16 +156,16 @@
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="My Service" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
-                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand"/>
+                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
                         </StackLayout>
                     </Frame>
                     <Frame Padding="12">
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Language" FontSize="Medium"/>
-                            <Frame Padding="0" HorizontalOptions="EndAndExpand" HeightRequest="25">
-                                <StackLayout Orientation="Horizontal">
-                                    <Button Text="AR" BackgroundColor="Gray" FontSize="Micro" TextColor="Black" WidthRequest="25"/>
-                                    <Button Text="EN" BackgroundColor="White" FontSize="Micro" TextColor="Black" WidthRequest="22"/>
+                            <Frame Padding="0" HorizontalOptions="EndAndExpand" HeightRequest="30">
+                                <StackLayout Orientation="Horizontal" >
+                                    <Button Text="AR" BackgroundColor="Gray" FontSize="Micro" TextColor="Black" WidthRequest="40" />
+                                    <Button Text="EN" BackgroundColor="White" FontSize="Micro" TextColor="Black"  WidthRequest="40"/>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
@@ -175,7 +182,7 @@
                             <Switch HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </Frame>
-                            <Button Margin="20"
+                    <Button Margin="20"
                                 HeightRequest="46"
                                 Text="Log Out"
                                 TextColor="#FFFFFF"
@@ -185,7 +192,7 @@
                                 Font="Segoe UI"
                                 Command="{Binding LogOut}"
                                 FontSize="16"/>
-                    </StackLayout>
+                </StackLayout>
 
 
             </StackLayout>
