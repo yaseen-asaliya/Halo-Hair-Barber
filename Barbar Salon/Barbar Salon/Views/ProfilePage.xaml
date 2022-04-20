@@ -46,7 +46,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,40,0,0" IsVisible="True" HeightRequest="350"  >
+                <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,10,0,0" IsVisible="True" HeightRequest="350"  >
                     <CollectionView x:Name="MyServices"   ItemsSource="{Binding Myprofile}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -127,20 +127,15 @@
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>
-
-
                                     </StackLayout>
                                 </ScrollView>
-
-
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </StackLayout>
             </StackLayout>
-
             <StackLayout >
-                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,15,50,15" Padding="0,40,0,0" IsVisible="false" HeightRequest="350">
+                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="false" HeightRequest="350">
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -156,6 +151,15 @@
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="My Service" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
+                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Add Offer" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
                             <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
                         </StackLayout>
                     </Frame>
@@ -183,21 +187,17 @@
                         </StackLayout>
                     </Frame>
                     <Button Margin="20"
-                                HeightRequest="46"
-                                Text="Log Out"
-                                TextColor="#FFFFFF"
-                                FontAttributes="Bold"
-                                BackgroundColor="#603D8F"
-                                CornerRadius="20"
-                                Font="Segoe UI"
-                                Command="{Binding LogOut}"
-                                FontSize="16"/>
+                            HeightRequest="46"
+                            Text="Log Out"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            BackgroundColor="#603D8F"
+                            CornerRadius="20"
+                            Font="Segoe UI"
+                            Command="{Binding LogOut}"
+                            FontSize="16"/>
                 </StackLayout>
-
-
             </StackLayout>
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

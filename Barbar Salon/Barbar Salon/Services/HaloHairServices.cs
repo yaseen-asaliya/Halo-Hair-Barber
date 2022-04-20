@@ -10,15 +10,19 @@ using System.Collections.ObjectModel;
 using Xamarin.Essentials;
 using System.Collections.Specialized;
 using static System.Net.Mime.MediaTypeNames;
+using Firebase.Storage;
+using System.IO;
 
 namespace Barbar_Salon.Services
 {
     public class HaloHairServices
     {
         FirebaseClient firebaseClient;
+        FirebaseStorage firebasStorege;
         public HaloHairServices()
         {
             firebaseClient = new FirebaseClient("https://halo-hair-676ed-default-rtdb.firebaseio.com");
+            firebasStorege = new FirebaseStorage("halo-hair-676ed.appspot.com");
             AccessToken();
         }
         private static string accessToken { get; set; }
@@ -178,9 +182,6 @@ namespace Barbar_Salon.Services
         }
         
 
-    
-
-
         public ObservableCollection<ReservationsRequestModel> getReservationsRequest()
         {
             var ReservationsRequestdata = firebaseClient.Child("ReservationsRequest").AsObservable<ReservationsRequestModel>().AsObservableCollection();
@@ -224,7 +225,18 @@ namespace Barbar_Salon.Services
             return Users_Customer;
         }
 
+        public async Task<string> StoreImage(Stream stream ,string FileName)
+        {
+            Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            var image = await firebasStorege.Child("Offer").Child(FileName).PutAsync(stream);
+            return image;
+        }
+        public async Task StoreImageUrl(OfferModel offerModel)
 
+        {
+            Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            await firebaseClient.Child("Offer").PostAsync(offerModel);
+        }
 
     }
 
