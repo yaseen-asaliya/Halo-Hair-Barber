@@ -75,13 +75,6 @@ namespace Barbar_Salon.ViewModels
 
    
         }
-
-
-
-
-
-
-
         private void reservationschanged(object sender, NotifyCollectionChangedEventArgs e)
         {
 

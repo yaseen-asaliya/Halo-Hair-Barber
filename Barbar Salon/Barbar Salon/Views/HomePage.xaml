@@ -29,7 +29,7 @@
                                             <Label Text="{Binding ListOfService}" Margin="3,0,0,0" VerticalOptions="CenterAndExpand" FontFamily="Segoe UI" TextColor="#0E0909" />
                                             <Label Text="{Binding Time}" VerticalOptions="EndAndExpand" FontFamily="Segoe UI" TextColor="#0E0909" />
                                         </StackLayout>
-                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
                                             <Button Text= "Accept" Command="{Binding Path=BindingContext.Accept,Source={x:Reference MyReservationsRequest}}" TextColor="#FFFFFF"
                                                         FontSize="Micro" 
                                                         FontFamily="Segoe UI"

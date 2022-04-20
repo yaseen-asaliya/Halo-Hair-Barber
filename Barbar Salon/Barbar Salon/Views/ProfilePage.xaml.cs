@@ -17,7 +17,6 @@ namespace Barbar_Salon.Views
         {
             InitializeComponent();
         }
-
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new AddTimePage());
@@ -27,7 +26,10 @@ namespace Barbar_Salon.Views
         {
             Navigation.PushModalAsync(new MyServicesPage());
         }
-
+        private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new AddOfferPage());
+        }
         private void aboutbutton_Clicked(object sender, EventArgs e)
         {
             BoxAbout.IsVisible = true;
@@ -43,9 +45,6 @@ namespace Barbar_Salon.Views
             Settingsview.IsVisible = true;
             aboutview.IsVisible = false;
             BoxAbout.IsVisible = false;
-        }
-
-
-      
+        }        
     }
 }

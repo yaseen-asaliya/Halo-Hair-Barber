@@ -63,16 +63,6 @@
                         FontSize="16"
                         Clicked="Button_Clicked">
                 </Button>
-                <Button HeightRequest="46"
-                        Text= "Add Offer"
-                        TextColor="#FFFFFF"
-                        FontAttributes="Bold"
-                        BackgroundColor="#603D8F"
-                        CornerRadius="20"
-                        Font="Segoe UI"
-                        FontSize="16"
-                        Clicked="Button_Clicked_1">
-                </Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
