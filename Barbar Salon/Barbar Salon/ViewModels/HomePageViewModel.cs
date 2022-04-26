@@ -116,7 +116,6 @@ namespace Barbar_Salon.ViewModels
         public ICommand Accept { get; }
         public ICommand Refused { get; }
 
-
         private void OnAccept(object obj)
         {
             var control = obj as ReservationsRequestModel;
