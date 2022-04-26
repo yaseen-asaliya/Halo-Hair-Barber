@@ -43,6 +43,12 @@ namespace Barbar_Salon.Droid
 
         }
 
+
+        public async Task ResetPassword(string Email)
+        {
+            await FirebaseAuth.Instance.SendPasswordResetEmailAsync(Email);
+        }
+
         public async Task<string> LoginWithEmailAndPassword(string email, string password)
         {
             try
@@ -55,8 +61,9 @@ namespace Barbar_Salon.Droid
             }
             catch (FirebaseAuthInvalidUserException e)
             {
-                e.PrintStackTrace();
-                return string.Empty;
+                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Failed", e.Message, "ok");
+
+                return null;
             }
         }
 

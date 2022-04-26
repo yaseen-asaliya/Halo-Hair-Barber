@@ -63,6 +63,9 @@ namespace Barbar_Salon.ViewModels
             }
         }
 
+        public ICommand BackPage { get; }
+
+
         public ProfileViewModel()
         {
             AccessToken();
@@ -72,6 +75,7 @@ namespace Barbar_Salon.ViewModels
             Profile = firebase.ProfilePage();
             Profile.CollectionChanged += serviceschanged;
             LogOut = new Command(PerformLogOut);
+            BackPage = new Command(Back_Page);
 
 
         }
@@ -107,7 +111,10 @@ namespace Barbar_Salon.ViewModels
             auth.IsSigOut();
             var oauthToken = SecureStorage.Remove("oauth_token");
             Xamarin.Forms.Shell.Current.GoToAsync("//LoginPage");
-            //Application.Current.MainPage = new LoginPage();
+        }
+        private async void Back_Page(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
         }
 
 

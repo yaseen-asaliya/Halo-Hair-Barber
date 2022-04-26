@@ -53,7 +53,7 @@ namespace Barbar_Salon.ViewModels
             Reservations = new ObservableCollection<ReservationsModel>();
             FilltedReservations = new ObservableCollection<ReservationsModel>();
 
-            Reservations = firebase.getReservations();
+            Reservations = firebase.getReservation();
 
             Reservations.CollectionChanged += reservationschanged;
 

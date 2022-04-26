@@ -8,7 +8,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="Add Time">
+         <!--   <controls:NavigationComponent Titles="Add Time">
             </controls:NavigationComponent>
             <StackLayout >
                 <ScrollView>
@@ -107,6 +107,20 @@
                     </StackLayout>
                 </ScrollView>
 
+            </StackLayout>
+            -->
+            <StackLayout>
+                <Button Margin="110"
+                                        WidthRequest="207"
+                                        HeightRequest="46"
+                                        Text="Add Services"
+                                        TextColor="#FFFFFF"
+                                        FontAttributes="Bold"
+                                        BackgroundColor="#603D8F"
+                                        CornerRadius="20"
+                                        Font="Segoe UI"
+                                        FontSize="16"
+                                        Command="{Binding AddTimeCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

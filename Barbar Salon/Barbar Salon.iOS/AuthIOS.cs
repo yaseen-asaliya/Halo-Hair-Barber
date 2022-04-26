@@ -32,7 +32,10 @@ namespace Barbar_Salon.iOS
                 return false;
             }
         }
-
+        public async Task ResetPassword(string Email)
+        {
+            await Auth.DefaultInstance.SendPasswordResetAsync(Email);
+        }
         public async Task<string> LoginWithEmailAndPassword(string email, string password)
         {
             var user = await Auth.DefaultInstance.SignInWithPasswordAsync(email, password);

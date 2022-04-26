@@ -13,6 +13,8 @@ namespace Barbar_Salon.ViewModels
         {
             SendNewPassword = new Command(OnResetPassword);
 
+            BackPage = new Command(Back_Page);
+
         }
         public string Email 
         {
@@ -21,6 +23,8 @@ namespace Barbar_Salon.ViewModels
         }
         private string email;
         public ICommand SendNewPassword { get; }
+
+        public ICommand BackPage { get; }
 
 
         private async void OnResetPassword()
@@ -35,6 +39,11 @@ namespace Barbar_Salon.ViewModels
 
 
         }
+        private async void Back_Page(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
 
 
     }

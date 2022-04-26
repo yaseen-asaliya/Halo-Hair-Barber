@@ -22,12 +22,15 @@ namespace Barbar_Salon.ViewModels
         MediaFile file;
         HaloHairServices haloHairServices;
         OfferModel offerModel;
+
+        public ICommand BackPage { get; }
         public AddOfferViewModel()
         {
             haloHairServices = new HaloHairServices();
             offerModel = new OfferModel();
             BtnPick = new Command(OnPickTappedAsync);
             BtnStore = new Command(OnStoreTappedAsync);
+            BackPage = new Command(Back_Page);
         }
         private async  void OnPickTappedAsync(object obj)
         {
@@ -71,6 +74,11 @@ namespace Barbar_Salon.ViewModels
                 Console.WriteLine(ex.Message);
             }
         }
+        private async void Back_Page(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
 
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Barbar_Salon.Services;
+using Barbar_Salon.Views;
 
 namespace Barbar_Salon.ViewModels
 {
@@ -19,7 +20,10 @@ namespace Barbar_Salon.ViewModels
 
         public ICommand SigUpCommad { get; }
 
-        
+        public ICommand BackPage { get; }
+
+
+
         IAuth auth;
 
         HaloHairServices firebase;
@@ -29,6 +33,9 @@ namespace Barbar_Salon.ViewModels
             auth = DependencyService.Get<IAuth>();
             firebase = new HaloHairServices();
             SigUpCommad = new Command(async () => await SignUp(email, password));
+
+            BackPage = new Command(Back_Page);
+
 
         }
 
@@ -50,6 +57,8 @@ namespace Barbar_Salon.ViewModels
                 {
                     AddUser(name, namesalon, phone, ulr, location);
                     await Application.Current.MainPage.DisplayAlert("Successful", "Register User", "ok");
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+
 
                 }
                 else if (ulr == null)
@@ -61,7 +70,15 @@ namespace Barbar_Salon.ViewModels
             {
                 Console.WriteLine("The Exceptions : " + ex);
             }
+
         }
+
+
+        private async void Back_Page(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
 
     }
 }

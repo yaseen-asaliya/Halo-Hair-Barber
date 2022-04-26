@@ -5,7 +5,7 @@
    
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="Edit Services">
+            <controls:NavigationComponent Titles="Edit Services" CommandParameter="{Binding BackPage}">
             </controls:NavigationComponent>
             <StackLayout>
                 <StackLayout VerticalOptions="CenterAndExpand" BindingContext="{Binding MyServices}">
@@ -26,9 +26,12 @@
 
                         </StackLayout>
                     </Frame>
+                   
                 </StackLayout>
+                
                 <StackLayout>
-                    <Button Margin="110"
+           
+                        <Button Margin="110"
                 WidthRequest="207"
                 HeightRequest="46"
                 Text="UpDate"

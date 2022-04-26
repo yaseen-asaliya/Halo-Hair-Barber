@@ -11,7 +11,7 @@
 
     <ContentPage.Content >
         <StackLayout BackgroundColor="#F2F2F2" >
-            <control:NavigationComponent Titles="Reservations Page">
+            <control:NavigationComponent Titles="Reservations Page" isVisible="false">
             </control:NavigationComponent>
             <Frame Margin="25" >
             <ScrollView>
@@ -24,11 +24,11 @@
                                 <StackLayout Orientation="Horizontal" >
                                     <StackLayout Orientation="Vertical">
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Data:" FontAttributes="Bold"/>
-                                            <Label Text="{Binding DataSelected}" VerticalOptions="StartAndExpand"/>
+                                            <Label Text="Date:" FontAttributes="Bold"/>
+                                            <Label Text="{Binding DateSelected}" VerticalOptions="StartAndExpand"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Name_Customer :" FontAttributes="Bold"/>
+                                            <Label Text="Name Customer :" FontAttributes="Bold"/>
                                             <Label Text="{Binding PersonName}" VerticalOptions="StartAndExpand"/>
                                         </StackLayout>
 

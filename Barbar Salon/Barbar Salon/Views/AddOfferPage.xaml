@@ -7,7 +7,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="Add Offer">
+            <controls:NavigationComponent Titles="Add Offer" CommandParameter="{Binding BackPage}">
             </controls:NavigationComponent>
             <StackLayout>
                 <Frame Padding="10" Margin="20">

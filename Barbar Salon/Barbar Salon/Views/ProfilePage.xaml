@@ -13,7 +13,7 @@
     <ContentPage.Content>
 
         <StackLayout>
-            <controls:NavigationComponent Titles="Profile Page">
+            <controls:NavigationComponent Titles="Profile Page" isVisible="false">
             </controls:NavigationComponent>
             <StackLayout>
 
@@ -135,7 +135,7 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout >
-                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="false" HeightRequest="350">
+                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="false" HeightRequest="400">
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />

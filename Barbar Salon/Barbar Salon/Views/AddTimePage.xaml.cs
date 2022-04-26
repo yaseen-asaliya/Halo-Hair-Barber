@@ -18,7 +18,7 @@ namespace Barbar_Salon.Views
          
 
         }
-        private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+      /*  private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             if (e.Value == true)
             {
@@ -52,5 +52,7 @@ namespace Barbar_Salon.Views
             amOe.BackgroundColor = Color.White;
             pmOe.BackgroundColor = Color.Gray;
         }
+
+        */
     }
 }

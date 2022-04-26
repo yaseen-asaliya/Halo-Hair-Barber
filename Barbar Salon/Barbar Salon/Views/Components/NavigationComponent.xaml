@@ -6,13 +6,14 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
             <StackLayout>
-                <Frame BackgroundColor="#FFFFFF">
-                    <Shell.BackButtonBehavior>
-                        <BackButtonBehavior Command="{Binding .}" TextOverride="Back">
-                        </BackButtonBehavior>
-                    </Shell.BackButtonBehavior>
-                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text= "{TemplateBinding Titles}" FontSize="16" TextColor="#0E0909"  ></Label>
-                </Frame>
+                <Frame BackgroundColor="#FFFFFF" >
+                    <StackLayout Orientation="Horizontal" >
+                        <ImageButton HorizontalOptions="Start"  Margin="-10,0,-15,0" BackgroundColor="#FFFFFF" HeightRequest="20"  WidthRequest="25"  Source="arrowleft.png" Command="{TemplateBinding CommandParameter}" IsVisible="{TemplateBinding isVisible}"  ></ImageButton>
+
+                        <Label   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"   Text= "{TemplateBinding Titles}" FontSize="16" TextColor="#0E0909"  ></Label>
+
+                    </StackLayout>
+                       </Frame>
             </StackLayout>
         </ControlTemplate>
     </ContentView.ControlTemplate>

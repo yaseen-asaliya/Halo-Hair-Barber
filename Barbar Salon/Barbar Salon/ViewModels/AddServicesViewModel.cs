@@ -19,21 +19,37 @@ namespace Barbar_Salon.ViewModels
         HaloHairServices fireBaseHaloHair;
 
         public ICommand AddServicesCommand { get; }
+        public ICommand BackPage { get; }
+
         public AddServicesViewModel()
         {
             fireBaseHaloHair = new HaloHairServices();
             AddServicesCommand = new Command(async () => await AddServices(Service_Name, Time_Needed, Prices, Deseription));
-
+            BackPage = new Command(Back_Page);
 
         }
+
+        private async void Back_Page(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
+
+
+
+        Random rnd;
 
 
         private async Task AddServices(string Service_Name, int Time_Neede, int Prices, string Deseription)
         {
-            if(Service_Name !=null && Time_Neede !=null&& Prices !=null && Deseription!=null)
+            rnd = new Random();
+            int id = rnd.Next(0, 1236963000);
+            if (Service_Name !=null && Time_Neede !=null&& Prices !=null && Deseription!=null)
             {
-                await fireBaseHaloHair.AddService(Service_Name, Time_Neede, Prices, Deseription);
+                await fireBaseHaloHair.AddService(Service_Name, Time_Neede, Prices, Deseription,id);
                 await Application.Current.MainPage.DisplayAlert("Successful", "Services Added ", "Ok");
+                await Application.Current.MainPage.Navigation.PopModalAsync();
+
 
 
             }

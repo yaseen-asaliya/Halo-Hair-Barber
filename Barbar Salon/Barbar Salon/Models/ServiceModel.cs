@@ -6,6 +6,8 @@ namespace Barbar_Salon.Models
 {
     public class ServiceModel
     {
+        public int ID_Services { get; set; }
+
         public string Service_Name { get; set; }
         public int Prices { get; set; }
         public int Time_Needed { get; set; }

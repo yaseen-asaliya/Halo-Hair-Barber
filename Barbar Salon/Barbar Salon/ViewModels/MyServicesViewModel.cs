@@ -64,6 +64,10 @@ namespace Barbar_Salon.ViewModels
         }
 
         public ICommand EditCommand { get; }
+        public ICommand DeleteCommand { get; }
+
+        public ICommand BackPage { get; }
+
         public MyServicesViewModel()
         {
             AccessToken();
@@ -74,6 +78,9 @@ namespace Barbar_Salon.ViewModels
 
             MyServices.CollectionChanged += serviceschanged;
             EditCommand = new Command(onEditTapped);
+            DeleteCommand = new Command(onDeleteTapped);
+
+            BackPage = new Command(Back_Page);
 
 
         }
@@ -109,10 +116,24 @@ namespace Barbar_Salon.ViewModels
 
 
         }
+        private async void onDeleteTapped(object obj)
+        {
+            var control = obj as MyServicesModel;
+            Console.WriteLine("the id services " + control.ID_Services);
+
+            await firebase.DeleteService(control);
+
+
+        }
+        private async void Back_Page(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
 
 
 
     }
 
- }
+}
 

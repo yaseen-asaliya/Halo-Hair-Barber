@@ -7,6 +7,7 @@ namespace Barbar_Salon.Models
     public class ReservationsModel
     {
         public string PersonName { get; set; }
+        public int ID_Reservations { get; set; }
 
         public string ListOfService { get; set; }
 
@@ -17,7 +18,7 @@ namespace Barbar_Salon.Models
         public string AccessToken_Barbar { get; set; }
 
 
-        public string DataSelected { get; set; }
+        public string DateSelected { get; set; }
 
      
 

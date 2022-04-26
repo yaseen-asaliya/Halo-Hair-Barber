@@ -9,225 +9,113 @@ using Xamarin.Forms;
 
 namespace Barbar_Salon.ViewModels
 {
-    public class AddTimeViewModel : BindableObject
+    public class AddTimeViewModel
     {
 
-        public int StartTime { set; get; }
-        public int EndTime { set; get; }
-
-        private string startAMButtonColor;
-        public string StartAMButtonColor
-        {
-            get
-            {
-                return startAMButtonColor;
-            }
-            set
-            {
-                startAMButtonColor = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string startPMButtonColor;
-        public string StartPMButtonColor
-        {
-            get
-            {
-                return startPMButtonColor;
-            }
-            set
-            {
-                startPMButtonColor = value;
-                OnPropertyChanged();
-            }
-        }
+        HaloHairServices Firebase;
 
 
-
-        private string endAMButtonColor;
-        public string EndAMButtonColor
-        {
-            get
-            {
-                return endAMButtonColor;
-            }
-            set
-            {
-                endAMButtonColor = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string endPMButtonColor;
-        public string EndPMButtonColor
-        {
-            get
-            {
-                return endPMButtonColor;
-            }
-            set
-            {
-                endPMButtonColor = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private DateTime dateTime { set; get; }
-        private string date;
-        public string Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int year, month, day;
-
-        public ICommand IncreaseDateCommand { get; }
-        public ICommand DecreaseDateCommand { get; }
-        public ICommand StartAMTimeCommand { get; }
-        public ICommand StartPMTimeCommand { get; }
-        public ICommand EndAMTimeCommand { get; }
-        public ICommand EndPMTimeCommand { get; }
-        public ICommand AddTimeCommand { get; }
-
-        private HaloHairServices fireBase;
+       public ICommand AddTimeCommand { get; }
 
 
         public AddTimeViewModel()
         {
-            fireBase = new HaloHairServices();
+            SearchTime();
+            Firebase = new HaloHairServices();
+            AddTimeCommand = new Command(async () => await AddTIME());
 
-           
-            dateTime = DateTime.Now;
-            Date = dateTime.ToString("dddd, dd MMMM yyyy");
-            year = DateTime.Now.Year;
-            month = DateTime.Now.Month;
-            day = DateTime.Now.Day;
-
-            startAMButtonColor = "Gray";
-            startPMButtonColor = "White";
-
-            EndAMButtonColor = "Gray";
-            EndPMButtonColor = "White";
-
-
-
-            StartAMTimeCommand = new Command(OnStartAMTapped);
-            StartPMTimeCommand = new Command(OnStartPMTapped);
-
-            EndAMTimeCommand = new Command(OnEndAMTapped);
-            EndPMTimeCommand = new Command(OnEndtPMTapped);
-
-
-            IncreaseDateCommand = new Command(OnIncreaseTapped);
-            DecreaseDateCommand = new Command(OnDecreaseTapped);
-
-            AddTimeCommand = new Command(OnAddTimeTapped);
         }
 
-        
 
-        private void OnStartAMTapped(object obj)
+
+        struct time
         {
-            StartAMButtonColor = "Gray";
-            StartPMButtonColor = "White";
+            public int hour;
+            public int minute;
         }
-
-        private void OnStartPMTapped(object obj)
+  
+        time getTimeSplitedAsInt(string time)
         {
-            StartAMButtonColor = "White";
-            StartPMButtonColor = "Gray";
+            time temp = new time();
+            string[] tempTime = time.Split(':');
+            temp.hour = Int32.Parse(tempTime[0]);
+            temp.minute = Int32.Parse(tempTime[1]);
+            return temp;
         }
-    
-        private void OnEndAMTapped(object obj)
+        string getTimeAsString(int time)
         {
-            EndAMButtonColor = "Gray";
-            EndPMButtonColor = "White";
-        }
-
-        private void OnEndtPMTapped(object obj)
-        {
-            EndAMButtonColor = "White";
-            EndPMButtonColor = "Gray";
-        }
-
-        private void OnDecreaseTapped(object obj)
-        {
-            DateTime nowDate = new DateTime(year, month, day);
-            var previewDate = nowDate.AddDays(-1);
-            Date = previewDate.ToString("dddd, dd MMMM yyyy");
-            year = previewDate.Year;
-            month = previewDate.Month;
-            day = previewDate.Day;
-        }
-
-        private void OnIncreaseTapped(object obj)
-        {
-            DateTime nowDate = new DateTime(year, month, day);
-            var previewDate = nowDate.AddDays(1);
-            Date = previewDate.ToString("dddd, dd MMMM yyyy");
-            year = previewDate.Year;
-            month = previewDate.Month;
-            day = previewDate.Day;
-        }
-
-        
-
-        private async void OnAddTimeTapped(object obj)
-        {
-            if (StartTime.Equals(""))
+            int hours = time / 60;
+            int minutes = time % 60;
+            string Time = "";
+            if (hours > 12)
             {
-                await Application.Current.MainPage.DisplayAlert("Faild", "Start time can not be empty" ,"Ok");
-                return;
+                if (minutes < 10)
+                {
+                    Time = (hours - 12) + ":0" + minutes + " PM";
+
+                }
+                else
+                {
+                    Time = (hours - 12) + ":" + minutes + " PM";
+                }
             }
-            if (EndTime.Equals(""))
+            else
             {
-                await Application.Current.MainPage.DisplayAlert("Faild", "End time can not be empty", "Ok");
-                return;
+                if (minutes < 10)
+                {
+                    Time = hours + ":0" + minutes + " AM";
+                }
+                else
+                {
+                    Time = hours + ":" + minutes + " AM";
+                }
             }
+            return Time;
 
-            if (StartAMButtonColor == "Gray")
-                StartTime += 0;
+        }
+        private List<(string, bool)> ListTimes;
 
-            else
-                StartTime += 12;
+        public async void SearchTime()
+        {
+   
+            ListTimes = new List<(string, bool)>();
+            //  time startTime = getTimeSplitedAsInt(starttime);
+            //  time endTime = getTimeSplitedAsInt(endtime);
+            time startTime = getTimeSplitedAsInt("10:35");
+            time endTime = getTimeSplitedAsInt("15:34");
+            int start = (startTime.hour * 60) + startTime.minute;
+            int end = (endTime.hour * 60) + endTime.minute;
+            bool isBooked = false;
 
-            if (EndAMButtonColor == "Gray")
-                EndTime += 0;
-
-            else
-                EndTime += 12;
-
-
-            ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
+            for (int i = start; i < end; i += 30)
             {
-                DateSelected = Date,
-                StartTime = StartTime,
-                EndTime = EndTime
-            };
+                string tempTime = "";
+                tempTime = getTimeAsString(i);
+                isBooked = false;
+                ListTimes.Add((tempTime, isBooked));
+
+
+
+            }
             
-            if(Date!=null&& StartTime!=null && EndTime!=null)
-            {
-                await fireBase.AddTime(scheduleTimeModel);
-                await Application.Current.MainPage.DisplayAlert("Successful", " Add Time ", "Ok");
-
-
-            }
-            else
-            {
-
-                await Application.Current.MainPage.DisplayAlert("Failed", "please fill all field to Add Time ", "Ok");
-            }
 
         }
+
+
+        public async Task AddTIME()
+        {
+            await Firebase.AddTimes(ListTimes);
+        }
+
+
+
+
+
+
+
+        
+
+
 
 
     }
