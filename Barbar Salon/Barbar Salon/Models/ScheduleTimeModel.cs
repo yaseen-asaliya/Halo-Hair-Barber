@@ -6,8 +6,8 @@ namespace Barbar_Salon.Models
 {
     public class ScheduleTimeModel
     {
-        public int StartTime { get; set; } 
-        public int EndTime { get; set; }
+        public TimeSpan StartTime { get; set; } 
+        public TimeSpan EndTime { get; set; }
         public string DateSelected { get; set; }
         public string AccessToken_Barbar { get; set; }
         public string NameSalon { get; internal set; }

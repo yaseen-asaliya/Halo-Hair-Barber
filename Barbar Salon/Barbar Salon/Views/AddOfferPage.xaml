@@ -10,7 +10,8 @@
             <controls:NavigationComponent Titles="Add Offer" CommandParameter="{Binding BackPage}">
             </controls:NavigationComponent>
             <StackLayout>
-                <Frame Padding="10" Margin="20">
+                <Label Text="Select the Offer image that contains its details" Margin="20" FontSize="Small"/>
+                <Frame Padding="10" Margin="20,0,0,0">
                     <StackLayout>
                         <Button Margin="20"
                                 WidthRequest="207"

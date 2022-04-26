@@ -181,21 +181,11 @@ namespace Barbar_Salon.Services
         
         public async Task AddTime(ScheduleTimeModel scheduleTimeModel)
         {
-
-           
-
             scheduleTimeModel.AccessToken_Barbar = accessToken;
             scheduleTimeModel.NameSalon = nameSoaln;
             scheduleTimeModel.location = location;
-
-
-
-
             await firebaseClient.Child("ScheduleTime").PostAsync(scheduleTimeModel);
             await Xamarin.Forms.Shell.Current.DisplayAlert("Successful", "Schedule Time", "Ok");
-
-
-
         }
 
         public ObservableCollection<MyServicesModel> getServices()
@@ -204,10 +194,20 @@ namespace Barbar_Salon.Services
             var data =  firebaseClient.Child("Services").AsObservable<MyServicesModel>().AsObservableCollection();
 
             return data;
-     
            
         }
-        
+        public async Task AddTimes1(List<(string, bool)> listTimes)
+        {
+            ScheduleTimeModel timeModel = new ScheduleTimeModel();
+            {
+                timeModel.Time = listTimes;
+                timeModel.AccessToken_Barbar = accessToken;
+            }
+
+
+
+            await firebaseClient.Child("TIME").PostAsync(timeModel);
+        }
 
         public ObservableCollection<ReservationsRequestModel> getReservationsRequest()
         {
