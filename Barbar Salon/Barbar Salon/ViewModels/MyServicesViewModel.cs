@@ -10,6 +10,8 @@ using Barbar_Salon.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Barbar_Salon.Views;
+using System.Diagnostics;
+
 namespace Barbar_Salon.ViewModels
 {
     public class MyServicesViewModel : BaseViewModel
@@ -67,7 +69,7 @@ namespace Barbar_Salon.ViewModels
         public ICommand DeleteCommand { get; }
 
         public ICommand BackPage { get; }
-
+        public ICommand PageAddServices { get; }
         public MyServicesViewModel()
         {
             AccessToken();
@@ -81,7 +83,7 @@ namespace Barbar_Salon.ViewModels
             DeleteCommand = new Command(onDeleteTapped);
 
             BackPage = new Command(Back_Page);
-
+            PageAddServices = new  Command(addServicePage);
 
         }
 
@@ -90,8 +92,7 @@ namespace Barbar_Salon.ViewModels
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 MyServicesModel services = e.NewItems[0] as MyServicesModel;
-                Console.WriteLine(e.NewItems[0]);
-                Console.WriteLine(e.NewItems[0].GetType());
+         
                 if (services.AccessToken_Barbar == accessToken)
                 {
 
@@ -114,23 +115,27 @@ namespace Barbar_Salon.ViewModels
             MyServicesModel serviceModel = (MyServicesModel)obj;
             await Application.Current.MainPage.Navigation.PushModalAsync(new EditServicesPage(serviceModel));
 
-
         }
         private async void onDeleteTapped(object obj)
         {
             var control = obj as MyServicesModel;
-            Console.WriteLine("the id services " + control.ID_Services);
-
-            await firebase.DeleteService(control);
-
-
+            var res = await App.Current.MainPage.DisplayAlert("Delete Services ", $"Your data are delete \n Name Service {control.Service_Name}", "Yes", "Cancel");
+            if (res)
+            {
+                await firebase.DeleteService(control);
+            }
         }
+
+
         private async void Back_Page(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }
-
-
+        private async void addServicePage(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new AddServicesPage());
+        }
+       
 
 
     }

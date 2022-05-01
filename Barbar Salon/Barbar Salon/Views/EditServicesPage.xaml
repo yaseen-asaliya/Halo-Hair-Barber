@@ -23,27 +23,18 @@
                             <Frame CornerRadius="10" Padding="0"  >
                                 <Entry x:Name="Prices"  Keyboard="Numeric"  Text="{Binding Prices}"/>
                             </Frame >
-
+                            <Label Text ="Deseription" />
+                            <Frame CornerRadius="10" Padding="0"  >
+                                <Entry x:Name="Deseription"    Text="{Binding Deseription}"/>
+                            </Frame >
                         </StackLayout>
                     </Frame>
                    
                 </StackLayout>
                 
                 <StackLayout>
-           
-                        <Button Margin="110"
-                WidthRequest="207"
-                HeightRequest="46"
-                Text="UpDate"
-                TextColor="#FFFFFF"
-                FontAttributes="Bold"
-                BackgroundColor="#603D8F"
-                CornerRadius="20"
-                Font="Segoe UI"
-                FontSize="16"
-                    Command="{Binding UpDateDataServices}"
-                >
-                    </Button>
+
+                    <controls:ButtonComponent NameButton="UpDate Services" CommandParameter="{Binding UpDateDataServices}" ></controls:ButtonComponent>
                 </StackLayout>
 
             </StackLayout>

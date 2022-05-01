@@ -13,6 +13,9 @@ namespace Barbar_Salon.ViewModels
     {
         
         public ICommand UpDateDataServices { get; }
+        public ICommand BackPage { get; }
+
+        private MyServicesModel myservices;
 
         HaloHairServices fireBase;
 
@@ -28,10 +31,6 @@ namespace Barbar_Salon.ViewModels
             }
         }
 
-        private MyServicesModel myservices;
-
-
-        public ICommand BackPage { get; }
 
         public EditServicesViewModel(MyServicesModel myServices)
         {
@@ -46,6 +45,8 @@ namespace Barbar_Salon.ViewModels
         {
 
             await fireBase.UpdateService(MyServices);
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+
         }
         private async void Back_Page(object obj)
         {

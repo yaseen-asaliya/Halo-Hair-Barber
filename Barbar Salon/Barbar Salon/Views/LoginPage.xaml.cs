@@ -16,9 +16,6 @@ namespace Barbar_Salon.Views
         {
             InitializeComponent();
         }
-        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new SignUpPage());
-        }
+      
     }
 }
