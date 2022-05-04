@@ -98,7 +98,7 @@ namespace Barbar_Salon.ViewModels
             };
             await fireBase.AddTime(scheduleTimeModel);
             SearchTime();
-            await AddTIME(id);
+            await AddTIME();
             await Application.Current.MainPage.DisplayAlert("Successful", $" Add the working time of the day {Date} \n From hour {StartTimeSelected} to hour {EndTimeSelected}", "Ok");
             await Application.Current.MainPage.Navigation.PopModalAsync();
 
@@ -169,9 +169,9 @@ namespace Barbar_Salon.ViewModels
                 ListTimes.Add((tempTime, isBooked));
             }
         }
-        public async Task AddTIME(int id)
+        public async Task AddTIME()
         {
-            await fireBase.AddTimes(ListTimes, id);
+            await fireBase.AddTimes(ListTimes);
         }
     }
 }

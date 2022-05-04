@@ -10,6 +10,7 @@ namespace Barbar_Salon.Models
         public int ID_Reservations { get; set; }
 
         public string ListOfService { get; set; }
+        public int id { get; set; }
 
         public string Time { get; set; }
 
