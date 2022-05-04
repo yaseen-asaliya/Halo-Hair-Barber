@@ -16,6 +16,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "LiteDB/4.1.4": {
         "type": "package",
         "dependencies": {
@@ -275,6 +288,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "FirebaseDatabase.net": "4.0.7",
+          "FirebaseStorage.net": "1.0.3",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -301,6 +315,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "LiteDB/4.1.4": {
         "type": "package",
         "dependencies": {
@@ -560,6 +587,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "FirebaseDatabase.net": "4.0.7",
+          "FirebaseStorage.net": "1.0.3",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -586,6 +614,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "LiteDB/4.1.4": {
         "type": "package",
         "dependencies": {
@@ -845,6 +886,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "FirebaseDatabase.net": "4.0.7",
+          "FirebaseStorage.net": "1.0.3",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -871,6 +913,19 @@
           "lib/netstandard2.0/Firebase.dll": {}
         }
       },
+      "FirebaseStorage.net/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Firebase.Storage.dll": {}
+        }
+      },
       "LiteDB/4.1.4": {
         "type": "package",
         "dependencies": {
@@ -1130,6 +1185,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "FirebaseDatabase.net": "4.0.7",
+          "FirebaseStorage.net": "1.0.3",
           "Xamarin.Essentials": "1.7.0",
           "Xamarin.Forms": "5.0.0.2196"
         },
@@ -1154,6 +1210,18 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "FirebaseStorage.net/1.0.3": {
+      "sha512": "SupDHNUwNqcVwEo/HdFEWAXveQe3fU16q4wrrCxUVwP0a77zaddKp7vo2sHIW56DAsJn/gUfjDK3w0MuBhvzjQ==",
+      "type": "package",
+      "path": "firebasestorage.net/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "firebasestorage.net.1.0.3.nupkg.sha512",
+        "firebasestorage.net.nuspec",
+        "lib/netstandard1.1/Firebase.Storage.dll"
       ]
     },
     "LiteDB/4.1.4": {
@@ -1796,24 +1864,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MSI\\.nuget\\packages\\": {},
+    "C:\\Users\\abood\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\abood\\Desktop\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
       "projectName": "Barbar Salon.iOS",
-      "projectPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
-      "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
+      "projectPath": "C:\\Users\\abood\\Desktop\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
+      "packagesPath": "C:\\Users\\abood\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abood\\Desktop\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abood\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1827,8 +1895,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
-              "projectPath": "C:\\Users\\MSI\\Desktop\\NewProject Mobile\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
+            "C:\\Users\\abood\\Desktop\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj": {
+              "projectPath": "C:\\Users\\abood\\Desktop\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon\\Barbar Salon.csproj"
             }
           }
         }
