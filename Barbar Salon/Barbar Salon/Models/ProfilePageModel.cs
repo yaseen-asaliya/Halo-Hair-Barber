@@ -7,7 +7,7 @@ namespace Barbar_Salon.Models
     public class ProfilePageModel
     {
         public string Name { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string AccessToken_Barbar { get; set; }
         public string location { get; set; }
         public string NameSalon { get; set; }
