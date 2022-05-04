@@ -159,7 +159,6 @@ namespace Barbar_Salon.Services
 
         public async Task AddNewUser(AuthenticationModel addUser)
         {
-            addUser.AccessToken_Barbar = accessToken;
             await firebaseClient.Child("Users").PostAsync(addUser);
 
         }
