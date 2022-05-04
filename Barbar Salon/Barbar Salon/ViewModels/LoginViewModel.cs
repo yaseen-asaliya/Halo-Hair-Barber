@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Barbar_Salon.ViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel:BaseViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         private string email;
@@ -36,14 +36,17 @@ namespace Barbar_Salon.ViewModels
         public Command SubmitCommand { get; }
         public ICommand ResetPasswordCommad { get; }
 
+        public ICommand SignUpPageCommad { get; }
         private async void OnForgetPassword()
         {
-            // await Xamarin.Forms.Shell.Current.GoToAsync("//NewPasswordPage");
             await Application.Current.MainPage.Navigation.PushModalAsync(new NewPasswordPage());
 
 
         }
-
+        private async void onSignUpPage()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new SignUpPage());
+        }
 
         IAuth auth;
         public LoginViewModel()
@@ -51,17 +54,18 @@ namespace Barbar_Salon.ViewModels
             auth = DependencyService.Get<IAuth>();
             SubmitCommand = new Command(async () => await SignIn(email, password));
             ResetPasswordCommad = new Command(OnForgetPassword);
+            SignUpPageCommad = new Command(onSignUpPage);
         }
 
+   
         async Task SignIn(string email, string password)
         {
 
             if (email != null && password != null)
             {
-
+              
                 string token = await auth.LoginWithEmailAndPassword(email, password);
-                try
-                {
+              
                     if (token != string.Empty)
                     {
 
@@ -78,14 +82,14 @@ namespace Barbar_Salon.ViewModels
 
 
                     }
-                }
-                catch (Exception ex)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Failed", ex.Message, "ok");
-                }
             }
             else
-                await Application.Current.MainPage.DisplayAlert("Failed", "Password and Email is Empty", "ok");
+            {
+                await Application.Current.MainPage.DisplayAlert("Failed", "Email And Password is Empty", "ok");
+
+            }
+
+
 
         }
 

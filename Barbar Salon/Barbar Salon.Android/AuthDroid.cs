@@ -59,12 +59,13 @@ namespace Barbar_Salon.Droid
 
                 return token.ToString();
             }
-            catch (FirebaseAuthInvalidUserException e)
+            catch (Exception ex)
             {
-                await Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Failed", e.Message, "ok");
+                await App.Current.MainPage.DisplayAlert("Failled", ex.Message, "OK");
 
-                return null;
+               
             }
+            return null;
         }
 
         public async Task<string> SignUpWithEmailAndPassword(string email, string password)
@@ -75,14 +76,16 @@ namespace Barbar_Salon.Droid
             {
 
                 var auth = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
+               
                 var token = auth.User.Uid;
 
                 return token.ToString();
 
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                await App.Current.MainPage.DisplayAlert("Failled", ex.Message, "OK");
                 return null;
             }
         }

@@ -21,13 +21,16 @@
                         <Frame CornerRadius="15"  HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
                             <Entry Text="{Binding email }" Placeholder="Email"/>
                         </Frame>
-                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
-                            <Entry Text="{Binding phone }" Placeholder="Phone"/>
+                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0" >
+                                <Entry Text="{Binding phone }" Placeholder="Phone 05-XX-XXX-XXX" MaxLength="10"/>
                         </Frame>
                         <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
                             <Entry Text="{Binding password }" Placeholder="Password" IsPassword="True"/>
                         </Frame>
-                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                            <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                                <Entry Text="{Binding ConfirmPassword }" Placeholder="Confirm Password" IsPassword="True"/>
+                            </Frame>
+                            <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
                             <Entry Text="{Binding namesalon }" Placeholder="Salon Name"/>
                         </Frame>
                         <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">

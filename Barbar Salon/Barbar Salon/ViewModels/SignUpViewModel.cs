@@ -6,6 +6,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Barbar_Salon.Services;
 using Barbar_Salon.Views;
+using Barbar_Salon.Models;
 
 namespace Barbar_Salon.ViewModels
 {
@@ -13,6 +14,7 @@ namespace Barbar_Salon.ViewModels
     {
         public string email { get; set; }
         public string password { get; set; }
+        public string ConfirmPassword { get; set; }
         public string name { get; set; }
         public string namesalon { get; set; }
         public long phone { get; set; }
@@ -32,45 +34,45 @@ namespace Barbar_Salon.ViewModels
         {
             auth = DependencyService.Get<IAuth>();
             firebase = new HaloHairServices();
+
             SigUpCommad = new Command(async () => await SignUp(email, password));
 
             BackPage = new Command(Back_Page);
 
 
         }
-
-        private async void AddUser(string name, string namesalon, long phone, string ulr, string location)
+       
+        private async void AddUser()
         {
-            await firebase.AddNewUser(name, namesalon, phone, ulr, location);
+            AuthenticationModel addUser = new AuthenticationModel();
+            {
+                addUser.Name = name;
+                addUser.NameSalon = namesalon;
+                addUser.Phone = phone;
+                addUser.location = location;
+
+            }
+            await firebase.AddNewUser(addUser);
         }
 
 
         private async Task SignUp(string email, string password)
         {
 
-            try
+            if (password == ConfirmPassword)
             {
                 string ulr = await auth.SignUpWithEmailAndPassword(email, password);
-                Console.WriteLine(ulr);
-
-                if (null != ulr)
-                {
-                    AddUser(name, namesalon, phone, ulr, location);
-                    await Application.Current.MainPage.DisplayAlert("Successful", "Register User", "ok");
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
-
-
-                }
-                else if (ulr == null)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Failed", "Register User", "ok");
-                }
+                    if (null != ulr)
+                    {
+                        AddUser();
+                        await Application.Current.MainPage.DisplayAlert("Successful", "Register User", "ok");
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+                    }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("The Exceptions : " + ex);
+                await Application.Current.MainPage.DisplayAlert("Failed", "Confirm password is incorrect", "ok");
             }
-
         }
 
 

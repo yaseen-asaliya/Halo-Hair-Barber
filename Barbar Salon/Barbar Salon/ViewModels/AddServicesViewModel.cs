@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Barbar_Salon.Services;
 using System.Windows.Input;
-
+using Barbar_Salon.Models;
 
 namespace Barbar_Salon.ViewModels
 {
@@ -24,7 +24,7 @@ namespace Barbar_Salon.ViewModels
         public AddServicesViewModel()
         {
             fireBaseHaloHair = new HaloHairServices();
-            AddServicesCommand = new Command(async () => await AddServices(Service_Name, Time_Needed, Prices, Deseription));
+            AddServicesCommand = new Command(async () => await AddServices());
             BackPage = new Command(Back_Page);
 
         }
@@ -40,22 +40,29 @@ namespace Barbar_Salon.ViewModels
         Random rnd;
 
 
-        private async Task AddServices(string Service_Name, int Time_Neede, int Prices, string Deseription)
+        private async Task AddServices()
         {
             rnd = new Random();
             int id = rnd.Next(0, 1236963000);
-            if (Service_Name !=null && Time_Neede !=null&& Prices !=null && Deseription!=null)
+            if (Service_Name !=null && Time_Needed != null&& Prices !=null && Deseription!=null)
             {
-                await fireBaseHaloHair.AddService(Service_Name, Time_Neede, Prices, Deseription,id);
+                ServiceModel addServices = new ServiceModel();
+                {
+                    addServices.Service_Name = Service_Name;
+                    addServices.Time_Needed = Time_Needed;
+                    addServices.Prices = Prices;
+                    addServices.Deseription = Deseription;
+                    addServices.ID_Services = id;
+                }
+
+                await fireBaseHaloHair.AddService(addServices);
                 await Application.Current.MainPage.DisplayAlert("Successful", "Services Added ", "Ok");
                 await Application.Current.MainPage.Navigation.PopModalAsync();
-
-
 
             }
             else
 
-                await Application.Current.MainPage.DisplayAlert("Failed", "please fill all field to and services ", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Failed", "please fill all field to add services ", "Ok");
 
         }
 
