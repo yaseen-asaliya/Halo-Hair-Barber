@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.Components.ButtonReservationsComponent">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Button Text= "{TemplateBinding NameButton}"
+                    Command="{TemplateBinding CommandParameter}"
+                    TextColor="{TemplateBinding Text_Color}"
+                    FontSize="Micro" 
+                    FontFamily="Segoe UI"
+                    BackgroundColor="{TemplateBinding ColorButton}"
+                    CornerRadius="15" 
+                    Margin="1" 
+                    WidthRequest="70"
+                    HeightRequest="30"/>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>

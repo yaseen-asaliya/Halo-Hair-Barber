@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" xmlns:control="clr-namespace:Barbar_Salon.Views.Components"
+             x:Class="Barbar_Salon.Views.ReservationsPage"
+            Shell.NavBarIsVisible="False"
+             >
+
+    <ContentPage.BindingContext>
+        <viewmodels:ReservationsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="#F2F2F2" >
+            <control:NavigationComponent Titles="Reservations Page" isVisible="false">
+            </control:NavigationComponent>
+            <Frame Margin="25" >
+            <ScrollView>
+                    <ListView x:Name="MyReservations" HasUnevenRows="True"  ItemsSource="{Binding FilltedReservations}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Frame Margin="10" Padding="10" >
+                                <StackLayout Orientation="Horizontal" >
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Date:" FontAttributes="Bold"/>
+                                            <Label Text="{Binding DateSelected}" VerticalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Name Customer :" FontAttributes="Bold"/>
+                                            <Label Text="{Binding PersonName}" VerticalOptions="StartAndExpand"/>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Services :" FontAttributes="Bold"/>
+                                            <Label Text="{Binding ListOfService}" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Time :" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Time}" VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                                        <Button Text= "Delete"  Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference MyReservations}}" TextColor="#ffff"
+                                                        FontSize="Micro" 
+                                                        FontFamily="Segoe UI"
+                                                        BackgroundColor="#603D8F"
+                                                        CornerRadius="15"  Margin="1"  WidthRequest="70" HeightRequest="30"
+                                                        CommandParameter="{Binding .}"/>
+                                             
+
+                                                    </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </ScrollView>
+        </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

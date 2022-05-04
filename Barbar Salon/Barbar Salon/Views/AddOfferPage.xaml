@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components" xmlns:viewmodel="clr-namespace:Barbar_Salon.ViewModels"
+             x:Class="Barbar_Salon.Views.AddOfferPage">
+    <ContentPage.BindingContext>
+        <viewmodel:AddOfferViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationComponent Titles="Add Offer" CommandParameter="{Binding BackPage}">
+            </controls:NavigationComponent>
+            <StackLayout>
+                <Label Text="Select the Offer image that contains its details" Margin="20" FontSize="Small"/>
+                <Frame Padding="10" Margin="20,0,0,0">
+                    <StackLayout>
+                        <Button Margin="20"
+                                WidthRequest="207"
+                                HeightRequest="46"
+                                Text="Select Image"
+                                TextColor="#FFFFFF"
+                                FontAttributes="Bold"
+                                BackgroundColor="#603D8F"
+                                CornerRadius="20"
+                                Font="Segoe UI"
+                                FontSize="16"    
+                                Command="{Binding BtnPick}"/>
+
+                        <Image x:Name="ResultImage" Source="{Binding ImgSource}"/>
+                    </StackLayout>
+                </Frame>
+                <Button Margin="110"
+                WidthRequest="207"
+                HeightRequest="46"
+                Text="Add"
+                TextColor="#FFFFFF"
+                FontAttributes="Bold"
+                BackgroundColor="#603D8F"
+                CornerRadius="20"
+                Font="Segoe UI"
+                FontSize="16" 
+                Command="{Binding BtnStore}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
