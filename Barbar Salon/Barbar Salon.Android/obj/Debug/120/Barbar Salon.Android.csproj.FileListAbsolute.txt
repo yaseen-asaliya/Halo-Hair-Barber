@@ -1922,11 +1922,8 @@ C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\Barbar Salon.Android.csproj.AssemblyReference.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\stamp\_BuildLibraryImportsCache.stamp
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res.flag
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\53\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\84\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\89\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\90\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\95\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\R.txt
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\R.cs.flag
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\Barbar Salon.Android.csproj.CoreCompileInputs.cache
@@ -2526,30 +2523,20 @@ C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\bin\
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\bin\Debug\com.example.halohair-Signed.aab
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\bin\Debug\com.example.halohair-Signed.apk
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\bin\Debug\com.example.halohair-Signed.apk.idsig
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\64\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\70\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\71\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\83\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\85\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\100\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\101\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\105\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\107\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\109\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\110\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\111\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\112\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\113\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\114\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\115\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\117\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\118\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\119\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\120\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\121\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\126\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\127\jl\files.cache
-C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\130\jl\files.cache
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\bin\com.example.halohair.apk
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\bin\com.example.halohair.aab
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\bin\com.example.halohair.apks
@@ -4811,3 +4798,28 @@ C:\Users\MSI\Desktop\NewProject Mobile\Halo-Hair---barber\Barbar Salon\Barbar Sa
 C:\Users\MSI\Desktop\NewProject Mobile\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res\drawable\arrowleft.png
 C:\Users\MSI\Desktop\NewProject Mobile\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res\drawable\arrowright.png
 C:\Users\MSI\Desktop\NewProject Mobile\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res\drawable\profile.png
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\54\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\65\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\72\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\86\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\91\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\96\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\102\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\106\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\108\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\116\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\122\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\128\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\lp\131\jl\files.cache
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res\drawable\arrowleft.png
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res\drawable\arrowright.png
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\res\drawable\profile.png
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\Firebase.Storage.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\Plugin.Media.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\Plugin.Media.pdb
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\System.Collections.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\System.Diagnostics.Debug.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\System.IO.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\System.Runtime.Extensions.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\assets\System.Threading.Tasks.dll
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon.Android\obj\Debug\120\android\src\crc646957603ea1820544\MediaPickerActivity.java

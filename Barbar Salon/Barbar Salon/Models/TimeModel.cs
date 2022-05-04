@@ -7,7 +7,6 @@ namespace Barbar_Salon.Models
 {
     public class TimeModel
     {
-        public int Id { get; set; }
         public ObservableCollection<(string, bool)> Time { get; set; }
         public string AccessToken_Barbar { get; set; }
         public string Item1 { get; set; }

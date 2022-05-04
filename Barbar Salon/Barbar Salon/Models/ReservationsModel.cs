@@ -12,6 +12,7 @@ namespace Barbar_Salon.Models
         public string ListOfService { get; set; }
 
         public string Time { get; set; }
+        public int id { get; set; } 
 
         public bool Accept { get; set; }
 
