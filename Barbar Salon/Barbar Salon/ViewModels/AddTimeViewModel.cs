@@ -43,7 +43,7 @@ namespace Barbar_Salon.ViewModels
         public AddTimeViewModel()
         {
             fireBase = new HaloHairServices();
-            
+
             dateTime = DateTime.Now;
             Date = dateTime.ToString("dddd, dd MMMM yyyy");
             year = DateTime.Now.Year;
@@ -81,29 +81,27 @@ namespace Barbar_Salon.ViewModels
             day = previewDate.Day;
         }
 
+        Random rnd;
+
+
         private async void OnAddTimeTapped(object obj)
         {
-            if (StartTimeSelected.Equals("00:00:00"))
-            {
-                await Application.Current.MainPage.DisplayAlert("Faild", "Start time can not be empty" ,"Ok");
-                return;
-            }
-            if (EndTimeSelected.Equals("00:00:00"))
-            {
-                await Application.Current.MainPage.DisplayAlert("Faild", "End time can not be empty", "Ok");
-                return;
-            }
+            rnd = new Random();
+            int id = rnd.Next(0, 1236963000);
 
             ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
             {
                 DateSelected = Date,
+                Id = id,
                 StartTime = StartTimeSelected,
                 EndTime = EndTimeSelected,
             };
-                await fireBase.AddTime(scheduleTimeModel);
-                SearchTime();
-                await AddTIME();
-                await Application.Current.MainPage.DisplayAlert("Successful", $" Add the working time of the day {Date} \n From hour {StartTimeSelected} to hour {EndTimeSelected}", "Ok");
+            await fireBase.AddTime(scheduleTimeModel);
+            SearchTime();
+            await AddTIME(id);
+            await Application.Current.MainPage.DisplayAlert("Successful", $" Add the working time of the day {Date} \n From hour {StartTimeSelected} to hour {EndTimeSelected}", "Ok");
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+
         }
 
         struct time
@@ -115,7 +113,7 @@ namespace Barbar_Salon.ViewModels
         {
             time temp = new time();
             string[] tempTime = time.Split(':');
-            temp.hour =   Int32.Parse(tempTime[0]);
+            temp.hour = Int32.Parse(tempTime[0]);
             temp.minute = Int32.Parse(tempTime[1]);
             return temp;
         }
@@ -155,13 +153,10 @@ namespace Barbar_Salon.ViewModels
         public async void SearchTime()
         {
             ListTimes = new List<(string, bool)>();
-            Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            string sta = StartTimeSelected.ToString();
-            Console.WriteLine(sta);
+
             time startTime = getTimeSplitedAsInt(StartTimeSelected.ToString());
             time endTime = getTimeSplitedAsInt(EndTimeSelected.ToString());
-            Console.WriteLine("sssssssssssssssssssssssssssssssssssssssssssssss");
-            Console.WriteLine(StartTimeSelected.ToString());
+
             int start = (startTime.hour * 60) + startTime.minute;
             int end = (endTime.hour * 60) + endTime.minute;
             bool isBooked = false;
@@ -174,9 +169,9 @@ namespace Barbar_Salon.ViewModels
                 ListTimes.Add((tempTime, isBooked));
             }
         }
-        public async Task AddTIME()
+        public async Task AddTIME(int id)
         {
-            await fireBase.AddTimes1(ListTimes);
+            await fireBase.AddTimes(ListTimes, id);
         }
     }
 }

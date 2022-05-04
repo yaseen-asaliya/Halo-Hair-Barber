@@ -6,6 +6,7 @@ namespace Barbar_Salon.Models
 {
     public class ScheduleTimeModel
     {
+        public int Id { get; set; }
         public TimeSpan StartTime { get; set; } 
         public TimeSpan EndTime { get; set; }
         public string DateSelected { get; set; }
