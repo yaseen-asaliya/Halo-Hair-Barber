@@ -38,7 +38,6 @@ namespace Barbar_Salon.ViewModels
                 OnPropertyChanged();
             }
         }
-
         private static string accessToken { get; set; }
 
         private async Task AccessToken()
@@ -103,6 +102,10 @@ namespace Barbar_Salon.ViewModels
         public ICommand MyTime { get; }
         public ICommand MyService { get; }
         public ICommand AddOffer { get; }
+        public ICommand EditlocationCommand { get; }
+        public ICommand EditPhoneCommand { get; }
+        public ICommand EditNameCommand { get; }
+        public ICommand EditNameSalonCommand { get; }
         public ProfileViewModel()
         {
             AccessToken();
@@ -110,7 +113,7 @@ namespace Barbar_Salon.ViewModels
             Myprofile = new ObservableCollection<ProfilePageModel>();
             Profile = new ObservableCollection<ProfilePageModel>();
             Profile = firebase.ProfilePage();
-            Profile.CollectionChanged += serviceschanged;
+            Profile.CollectionChanged += Servicechanged;
             LogOut = new Command(PerformLogOut);
             BackPage = new Command(Back_Page);
             TapLanguage = new Command(Tap_Language);
@@ -120,6 +123,10 @@ namespace Barbar_Salon.ViewModels
             MyService = new Command(My_Service);
             AddOffer = new Command(Add_Offer);
             MyTime = new Command(My_Time);
+            EditNameCommand = new Command(onEditNameCommand);
+            EditlocationCommand = new Command(onEditLocationCommand);
+            EditNameSalonCommand = new Command(onEditNameSalonCommand);
+            EditPhoneCommand = new Command(onEditPhoneCommand);
             Language = "English";
             IsVisibleAbout = true;
             IsVisibleSettings = false;
@@ -146,6 +153,16 @@ namespace Barbar_Salon.ViewModels
             await Application.Current.MainPage.Navigation.PushModalAsync(new AddTimePage());
         }
 
+        private async void Tap_Language(object obj)
+        {
+            Action = await Application.Current.MainPage.DisplayActionSheet("Select Language", "Cancel", null, "English", "Arabic");
+            if (Action == "Cancel")
+            {
+                return;
+            }
+            Language = Action;
+        }
+
         private void Settings_button(object obj)
         {
             IsVisibleAbout = false;
@@ -158,36 +175,20 @@ namespace Barbar_Salon.ViewModels
             IsVisibleAbout = true;
         }
 
-        private async void Tap_Language(object obj)
-        {
-             Action = await Application.Current.MainPage.DisplayActionSheet("Select Language","Cancel", null, "English", "Arabic");
-            if (Action == "Cancel")
-            {
-                return;
-            }
-            Language = Action;
-        }
-
-        private void serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void Servicechanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 ProfilePageModel profilePageModel = e.NewItems[0] as ProfilePageModel;
-                Console.WriteLine(e.NewItems[0]);
-                Console.WriteLine(e.NewItems[0].GetType());
                 if (profilePageModel.AccessToken_Barbar == accessToken)
                 {
 
                     Myprofile.Add(profilePageModel);
                     SecureStorage.SetAsync("NameSoaln", profilePageModel.NameSalon.ToString());
                     SecureStorage.SetAsync("location", profilePageModel.location.ToString());
-
-
                 }
             }
-
         }
-
         private void PerformLogOut()
         {
             var auth = DependencyService.Resolve<IAuth>();
@@ -201,6 +202,68 @@ namespace Barbar_Salon.ViewModels
 
         }
 
+        private async void onEditNameCommand(object obj)
+        {
 
+            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Name", "New Name");
+            if (result != null)
+            {
+                Myprofile[0].Name = result;
+                await firebase.UpdateUser(Myprofile[0]);
+            }
+        }
+
+        private async void onEditLocationCommand(object sender)
+        {
+            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Address", "New Address");
+            if (result != null)
+            {
+                ProfilePageModel profilePage = new ProfilePageModel();
+                {
+                    profilePage.AccessToken_Barbar = Myprofile[0].AccessToken_Barbar;
+                    profilePage.NameSalon = Myprofile[0].NameSalon;
+                    profilePage.Phone = Myprofile[0].Phone;
+                    profilePage.location = result;
+                    profilePage.Name = Myprofile[0].Name;
+
+                }
+            }
+        }
+        private async void onEditPhoneCommand(object sender)
+        {
+            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Phone", "New Phone");
+            if (result != null)
+            {
+                ProfilePageModel profilePage = new ProfilePageModel();
+                {
+                    profilePage.AccessToken_Barbar = Myprofile[0].AccessToken_Barbar;
+                    profilePage.NameSalon = Myprofile[0].NameSalon;
+                    profilePage.Phone = result;
+                    profilePage.location = Myprofile[0].location;
+                    profilePage.Name = Myprofile[0].Name;
+
+                }
+               await firebase.UpdateUser(profilePage);
+            }
+
+        }
+        private async void onEditNameSalonCommand(object sender)
+        {
+            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Name Salon", "New Name Salon");
+            if (result != null)
+            {
+                ProfilePageModel profilePage = new ProfilePageModel();
+                {
+                    profilePage.AccessToken_Barbar = Myprofile[0].AccessToken_Barbar;
+                    profilePage.NameSalon = result;
+                    profilePage.Phone = Myprofile[0].Phone;
+                    profilePage.location = Myprofile[0].location;
+                    profilePage.Name = Myprofile[0].Name;
+
+                }
+               await firebase.UpdateUser(profilePage);
+            }
+
+        }
     }
 }

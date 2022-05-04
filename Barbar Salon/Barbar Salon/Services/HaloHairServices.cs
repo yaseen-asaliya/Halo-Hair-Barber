@@ -73,7 +73,7 @@ namespace Barbar_Salon.Services
                 }
 
                 await firebaseClient.Child("Reservations").PostAsync(reservationsModel);
-                Update(control.id, control.Time, true);
+               await Update(control.id, control.Time, true);
 
                 var todelete = (await firebaseClient.Child("ReservationsRequest").OnceAsync<ReservationsRequestModel>())
                  .FirstOrDefault(item => item.Object.ID_Reservations == control.ID_Reservations);
@@ -85,8 +85,6 @@ namespace Barbar_Salon.Services
                 Console.WriteLine(ex);
             }
         }
-
-
 
 
         public async Task RefusedReservations(ReservationsRequestModel control)
@@ -101,7 +99,7 @@ namespace Barbar_Salon.Services
         {
             var todelete = (await firebaseClient.Child("Reservations").OnceAsync<ReservationsModel>())
                 .FirstOrDefault(item => item.Object.ID_Reservations == control.ID_Reservations);
-                Update(control.id, control.Time, false);
+               await Update(control.id, control.Time, false);
 
             await firebaseClient.Child("Reservations").Child(todelete.Key).DeleteAsync();
         }
@@ -167,9 +165,6 @@ namespace Barbar_Salon.Services
             }
         }
       
-
-
-       
         public async Task DeleteService(MyServicesModel myServices)
         {
            
@@ -240,8 +235,6 @@ namespace Barbar_Salon.Services
 
         }
 
-       
-
         public ObservableCollection<ProfilePageModel> ProfilePage()
         {
             var Users_Customer = firebaseClient.Child("Users").AsObservable<ProfilePageModel>().AsObservableCollection();
@@ -276,6 +269,24 @@ namespace Barbar_Salon.Services
 
         }
 
+        public async Task UpdateUser(ProfilePageModel profilePageModel)
+        {
+
+            var todelete = (await firebaseClient.Child("Users").OnceAsync<ProfilePageModel>())
+                   .FirstOrDefault(item => item.Object.AccessToken_Barbar == accessToken);
+            try
+            {
+
+                await firebaseClient
+                     .Child($"Users")
+                     .Child(todelete.Key)
+                     .PutAsync(profilePageModel);
+            }
+            catch (Exception ex)
+            {
+                await Xamarin.Forms.Shell.Current.DisplayAlert("Failed", ex.Message, "ok");
+            }
+        }
 
         public async Task DeleteMyTime(ScheduleTimeModel control)
         {
