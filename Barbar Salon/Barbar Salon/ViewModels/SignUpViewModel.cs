@@ -42,7 +42,7 @@ namespace Barbar_Salon.ViewModels
 
         }
        
-        private async void AddUser()
+        private async void AddUser(string accesstoken)
         {
             AuthenticationModel addUser = new AuthenticationModel();
             {
@@ -50,6 +50,7 @@ namespace Barbar_Salon.ViewModels
                 addUser.NameSalon = namesalon;
                 addUser.Phone = phone;
                 addUser.location = location;
+                addUser.AccessToken_Barbar = accesstoken;
 
             }
             await firebase.AddNewUser(addUser);
@@ -61,10 +62,10 @@ namespace Barbar_Salon.ViewModels
 
             if (password == ConfirmPassword)
             {
-                string ulr = await auth.SignUpWithEmailAndPassword(email, password);
-                    if (null != ulr)
+                string accesstoken = await auth.SignUpWithEmailAndPassword(email, password);
+                    if (null != accesstoken)
                     {
-                        AddUser();
+                        AddUser(accesstoken);
                         await Application.Current.MainPage.DisplayAlert("Successful", "Register User", "ok");
                         await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
                     }
