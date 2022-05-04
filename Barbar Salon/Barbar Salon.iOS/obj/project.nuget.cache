@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RC44qoDYMJTMrbU6ZuyqQqpRfrtMrTyLKpEKDRJdXRTOF4F4Ut3n+30rQFRfeKirCgEk6c/fJ2K5rIJ0awKUPg==",
+  "dgSpecHash": "9jP5zMB6m9s5txD3GZ5WwMDUSzfPs/qHjw2MCxa69MmDb7mSO6DSWN0y2dFcBovqpmS8zctLhDHII5fKB3k3rw==",
   "success": true,
   "projectFilePath": "C:\\Users\\abood\\Desktop\\Halo-Hair---barber\\Barbar Salon\\Barbar Salon.iOS\\Barbar Salon.iOS.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Users\\abood\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\abood\\.nuget\\packages\\xam.plugin.media\\5.0.1\\xam.plugin.media.5.0.1.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\xamarin.build.download\\0.11.0\\xamarin.build.download.0.11.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
     "C:\\Users\\abood\\.nuget\\packages\\xamarin.firebase.ios.auth\\8.10.0\\xamarin.firebase.ios.auth.8.10.0.nupkg.sha512",

@@ -242,3 +242,5 @@ C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\ne
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.dll
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\ref\Barbar Salon.dll
 C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Barbar Salon.pdb
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\Components\EntryNumberComponent.xaml.g.cs
+C:\Users\abood\Desktop\Halo-Hair---barber\Barbar Salon\Barbar Salon\obj\Debug\netstandard2.0\Views\MyTimePage.xaml.g.cs
