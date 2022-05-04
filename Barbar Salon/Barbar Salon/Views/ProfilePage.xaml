@@ -5,7 +5,6 @@
              xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
              Shell.NavBarIsVisible="False"
              x:Class="Barbar_Salon.Views.ProfilePage">
-
     <ContentPage.BindingContext>
         <viewmodels:ProfileViewModel/>
     </ContentPage.BindingContext>
@@ -32,22 +31,22 @@
             <StackLayout  Margin="60,15,50,15">
                 <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
                     <StackLayout Orientation="Vertical" x:Name="Button1">
-                        <Button x:Name="aboutbutton" Text="About" Clicked="aboutbutton_Clicked" BackgroundColor="White"
+                        <Button x:Name="aboutbutton" Text="About" Command="{Binding Aboutbutton}" BackgroundColor="White"
                                     TextColor="Black" BorderColor="White"
                                     Padding="0" HeightRequest="20" WidthRequest="70" />
-                        <BoxView x:Name="BoxAbout" Color="#603D8F" HeightRequest="3" WidthRequest="90" HorizontalOptions="CenterAndExpand" IsVisible="True" />
+                        <BoxView x:Name="BoxAbout" Color="#603D8F" HeightRequest="3" WidthRequest="90" HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsVisibleAbout}" />
                     </StackLayout  >
                     <StackLayout Orientation="Vertical" Margin="80,0,50,0" >
-                        <Button x:Name="settingsbutton" Text="SETTINGS" Clicked="settingsbutton_Clicked" BackgroundColor="White"
+                        <Button x:Name="settingsbutton" Text="SETTINGS" Command="{Binding Settingsbutton}" BackgroundColor="White"
                                     TextColor="Black" BorderColor="White" 
                                     Padding="0" HeightRequest="20" WidthRequest="70"  />
                         <BoxView x:Name="BoxSettings" Color="#603D8F" HeightRequest="3" WidthRequest="90" 
-                                     HorizontalOptions="CenterAndExpand" IsVisible="False" />
+                                     HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsVisibleSettings}" />
                     </StackLayout>
                 </StackLayout>
 
-                <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,10,0,0" IsVisible="True" HeightRequest="350"  >
-                    <CollectionView x:Name="MyServices"   ItemsSource="{Binding Myprofile}">
+                <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,10,0,0" IsVisible="{Binding IsVisibleAbout}" HeightRequest="350"  >
+                    <CollectionView x:Name="MyServices" ItemsSource="{Binding Myprofile}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <ScrollView>
@@ -135,19 +134,19 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout >
-                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="false" HeightRequest="400">
+                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="{Binding IsVisibleSettings}" HeightRequest="400">
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                            <TapGestureRecognizer Command="{Binding MyTime}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
-                            <Label x:Name="labe" Text="Add Time" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
+                            <Label x:Name="labe" Text="My Time" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
                             <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
                         </StackLayout>
                     </Frame>
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
+                            <TapGestureRecognizer Command="{Binding MyService}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="My Service" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
@@ -156,7 +155,7 @@
                     </Frame>
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" />
+                            <TapGestureRecognizer Command="{Binding AddOffer}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Add Offer" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
@@ -164,25 +163,18 @@
                         </StackLayout>
                     </Frame>
                     <Frame Padding="12">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapLanguage}" />
+                        </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
-                            <Label Text="Language" FontSize="Medium"/>
-                            <Frame Padding="0" HorizontalOptions="EndAndExpand" HeightRequest="30">
-                                <StackLayout Orientation="Horizontal" >
-                                    <Button Text="AR" BackgroundColor="Gray" FontSize="Micro" TextColor="Black" WidthRequest="40" />
-                                    <Button Text="EN" BackgroundColor="White" FontSize="Micro" TextColor="Black"  WidthRequest="40"/>
-                                </StackLayout>
-                            </Frame>
+                            <Label Text="Language :" FontSize="Medium"/>
+                            <Label Text="{Binding Language}" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
+                            <Image Source="arrowdown.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
                         </StackLayout>
                     </Frame>
                     <Frame Padding="12">
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Notification" FontSize="Medium"/>
-                            <Switch HorizontalOptions="EndAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                    <Frame Padding="12">
-                        <StackLayout Orientation="Horizontal" >
-                            <Label Text="Alarm" FontSize="Medium"/>
                             <Switch HorizontalOptions="EndAndExpand"/>
                         </StackLayout>
                     </Frame>

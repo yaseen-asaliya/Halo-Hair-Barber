@@ -38,7 +38,6 @@ namespace Barbar_Salon.ViewModels
             fireBase = new HaloHairServices();
             UpDateDataServices = new Command(async () => await UpdateServices());
             BackPage = new Command(Back_Page);
-
         }
 
         private async Task UpdateServices()

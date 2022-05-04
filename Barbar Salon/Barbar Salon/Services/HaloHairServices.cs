@@ -163,32 +163,22 @@ namespace Barbar_Salon.Services
             await firebaseClient.Child("Users").PostAsync(addUser);
 
         }
-        
+
         public async Task AddTime(ScheduleTimeModel scheduleTimeModel)
         {
             scheduleTimeModel.AccessToken_Barbar = accessToken;
             scheduleTimeModel.NameSalon = nameSoaln;
             scheduleTimeModel.location = location;
             await firebaseClient.Child("ScheduleTime").PostAsync(scheduleTimeModel);
-            await Xamarin.Forms.Shell.Current.DisplayAlert("Successful", "Schedule Time", "Ok");
         }
-
-        public ObservableCollection<MyServicesModel> getServices()
-        {
-        
-            var data =  firebaseClient.Child("Services").AsObservable<MyServicesModel>().AsObservableCollection();
-
-            return data;
-           
-        }
-        public async Task AddTimes1(List<(string, bool)> listTimes)
+        public async Task AddTimes(List<(string, bool)> listTimes, int Id)
         {
             ScheduleTimeModel timeModel = new ScheduleTimeModel();
             {
                 timeModel.Time = listTimes;
+                timeModel.Id = Id;
                 timeModel.AccessToken_Barbar = accessToken;
             }
-
 
 
             await firebaseClient.Child("TIME").PostAsync(timeModel);
@@ -211,6 +201,14 @@ namespace Barbar_Salon.Services
         }
 
 
+        public ObservableCollection<MyServicesModel> getServices()
+        {
+
+            var data = firebaseClient.Child("Services").AsObservable<MyServicesModel>().AsObservableCollection();
+
+            return data;
+
+        }
 
         public async Task DeleteReservations(ReservationsModel control)
         {
@@ -235,6 +233,35 @@ namespace Barbar_Salon.Services
 
         {
             await firebaseClient.Child("Offer").PostAsync(offerModel);
+        }
+
+        public ObservableCollection<ScheduleTimeModel> GeMyTime()
+        {
+
+            try
+            {
+                var MyTime = firebaseClient.Child("ScheduleTime").AsObservable<ScheduleTimeModel>().AsObservableCollection();
+                return MyTime;
+            }
+            catch (Exception ex)
+            {
+                Xamarin.Forms.Shell.Current.DisplayAlert("Failed", ex.Message, "Ok");
+                return null;
+            }
+
+        }
+
+
+        public async Task DeleteMyTime(ScheduleTimeModel control)
+        {
+            var todelete = (await firebaseClient.Child("ScheduleTime").OnceAsync<ScheduleTimeModel>())
+               .FirstOrDefault(item => item.Object.Id == control.Id && item.Object.AccessToken_Barbar == accessToken);
+            await firebaseClient.Child("ScheduleTime").Child(todelete.Key).DeleteAsync();
+
+            var delete = (await firebaseClient.Child("TIME").OnceAsync<TimeModel>())
+             .FirstOrDefault(item => item.Object.Id == control.Id && item.Object.AccessToken_Barbar == accessToken);
+            await firebaseClient.Child("TIME").Child(delete.Key).DeleteAsync();
+
         }
 
     }
