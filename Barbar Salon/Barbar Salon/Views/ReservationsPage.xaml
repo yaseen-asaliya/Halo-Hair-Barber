@@ -15,53 +15,50 @@
             </control:NavigationComponent>
             <Frame Margin="25" >
             <ScrollView>
-                    <ListView x:Name="MyReservations" HasUnevenRows="True"  ItemsSource="{Binding FilltedReservations}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Frame Margin="10" Padding="10" >
-                                <StackLayout Orientation="Horizontal" >
-                                    <StackLayout Orientation="Vertical">
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Date:" FontAttributes="Bold"/>
-                                            <Label Text="{Binding DateSelected}" VerticalOptions="StartAndExpand"/>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Name Customer :" FontAttributes="Bold"/>
-                                            <Label Text="{Binding CustomerName}" VerticalOptions="StartAndExpand"/>
-                                        </StackLayout>
+                    <CollectionView x:Name="MyReservations"  ItemsSource="{Binding FilltedReservations}">
+            <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame Margin="10" Padding="10" >
+                                        <StackLayout Orientation="Horizontal" >
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Date:" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding DateSelected}" VerticalOptions="StartAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Name Customer :" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding CustomerName}" VerticalOptions="StartAndExpand"/>
+                                                </StackLayout>
 
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Services :" FontAttributes="Bold"/>
-                                            <Label Text="{Binding ListOfService}" VerticalOptions="CenterAndExpand"/>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Time :" FontAttributes="Bold"/>
-                                            <Label Text="{Binding TimeSelected}" VerticalOptions="CenterAndExpand"/>
-                                        </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Services :" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding ListOfService}" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Time :" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding TimeSelected}" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
 
-                                    </StackLayout>
-                                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
-                                        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                                                        <Button Text= "Delete"  Command="{Binding Path=BindingContext.DeleteButton,Source={x:Reference MyReservations}}" TextColor="#ffff"
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                                    <Button Text= "Delete"  Command="{Binding Path=BindingContext.DeleteButton,Source={x:Reference MyReservations}}" TextColor="#ffff"
                                                         FontSize="Micro" 
                                                         FontFamily="Segoe UI"
                                                         BackgroundColor="#603D8F"
                                                         CornerRadius="15"  Margin="1"  WidthRequest="70" HeightRequest="30"
                                                         CommandParameter="{Binding .}"/>
-                                             
 
-                                                    </StackLayout>
-                                    </StackLayout>
+
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
                                 </StackLayout>
-                            </Frame>
-                        </StackLayout>
-                    </ViewCell>
-
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
             </ScrollView>
         </Frame>
         </StackLayout>

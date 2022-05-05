@@ -25,13 +25,13 @@ namespace Barbar_Salon.ViewModels
         public AddServicesViewModel()
         {
             _firebaseHaloHair = new HaloHairServices();
-            AddServicesCommand = new Command(async () => await addServices());
-            BackButton = new Command(backPage);
+            AddServicesCommand = new Command(async () => await AddServices());
+            BackButton = new Command(BackPage);
 
         }
 
 
-        private async Task addServices()
+        private async Task AddServices()
         {
             _random = new Random();
             int id = _random.Next(0, 1236963000);
@@ -54,7 +54,7 @@ namespace Barbar_Salon.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Failed", "please fill all field to add services ", "Ok");
             }
         }
-        private async void backPage(object obj)
+        private async void BackPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }

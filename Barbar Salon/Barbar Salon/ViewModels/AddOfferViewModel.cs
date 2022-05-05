@@ -15,7 +15,20 @@ namespace Barbar_Salon.ViewModels
 {
     public class AddOfferViewModel: BaseViewModel
     {
-       public ImageSource ImgSource { get; set; }
+        private ImageSource _imgSource;
+        public ImageSource ImgSource 
+        {
+            get
+            {
+                return _imgSource;
+            }
+          set
+            {
+                _imgSource = value;
+                OnPropertyChanged();
+            }
+                
+         }
         public ICommand PickButton { get; }
         public ICommand StoredButton { get; }
         public ICommand BackButton { get; }
@@ -30,8 +43,8 @@ namespace Barbar_Salon.ViewModels
             _haloHairSercvice = new HaloHairServices();
             _offerModel = new OfferModel();
             PickButton = new Command(onPickTappedAsync);
-            StoredButton = new Command(onStoreTappedAsync);
-            BackButton = new Command(backPage);
+            StoredButton = new Command(OnStoreTappedAsync);
+            BackButton = new Command(BackPage);
         }
         private async  void onPickTappedAsync(object obj)
         {
@@ -55,7 +68,7 @@ namespace Barbar_Salon.ViewModels
                 Debug.WriteLine(ex.Message);
             }
         }
-        private async void onStoreTappedAsync(object obj)
+        private async void OnStoreTappedAsync(object obj)
         {
             if (_file == null)
             {
@@ -73,7 +86,7 @@ namespace Barbar_Salon.ViewModels
                 Console.WriteLine(ex.Message);
             }
         }
-        private async void backPage(object obj)
+        private async void BackPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }

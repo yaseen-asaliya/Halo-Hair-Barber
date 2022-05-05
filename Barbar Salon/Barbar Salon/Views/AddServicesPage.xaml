@@ -17,7 +17,7 @@
                     <StackLayout  >
                         <Label Margin="15,0,0,0" Text="Services Name "></Label>
                         <controls:EntryComponent  Text="{Binding ServiceName}"  />
-                        <Label Margin="15,0,0,0" Text="Time  Min"></Label>
+                        <Label Margin="15,0,0,0" Text="Time  min"></Label>
                         <controls:EntryNumberComponent  Text="{Binding TimeNeed} "/>
                         <Label Margin="15,0,0,0" Text="Prices  ₪"></Label>
                         <controls:EntryNumberComponent  Text="{Binding Price}"/>

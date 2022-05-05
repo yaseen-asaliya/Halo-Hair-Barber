@@ -256,13 +256,13 @@ namespace Barbar_Salon.Services
         public async Task UpdateUser(ProfilePageModel profilePageModel)
         {
 
-            var toUpdateBarbar = (await _firebaseClient.Child("Barbers").OnceAsync<ProfilePageModel>())
+            var toUpdateBarbar = (await _firebaseClient.Child("BarBers").OnceAsync<ProfilePageModel>())
                    .FirstOrDefault(item => item.Object.BarberAccessToken == _accessToken);
             try
             {
 
                 await _firebaseClient
-                     .Child("Barbers")
+                     .Child("BarBers")
                      .Child(toUpdateBarbar.Key)
                      .PutAsync(profilePageModel);
             }
