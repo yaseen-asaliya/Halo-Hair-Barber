@@ -17,7 +17,7 @@ namespace Barbar_Salon.ViewModels
         public TimeSpan StartTimeSelected { set; get; }
         public TimeSpan EndTimeSelected { get; set; }
         public ICommand AddTimeCommand { get; }
-        private DateTime dateTime { set; get; }
+
         public ICommand BackPage { get; }
         private string date;
         public string Date
@@ -33,9 +33,7 @@ namespace Barbar_Salon.ViewModels
             }
         }
 
-        private int year, month, day;
-        public ICommand IncreaseDateCommand { get; }
-        public ICommand DecreaseDateCommand { get; }
+
         public ICommand AddTime1Command { get; }
 
         private HaloHairServices fireBase;
@@ -43,15 +41,6 @@ namespace Barbar_Salon.ViewModels
         public AddTimeViewModel()
         {
             fireBase = new HaloHairServices();
-
-            dateTime = DateTime.Now;
-            Date = dateTime.ToString("dddd, dd MMMM yyyy");
-            year = DateTime.Now.Year;
-            month = DateTime.Now.Month;
-            day = DateTime.Now.Day;
-
-            IncreaseDateCommand = new Command(OnIncreaseTapped);
-            DecreaseDateCommand = new Command(OnDecreaseTapped);
             AddTimeCommand = new Command(OnAddTimeTapped);
             BackPage = new Command(Back_Page);
         }
@@ -61,25 +50,7 @@ namespace Barbar_Salon.ViewModels
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }
 
-        private void OnDecreaseTapped(object obj)
-        {
-            DateTime nowDate = new DateTime(year, month, day);
-            var previewDate = nowDate.AddDays(-1);
-            Date = previewDate.ToString("dddd, dd MMMM yyyy");
-            year = previewDate.Year;
-            month = previewDate.Month;
-            day = previewDate.Day;
-        }
 
-        private void OnIncreaseTapped(object obj)
-        {
-            DateTime nowDate = new DateTime(year, month, day);
-            var previewDate = nowDate.AddDays(1);
-            Date = previewDate.ToString("dddd, dd MMMM yyyy");
-            year = previewDate.Year;
-            month = previewDate.Month;
-            day = previewDate.Day;
-        }
 
         Random rnd;
 
@@ -91,7 +62,7 @@ namespace Barbar_Salon.ViewModels
 
             ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
             {
-                DateSelected = Date,
+
                 Id = id,
                 StartTime = StartTimeSelected,
                 EndTime = EndTimeSelected,

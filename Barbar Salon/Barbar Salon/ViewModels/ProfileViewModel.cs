@@ -182,7 +182,7 @@ namespace Barbar_Salon.ViewModels
                 ProfilePageModel profilePageModel = e.NewItems[0] as ProfilePageModel;
                 if (profilePageModel.AccessToken_Barbar == accessToken)
                 {
-
+                    Myprofile.Remove(profilePageModel);
                     Myprofile.Add(profilePageModel);
                     SecureStorage.SetAsync("NameSoaln", profilePageModel.NameSalon.ToString());
                     SecureStorage.SetAsync("location", profilePageModel.location.ToString());
@@ -204,7 +204,6 @@ namespace Barbar_Salon.ViewModels
 
         private async void onEditNameCommand(object obj)
         {
-
             string result = await App.Current.MainPage.DisplayPromptAsync("Edit Name", "New Name");
             if (result != null)
             {
@@ -218,15 +217,8 @@ namespace Barbar_Salon.ViewModels
             string result = await App.Current.MainPage.DisplayPromptAsync("Edit Address", "New Address");
             if (result != null)
             {
-                ProfilePageModel profilePage = new ProfilePageModel();
-                {
-                    profilePage.AccessToken_Barbar = Myprofile[0].AccessToken_Barbar;
-                    profilePage.NameSalon = Myprofile[0].NameSalon;
-                    profilePage.Phone = Myprofile[0].Phone;
-                    profilePage.location = result;
-                    profilePage.Name = Myprofile[0].Name;
-
-                }
+                Myprofile[0].location = result;
+                await firebase.UpdateUser(Myprofile[0]);
             }
         }
         private async void onEditPhoneCommand(object sender)
@@ -234,16 +226,15 @@ namespace Barbar_Salon.ViewModels
             string result = await App.Current.MainPage.DisplayPromptAsync("Edit Phone", "New Phone");
             if (result != null)
             {
-                ProfilePageModel profilePage = new ProfilePageModel();
+                if (result.Length <= 10)
                 {
-                    profilePage.AccessToken_Barbar = Myprofile[0].AccessToken_Barbar;
-                    profilePage.NameSalon = Myprofile[0].NameSalon;
-                    profilePage.Phone = result;
-                    profilePage.location = Myprofile[0].location;
-                    profilePage.Name = Myprofile[0].Name;
-
+                    Myprofile[0].Phone = result;
+                    await firebase.UpdateUser(Myprofile[0]);
                 }
-               await firebase.UpdateUser(profilePage);
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Faild", "The phone number invalid", "OK");
+                }
             }
 
         }
@@ -252,16 +243,8 @@ namespace Barbar_Salon.ViewModels
             string result = await App.Current.MainPage.DisplayPromptAsync("Edit Name Salon", "New Name Salon");
             if (result != null)
             {
-                ProfilePageModel profilePage = new ProfilePageModel();
-                {
-                    profilePage.AccessToken_Barbar = Myprofile[0].AccessToken_Barbar;
-                    profilePage.NameSalon = result;
-                    profilePage.Phone = Myprofile[0].Phone;
-                    profilePage.location = Myprofile[0].location;
-                    profilePage.Name = Myprofile[0].Name;
-
-                }
-               await firebase.UpdateUser(profilePage);
+                Myprofile[0].NameSalon = result;
+                await firebase.UpdateUser(Myprofile[0]);
             }
 
         }

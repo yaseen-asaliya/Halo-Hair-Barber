@@ -86,7 +86,7 @@ namespace Barbar_Salon.ViewModels
         public ICommand BackPage { get; }
         public ICommand PageAddTime { get; }
 
-
+        private int count = 0;
         private void serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
@@ -97,14 +97,16 @@ namespace Barbar_Salon.ViewModels
                 {
 
                     FilltedMyTimes.Add(mytime);
+                    count = 1;
                 }
             }
             else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
-                ScheduleTimeModel services = e.OldItems[0] as ScheduleTimeModel;
+                ScheduleTimeModel Time = e.OldItems[0] as ScheduleTimeModel;
 
 
-                FilltedMyTimes.Remove(services);
+                FilltedMyTimes.Remove(Time);
+                count = 0;
 
             }
         }
@@ -127,7 +129,15 @@ namespace Barbar_Salon.ViewModels
         }
         private async void addTimePage(object obj)
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new AddTimePage());
+            if (count == 0)
+            {
+                await Application.Current.MainPage.Navigation.PushModalAsync(new AddTimePage());
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Failed to Add New Time", "Please delete the old time to add a new time", "Ok");
+            }
+
         }
 
 

@@ -13,17 +13,7 @@
             <StackLayout >
                 <ScrollView>
                     <StackLayout>
-                        <StackLayout Orientation="Horizontal" Padding="20" Margin="20">
-                            <ImageButton Source="arrowleft.png"
-                                         HorizontalOptions="StartAndExpand"
-                                         Command="{Binding DecreaseDateCommand}"/>
-                            <Label Text="{Binding Date}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="Medium" TextColor="Black"/>
-                            <ImageButton
-                                         Source="arrowright.png"
-                                         HorizontalOptions="EndAndExpand"
-                                         Command="{Binding IncreaseDateCommand}"
-                                         IsEnabled="True"/>
-                        </StackLayout>
+
                         <StackLayout>
                             <StackLayout>
                                 <Label Text="Select the working time for the specified day " FontSize="Small" TextColor="Black" Margin="16,0,0,0"/>
