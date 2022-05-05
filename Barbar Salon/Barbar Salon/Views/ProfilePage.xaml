@@ -33,13 +33,13 @@
                     <StackLayout Orientation="Vertical" x:Name="Button1">
                         <Button x:Name="aboutbutton" Text="About" Command="{Binding Aboutbutton}" BackgroundColor="White"
                                     TextColor="Black" BorderColor="White"
-                                    Padding="0" HeightRequest="20" WidthRequest="70" />
+                                    Padding="0" HeightRequest="25" WidthRequest="70" />
                         <BoxView x:Name="BoxAbout" Color="#603D8F" HeightRequest="3" WidthRequest="90" HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsVisibleAbout}" />
                     </StackLayout  >
                     <StackLayout Orientation="Vertical" Margin="80,0,50,0" >
                         <Button x:Name="settingsbutton" Text="SETTINGS" Command="{Binding Settingsbutton}" BackgroundColor="White"
                                     TextColor="Black" BorderColor="White" 
-                                    Padding="0" HeightRequest="20" WidthRequest="70"  />
+                                    Padding="0" HeightRequest="25" WidthRequest="70"  />
                         <BoxView x:Name="BoxSettings" Color="#603D8F" HeightRequest="3" WidthRequest="90" 
                                      HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsVisibleSettings}" />
                     </StackLayout>

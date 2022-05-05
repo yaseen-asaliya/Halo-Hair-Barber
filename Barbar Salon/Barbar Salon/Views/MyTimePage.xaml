@@ -21,10 +21,6 @@
                                         <StackLayout Orientation="Horizontal" >
                                             <StackLayout Orientation="Vertical">
                                                 <StackLayout Orientation="Horizontal">
-                                                    <Label Text="Date  :" FontAttributes="Bold"/>
-                                                    <Label Text="{Binding DateSelected}" VerticalOptions="StartAndExpand"/>
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal">
                                                     <Label Text="Strar Time :" FontAttributes="Bold"/>
                                                     <Label Text="{Binding StartTime}" VerticalOptions="StartAndExpand"/>
                                                 </StackLayout>
