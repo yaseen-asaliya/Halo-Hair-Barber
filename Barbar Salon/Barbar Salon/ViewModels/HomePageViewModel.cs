@@ -14,44 +14,48 @@ namespace Barbar_Salon.ViewModels
 {
     public class HomePageViewModel:BaseViewModel
     {
-        HaloHairServices firebase;
+        private HaloHairServices _firebase;
+        public ICommand AcceptButton { get; }
+        public ICommand RefusedButton { get; }
+        private static string _accessToken { get; set; }
 
-        private ObservableCollection<ReservationsRequestModel> filltedReservationsRequest;
+
+        private ObservableCollection<ReservationsRequestModel> _filltedReservationsRequest;
+
+        private ObservableCollection<ReservationsRequestModel> _reservationsRequest;
         public ObservableCollection<ReservationsRequestModel> FilltedReservationsRequest
         {
             get
             {
-                return filltedReservationsRequest;
+                return _filltedReservationsRequest;
             }
             set
             {
-                filltedReservationsRequest = value;
+                _filltedReservationsRequest = value;
                 OnPropertyChanged();
             }
         }
 
-        private ObservableCollection<ReservationsRequestModel> reservationsRequest;
+
 
         public ObservableCollection<ReservationsRequestModel> ReservationsRequest
         {
-            get { return reservationsRequest; }
+            get { return _reservationsRequest; }
             set
             {
-                reservationsRequest = value;
+                _reservationsRequest = value;
                 OnPropertyChanged();
 
             }
         }
 
 
-        private static string accessToken { get; set; }
-
-        private async Task AccessToken()
+   
+        private async void AccessToken()
         {
             try
             {
-                var oauthToken = await SecureStorage.GetAsync("oauth_token");
-                accessToken = oauthToken;
+                _accessToken = await SecureStorage.GetAsync("oauth_token");
             }
             catch (Exception ex)
             {
@@ -62,74 +66,46 @@ namespace Barbar_Salon.ViewModels
         public HomePageViewModel()
         {
             AccessToken();
-            firebase = new HaloHairServices();
+            _firebase = new HaloHairServices();
             ReservationsRequest = new ObservableCollection<ReservationsRequestModel>();
             FilltedReservationsRequest = new ObservableCollection<ReservationsRequestModel>();
-
-            ReservationsRequest = firebase.getReservationsRequest();
-
-            ReservationsRequest.CollectionChanged += reservationschanged;
-
-            Accept = new Command(OnAccept);
-            Refused = new Command(OnRefused);
+            ReservationsRequest = _firebase.GetReservationsRequest();
+            ReservationsRequest.CollectionChanged += ReservationsChanged;
+            AcceptButton = new Command(OnAccept);
+            RefusedButton = new Command(OnRefused);
 
    
         }
-        private void reservationschanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void ReservationsChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
 
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 ReservationsRequestModel reservationRequest = e.NewItems[0] as ReservationsRequestModel;
-                Console.WriteLine( e.NewItems[0]);
-                Console.WriteLine(e.NewItems[0].GetType());
-                if (reservationRequest.AccessToken_Barbar == accessToken)
+                if (reservationRequest.BarberAccessToken == _accessToken)
                 {
-
                     FilltedReservationsRequest.Add(reservationRequest);
                 }
             }
             else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
                 ReservationsRequestModel reservationRequest = e.OldItems[0] as ReservationsRequestModel;
-
-
                 FilltedReservationsRequest.Remove(reservationRequest);
 
             }
-
-
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-        public ICommand Accept { get; }
-        public ICommand Refused { get; }
-
-        private void OnAccept(object obj)
+        private async void OnAccept(object obj)
         {
             var control = obj as ReservationsRequestModel;
-
-            firebase.AcceptReservations(control);
-
+            await _firebase.AcceptReservations(control);
 
         }
-        private void OnRefused(object obj)
+        private async void OnRefused(object obj)
         {
             var control = obj as ReservationsRequestModel;
-
-            firebase.RefusedReservations(control);
-
+            await _firebase.RefusedReservations(control);
 
         }
 

@@ -17,31 +17,28 @@ namespace Barbar_Salon.Services
 {
     public class HaloHairServices
     {
-        FirebaseClient firebaseClient;
-        FirebaseStorage firebasStorege;
+        private FirebaseClient _firebaseClient;
+        private FirebaseStorage _firebasStorege;
+        private static string _accessToken { get; set; }
+        private static string _salonName{ get; set; }
+        private static string _location { get; set; }
+
         public HaloHairServices()
         {
-            firebaseClient = new FirebaseClient("https://halo-hair-676ed-default-rtdb.firebaseio.com");
-            firebasStorege = new FirebaseStorage("halo-hair-676ed.appspot.com");
+            _firebaseClient = new FirebaseClient("https://halo-hair-676ed-default-rtdb.firebaseio.com");
+            _firebasStorege = new FirebaseStorage("halo-hair-676ed.appspot.com");
             AccessToken();
 
         }
-        private static string accessToken { get; set; }
-        private static string nameSoaln { get; set; }
-        private static string location { get; set; }
+    
 
-        private async Task AccessToken()
+        private async void AccessToken()
         {
             try
             {
-                var oauthToken = await SecureStorage.GetAsync("oauth_token");
-                var onameSoaln = await SecureStorage.GetAsync("NameSoaln");
-                var olocation = await SecureStorage.GetAsync("location");
-
-                accessToken = oauthToken;
-                nameSoaln = onameSoaln;
-                location = olocation;
-
+                _accessToken = await SecureStorage.GetAsync("oauth_token");
+                _salonName = await SecureStorage.GetAsync("NameSoaln");
+                _location = await SecureStorage.GetAsync("location");
             }
             catch (Exception ex)
             {
@@ -54,30 +51,28 @@ namespace Barbar_Salon.Services
        
         public async Task AcceptReservations(ReservationsRequestModel control)
         {
-            var toUpdatePerson = (await firebaseClient
-              .Child("ReservationsRequest")
-              .OnceAsync<ReservationsRequestModel>()).Where(a => a.Object.ID_Reservations == control.ID_Reservations).FirstOrDefault();
+           
             try
             {
 
                 ReservationsModel reservationsModel = new ReservationsModel();
                 {
-                    reservationsModel.AccessToken_Barbar = control.AccessToken_Barbar;
-                    reservationsModel.PersonName = control.PersonName;
+                    reservationsModel.BarberAccessToken = control.BarberAccessToken;
+                    reservationsModel.CustomerName = control.CustomerName;
                     reservationsModel.ListOfService = control.ListOfService;
-                    reservationsModel.Time = control.Time;
-                    reservationsModel.ID_Reservations = control.ID_Reservations;
+                    reservationsModel.TimeSelected = control.TimeSelected;
+                    reservationsModel.ReservationsId = control.ReservationsId;
                     reservationsModel.DateSelected = control.DateSelected;
-                    reservationsModel.id = control.id;
+                    reservationsModel.Id = control.Id;
 
                 }
 
-                await firebaseClient.Child("Reservations").PostAsync(reservationsModel);
-               await Update(control.id, control.Time, true);
+                await _firebaseClient.Child("Reservations").PostAsync(reservationsModel);
+                await UpdateReservationsTime(control.Id, control.TimeSelected, true);
 
-                var todelete = (await firebaseClient.Child("ReservationsRequest").OnceAsync<ReservationsRequestModel>())
-                 .FirstOrDefault(item => item.Object.ID_Reservations == control.ID_Reservations);
-                await firebaseClient.Child("ReservationsRequest").Child(todelete.Key).DeleteAsync();
+                var toReservationsRequest = (await _firebaseClient.Child("ReservationsRequest").OnceAsync<ReservationsRequestModel>())
+                 .FirstOrDefault(item => item.Object.ReservationsId == control.ReservationsId);
+                await _firebaseClient.Child("ReservationsRequest").Child(toReservationsRequest.Key).DeleteAsync();
 
             }
             catch (Exception ex)
@@ -89,72 +84,62 @@ namespace Barbar_Salon.Services
 
         public async Task RefusedReservations(ReservationsRequestModel control)
         {
-            var todelete = (await firebaseClient.Child("ReservationsRequest").OnceAsync<ReservationsRequestModel>())
-                 .FirstOrDefault(item => item.Object.ID_Reservations == control.ID_Reservations);
-                  Update(control.id, control.Time, false);
+            var toDeleteRequest = (await _firebaseClient.Child("ReservationsRequest").OnceAsync<ReservationsRequestModel>())
+                 .FirstOrDefault(item => item.Object.ReservationsId == control.ReservationsId);
+                  await UpdateReservationsTime(control.Id, control.TimeSelected, false);
 
-            await firebaseClient.Child("ReservationsRequest").Child(todelete.Key).DeleteAsync();
+            await _firebaseClient.Child("ReservationsRequest").Child(toDeleteRequest.Key).DeleteAsync();
         }
         public async Task DeleteReservations(ReservationsModel control)
         {
-            var todelete = (await firebaseClient.Child("Reservations").OnceAsync<ReservationsModel>())
-                .FirstOrDefault(item => item.Object.ID_Reservations == control.ID_Reservations);
-               await Update(control.id, control.Time, false);
+            var toDeleteReservations = (await _firebaseClient.Child("Reservations").OnceAsync<ReservationsModel>())
+                .FirstOrDefault(item => item.Object.ReservationsId == control.ReservationsId);
+               await UpdateReservationsTime(control.Id, control.TimeSelected, false);
 
-            await firebaseClient.Child("Reservations").Child(todelete.Key).DeleteAsync();
+            await _firebaseClient.Child("Reservations").Child(toDeleteReservations.Key).DeleteAsync();
         }
 
-        public async Task Update(int Id, string selectedTime, bool Accept)
+        public async Task UpdateReservationsTime(int id, string selectedTime, bool accept)
         {
 
             TimeModel timeModel = new TimeModel();
             {
                 timeModel.Item1 = selectedTime;
-                timeModel.Item2 = Accept;
+                timeModel.Item2 = accept;
             }
 
+            var toUpdateChild = (await _firebaseClient.Child("Worktime").OnceAsync<TimeModel>())
+                   .FirstOrDefault(item => item.Object.Time[id].Item1 == selectedTime && item.Object.BarberAccessToken == _accessToken);
+   
+           await _firebaseClient
+                 .Child($"Worktime")
+                 .Child(toUpdateChild.Key)
+                 .Child($"Time/{id}")
+                 .PutAsync(timeModel);
 
-            var todelete = (await firebaseClient.Child("TIME").OnceAsync<TimeModel>())
-                   .FirstOrDefault(item => item.Object.Time[Id].Item1 == selectedTime && item.Object.AccessToken_Barbar == accessToken);
-            try
-            {
-
-
-                await firebaseClient
-                     .Child($"TIME")
-                     .Child(todelete.Key)
-                     .Child($"Time/{Id}")
-                     .PutAsync(timeModel);
-
-            }
-
-            catch (Exception ex)
-            {
-                await Xamarin.Forms.Shell.Current.DisplayAlert("Failed", ex.Message, "ok");
-            }
+           
         }
 
-        public async Task AddService(ServiceModel addServices)
+
+
+        public async Task AddService(MyServicesModel addServices)
         {
-            addServices.AccessToken_Barbar = accessToken;
-            await firebaseClient.Child("Services").PostAsync(addServices);
+            addServices.BarberAccessToken = _accessToken;
+            await _firebaseClient.Child("Services").PostAsync(addServices);
         }
-
-
-
 
         public async Task UpdateService(MyServicesModel myServices)
         {
-            var toUpdatePerson = (await firebaseClient
+            var toUpdateService = (await _firebaseClient
               .Child("Services")
-              .OnceAsync<MyServicesModel>()).Where(a => a.Object.ID_Services == myServices.ID_Services).FirstOrDefault();
-            myServices.AccessToken_Barbar = accessToken;
+              .OnceAsync<MyServicesModel>()).Where(a => a.Object.ServiceId == myServices.ServiceId).FirstOrDefault();
+            myServices.BarberAccessToken = _accessToken;
             try
             {
 
-                await firebaseClient
+                await _firebaseClient
                   .Child("Services")
-                  .Child(toUpdatePerson.Key)
+                  .Child(toUpdateService.Key)
                   .PutAsync(myServices);
                 await Xamarin.Forms.Shell.Current.DisplayAlert("Successful", "Update Services ", "Ok");
 
@@ -170,9 +155,9 @@ namespace Barbar_Salon.Services
            
             try
             {
-                var todelete = (await firebaseClient.Child("Services").OnceAsync<MyServicesModel>())
-                .FirstOrDefault(item => item.Object.ID_Services == myServices.ID_Services);
-                await firebaseClient.Child("Services").Child(todelete.Key).DeleteAsync();
+                var toDeleteServices = (await _firebaseClient.Child("Services").OnceAsync<MyServicesModel>())
+                .FirstOrDefault(item => item.Object.ServiceId == myServices.ServiceId);
+                await _firebaseClient.Child("Services").Child(toDeleteServices.Key).DeleteAsync();
 
                 await Xamarin.Forms.Shell.Current.DisplayAlert("Successful", "Delete Services ", "Ok");
 
@@ -185,51 +170,50 @@ namespace Barbar_Salon.Services
 
         public async Task AddNewUser(AuthenticationModel addUser)
         {
-            await firebaseClient.Child("Users").PostAsync(addUser);
+            await _firebaseClient.Child("BarBers").PostAsync(addUser);
 
         }
 
         public async Task AddTime(ScheduleTimeModel scheduleTimeModel)
         {
-            scheduleTimeModel.AccessToken_Barbar = accessToken;
-            scheduleTimeModel.NameSalon = nameSoaln;
-            scheduleTimeModel.location = location;
-            await firebaseClient.Child("ScheduleTime").PostAsync(scheduleTimeModel);
+            scheduleTimeModel.BarberAccessToken = _accessToken;
+            scheduleTimeModel.SalonName = _salonName;
+            scheduleTimeModel.Location = _location;
+            await _firebaseClient.Child("ScheduleTime").PostAsync(scheduleTimeModel);
         }
-        public async Task AddTimes(List<(string, bool)> listTimes)
+        public async Task StoreScheduleTimes(List<(string, bool)> listTimes,int id)
         {
             ScheduleTimeModel timeModel = new ScheduleTimeModel();
             {
                 timeModel.Time = listTimes;
-                timeModel.AccessToken_Barbar = accessToken;
+                timeModel.BarberAccessToken = _accessToken;
+                timeModel.Id = id;
             }
-
-
-            await firebaseClient.Child("TIME").PostAsync(timeModel);
+            await _firebaseClient.Child("Worktime").PostAsync(timeModel);
         }
        
 
-        public ObservableCollection<ReservationsRequestModel> getReservationsRequest()
+        public ObservableCollection<ReservationsRequestModel> GetReservationsRequest()
         {
-            var ReservationsRequestdata = firebaseClient.Child("ReservationsRequest").AsObservable<ReservationsRequestModel>().AsObservableCollection();
+            var ReservationsRequestdata = _firebaseClient.Child("ReservationsRequest").AsObservable<ReservationsRequestModel>().AsObservableCollection();
             
             return ReservationsRequestdata;
         }
 
       
-    public ObservableCollection<ReservationsModel> getReservation()
+    public ObservableCollection<ReservationsModel> GetReservation()
         {
-            var Reservationsdata = firebaseClient.Child("Reservations").AsObservable<ReservationsModel>().AsObservableCollection();
+            var Reservationsdata = _firebaseClient.Child("Reservations").AsObservable<ReservationsModel>().AsObservableCollection();
 
 
             return Reservationsdata;
         }
 
 
-        public ObservableCollection<MyServicesModel> getServices()
+        public ObservableCollection<MyServicesModel> GetServices()
         {
 
-            var data = firebaseClient.Child("Services").AsObservable<MyServicesModel>().AsObservableCollection();
+            var data = _firebaseClient.Child("Services").AsObservable<MyServicesModel>().AsObservableCollection();
 
             return data;
 
@@ -237,20 +221,20 @@ namespace Barbar_Salon.Services
 
         public ObservableCollection<ProfilePageModel> ProfilePage()
         {
-            var Users_Customer = firebaseClient.Child("Users").AsObservable<ProfilePageModel>().AsObservableCollection();
+            var Users_Customer = _firebaseClient.Child("BarBers").AsObservable<ProfilePageModel>().AsObservableCollection();
 
             return Users_Customer;
         }
 
         public async Task<string> StoreImage(Stream stream ,string FileName)
         {
-            var image = await firebasStorege.Child("Offer").Child(FileName).PutAsync(stream);
+            var image = await _firebasStorege.Child("Offer").Child(FileName).PutAsync(stream);
             return image;
         }
         public async Task StoreImageUrl(OfferModel offerModel)
 
         {
-            await firebaseClient.Child("Offer").PostAsync(offerModel);
+            await _firebaseClient.Child("Offer").PostAsync(offerModel);
         }
 
         public ObservableCollection<ScheduleTimeModel> GeMyTime()
@@ -258,7 +242,7 @@ namespace Barbar_Salon.Services
 
             try
             {
-                var MyTime = firebaseClient.Child("ScheduleTime").AsObservable<ScheduleTimeModel>().AsObservableCollection();
+                var MyTime = _firebaseClient.Child("ScheduleTime").AsObservable<ScheduleTimeModel>().AsObservableCollection();
                 return MyTime;
             }
             catch (Exception ex)
@@ -272,14 +256,14 @@ namespace Barbar_Salon.Services
         public async Task UpdateUser(ProfilePageModel profilePageModel)
         {
 
-            var todelete = (await firebaseClient.Child("Users").OnceAsync<ProfilePageModel>())
-                   .FirstOrDefault(item => item.Object.AccessToken_Barbar == accessToken);
+            var toUpdateBarbar = (await _firebaseClient.Child("Barbers").OnceAsync<ProfilePageModel>())
+                   .FirstOrDefault(item => item.Object.BarberAccessToken == _accessToken);
             try
             {
 
-                await firebaseClient
-                     .Child($"Users")
-                     .Child(todelete.Key)
+                await _firebaseClient
+                     .Child("Barbers")
+                     .Child(toUpdateBarbar.Key)
                      .PutAsync(profilePageModel);
             }
             catch (Exception ex)
@@ -290,13 +274,13 @@ namespace Barbar_Salon.Services
 
         public async Task DeleteMyTime(ScheduleTimeModel control)
         {
-            var todelete = (await firebaseClient.Child("ScheduleTime").OnceAsync<ScheduleTimeModel>())
-               .FirstOrDefault(item => item.Object.Id == control.Id && item.Object.AccessToken_Barbar == accessToken);
-            await firebaseClient.Child("ScheduleTime").Child(todelete.Key).DeleteAsync();
+            var toDeleteMyScheduleTime = (await _firebaseClient.Child("ScheduleTime").OnceAsync<ScheduleTimeModel>())
+               .FirstOrDefault(item => item.Object.Id == control.Id && item.Object.BarberAccessToken == _accessToken);
+            await _firebaseClient.Child("ScheduleTime").Child(toDeleteMyScheduleTime.Key).DeleteAsync();
 
-            var delete = (await firebaseClient.Child("TIME").OnceAsync<TimeModel>())
-             .FirstOrDefault(item=> item.Object.AccessToken_Barbar == accessToken);
-            await firebaseClient.Child("TIME").Child(delete.Key).DeleteAsync();
+            var toDeleteMyWorktime = (await _firebaseClient.Child("Worktime").OnceAsync<TimeModel>())
+             .FirstOrDefault(item=> item.Object.BarberAccessToken == _accessToken);
+            await _firebaseClient.Child("Worktime").Child(toDeleteMyWorktime.Key).DeleteAsync();
 
         }
 

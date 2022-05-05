@@ -46,7 +46,7 @@
                 </StackLayout>
 
                 <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,10,0,0" IsVisible="{Binding IsVisibleAbout}" HeightRequest="350"  >
-                    <CollectionView x:Name="MyProfile" ItemsSource="{Binding Myprofile}">
+                    <CollectionView x:Name="MyProfile" ItemsSource="{Binding MyProfile}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout>
@@ -54,10 +54,10 @@
                                         <StackLayout Orientation="Horizontal" >
                                             <StackLayout>
                                                 <Label Text="Name :"/>
-                                                <Label Text= "{Binding Name}"/>
+                                                <Label Text= "{Binding BarberName}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditNameCommand,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditNameButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
                                         TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
                                         Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
                                                 <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
@@ -69,10 +69,10 @@
                                         <StackLayout Orientation="Horizontal">
                                             <StackLayout>
                                                 <Label Text="Salon Name :"/>
-                                                <Label Text= "{Binding NameSalon}"/>
+                                                <Label Text= "{Binding SalonName}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditNameSalonCommand,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditNameSalonButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
                                         TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
                                         Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
                                                 <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
@@ -87,7 +87,7 @@
                                                 <Label Text= "{Binding Phone}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditPhoneCommand,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditPhoneButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
                                         TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
                                         Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
                                                 <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
@@ -99,10 +99,10 @@
                                         <StackLayout Orientation="Horizontal">
                                             <StackLayout>
                                                 <Label Text="Address :"/>
-                                                <Label Text= "{Binding location}"/>
+                                                <Label Text= "{Binding Location}"/>
                                             </StackLayout>
                                             <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
-                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditlocationCommand,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditlocationButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
                                         TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
                                         Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
                                                 <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
@@ -120,7 +120,7 @@
                 <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="{Binding IsVisibleSettings}" HeightRequest="400">
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding MyTime}" />
+                            <TapGestureRecognizer Command="{Binding MyTimeButton}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label x:Name="labe" Text="My Time" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
@@ -129,7 +129,7 @@
                     </Frame>
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding MyService}" />
+                            <TapGestureRecognizer Command="{Binding MyServiceButton}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="My Service" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
@@ -138,7 +138,7 @@
                     </Frame>
                     <Frame Padding="0">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AddOffer}" />
+                            <TapGestureRecognizer Command="{Binding AddOfferButton}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Add Offer" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
@@ -147,7 +147,7 @@
                     </Frame>
                     <Frame Padding="12">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding TapLanguage}" />
+                            <TapGestureRecognizer Command="{Binding TapLanguageButton}" />
                         </Frame.GestureRecognizers>
                         <StackLayout Orientation="Horizontal" >
                             <Label Text="Language :" FontSize="Medium"/>

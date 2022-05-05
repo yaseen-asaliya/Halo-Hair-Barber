@@ -12,32 +12,25 @@ namespace Barbar_Salon.ViewModels
 {
     public class SignUpViewModel
     {
-        public string email { get; set; }
-        public string password { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string SalonName { get; set; }
+        public string BarberName { get; set; }
+        public long Phone { get; set; }
+        public string Location { get; set; }
+        public string BarberAccessToken { get; set; }
         public string ConfirmPassword { get; set; }
-        public string name { get; set; }
-        public string namesalon { get; set; }
-        public long phone { get; set; }
-        public string location { get; set; }
+        public ICommand SigUpButton { get; }
 
-        public ICommand SigUpCommad { get; }
+        private IAuth _auth;
 
-        public ICommand BackPage { get; }
-
-
-
-        IAuth auth;
-
-        HaloHairServices firebase;
+        private HaloHairServices _firebase;
         
         public SignUpViewModel()
         {
-            auth = DependencyService.Get<IAuth>();
-            firebase = new HaloHairServices();
-
-            SigUpCommad = new Command(async () => await SignUp(email, password));
-
-            BackPage = new Command(Back_Page);
+            _auth = DependencyService.Get<IAuth>();
+            _firebase = new HaloHairServices();
+            SigUpButton = new Command(async () => await SignUp(Email, Password));
 
 
         }
@@ -46,23 +39,22 @@ namespace Barbar_Salon.ViewModels
         {
             AuthenticationModel addUser = new AuthenticationModel();
             {
-                addUser.Name = name;
-                addUser.NameSalon = namesalon;
-                addUser.Phone = phone;
-                addUser.location = location;
-                addUser.AccessToken_Barbar = accesstoken;
+                addUser.BarberName = BarberName;
+                addUser.SalonName = SalonName;
+                addUser.Phone = Phone;
+                addUser.Location = Location ;
+                addUser.BarberAccessToken = accesstoken;
 
             }
-            await firebase.AddNewUser(addUser);
+            await _firebase.AddNewUser(addUser);
         }
-
 
         private async Task SignUp(string email, string password)
         {
 
             if (password == ConfirmPassword)
             {
-                string accesstoken = await auth.SignUpWithEmailAndPassword(email, password);
+                string accesstoken = await _auth.SignUpWithEmailAndPassword(email, password);
                     if (null != accesstoken)
                     {
                         AddUser(accesstoken);
@@ -77,10 +69,7 @@ namespace Barbar_Salon.ViewModels
         }
 
 
-        private async void Back_Page(object obj)
-        {
-            await Application.Current.MainPage.Navigation.PopModalAsync();
-        }
+    
 
 
     }

@@ -6,11 +6,10 @@ namespace Barbar_Salon.Models
 {
     public class ProfilePageModel
     {
-        public string Name { get; set; }
+        public string BarberName { get; set; }
         public string Phone { get; set; }
-        public string AccessToken_Barbar { get; set; }
-        public string location { get; set; }
-        public string NameSalon { get; set; }
-        public string Email { get; set; }
+        public string BarberAccessToken { get; set; }
+        public string Location { get; set; }
+        public string SalonName { get; set; }
     }
 }

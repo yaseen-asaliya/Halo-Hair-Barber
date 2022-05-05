@@ -8,7 +8,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="Add Time" CommandParameter="{Binding BackPage}">
+            <controls:NavigationComponent Titles="Add Time" CommandParameter="{Binding BackButton}">
             </controls:NavigationComponent>
             <StackLayout >
                 <ScrollView>

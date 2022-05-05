@@ -16,40 +16,41 @@
                 <Frame Margin="16" Padding="16" HasShadow="True">
                     <StackLayout >
                         <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
-                            <Entry Text="{Binding name}" Placeholder="Name"/>
+                            <Entry Text="{Binding BarberName}" Placeholder="Name"/>
                         </Frame>
                         <Frame CornerRadius="15"  HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
-                            <Entry Text="{Binding email}" Placeholder="Email"/>
+                            <Entry Text="{Binding Email}" Placeholder="Email"/>
                         </Frame>
                         <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0" >
-                                <Entry Text="{Binding phone}" Placeholder="Phone 05-XX-XXX-XXX" MaxLength="10"/>
+                                <Entry Text="{Binding Phone}" Placeholder="Phone 05-XX-XXX-XXX" MaxLength="10"/>
                         </Frame>
                         <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
-                            <Entry Text="{Binding password}" Placeholder="Password" IsPassword="True"/>
+                            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
                         </Frame>
                             <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
                                 <Entry Text="{Binding ConfirmPassword}" Placeholder="Confirm Password" IsPassword="True"/>
                             </Frame>
                             <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
-                            <Entry Text="{Binding namesalon}" Placeholder="Salon Name"/>
+                            <Entry Text="{Binding SalonName}" Placeholder="Salon Name"/>
                         </Frame>
                         <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
-                            <Entry Text="{Binding location}" Placeholder="Location"/>
+                            <Entry Text="{Binding Location}" Placeholder="Location"/>
                         </Frame>
                         <Frame HasShadow="True" Padding="0" WidthRequest="150" HorizontalOptions="Center" CornerRadius="15">
                         </Frame>
                     </StackLayout>
+                    
                 </Frame>
                     <Button Margin="20"
-                WidthRequest="207"
-                HeightRequest="46"
-                Text="Sign Up"
-                TextColor="#FFFFFF"
-                BackgroundColor="#603D8F"
-                CornerRadius="20"  FontFamily="Segoe UI"
-                Command="{Binding SigUpCommad}"
-                FontSize="16"
-                HorizontalOptions="CenterAndExpand"/>
+                    WidthRequest="207"
+                    HeightRequest="46"
+                    Text="Sign Up"
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#603D8F"
+                    CornerRadius="20"  FontFamily="Segoe UI"
+                    Command="{Binding SigUpButton}"
+                    FontSize="16"
+                    HorizontalOptions="CenterAndExpand"/>   
                 </StackLayout>
         </StackLayout>
         </StackLayout>

@@ -12,85 +12,82 @@ namespace Barbar_Salon.ViewModels
 {
     public class LoginViewModel:BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
-        private string email;
-        public string Email
-        {
-            get { return email; }
-            set
-            {
-                email = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Email"));
-            }
-        }
-        private string password;
-        public string Password
-        {
-            get { return password; }
-            set
-            {
-                password = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Password"));
-            }
-        }
+        private IAuth _auth;
         public Command SubmitCommand { get; }
         public ICommand ResetPasswordCommad { get; }
-
         public ICommand SignUpPageCommad { get; }
-        private async void OnForgetPassword()
+
+        private event PropertyChangedEventHandler _propertyChanged = delegate { };
+        private string _email;
+        private string _password;
+
+        public string Email
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new NewPasswordPage());
-
-
+            get { return _email; }
+            set
+            {
+                _email = value;
+                _propertyChanged(this, new PropertyChangedEventArgs("Email"));
+            }
         }
-        private async void onSignUpPage()
+        public string Password
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new SignUpPage());
+            get { return _password; }
+            set
+            {
+                _password = value;
+                _propertyChanged(this, new PropertyChangedEventArgs("Password"));
+            }
         }
-
-        IAuth auth;
+      
+ 
         public LoginViewModel()
         {
-            auth = DependencyService.Get<IAuth>();
-            SubmitCommand = new Command(async () => await SignIn(email, password));
+            _auth = DependencyService.Get<IAuth>();
+            SubmitCommand = new Command(async () => await SignIn(_email, _password));
             ResetPasswordCommad = new Command(OnForgetPassword);
-            SignUpPageCommad = new Command(onSignUpPage);
+            SignUpPageCommad = new Command(OnSignUpPage);
         }
 
-   
-        async Task SignIn(string email, string password)
-        {
 
+
+        private async Task SignIn(string email, string password)
+        {
+            IsBusy = true;
             if (email != null && password != null)
             {
-              
-                string token = await auth.LoginWithEmailAndPassword(email, password);
-              
-                    if (token != string.Empty)
+                string token = await _auth.LoginWithEmailAndPassword(email, password);
+                if (token != string.Empty)
+                {
+                    try
                     {
-
-                        try
-                        {
-                            await SecureStorage.SetAsync("oauth_token", token);
-                            App.Current.MainPage = new AppShell();
-
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.Message);
-                        }
-
+                        await SecureStorage.SetAsync("oauth_token", token);
+                        IsBusy = false;
+                        App.Current.MainPage = new AppShell();
 
                     }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                }
+                IsBusy = false;
             }
             else
             {
                 await Application.Current.MainPage.DisplayAlert("Failed", "Email And Password is Empty", "ok");
-
+                IsBusy = false;
             }
 
-
-
+        }
+        private async void OnForgetPassword()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new NewPasswordPage());
+        }
+        private async void OnSignUpPage()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new SignUpPage());
         }
 
     }

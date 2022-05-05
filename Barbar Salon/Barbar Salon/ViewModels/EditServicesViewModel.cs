@@ -13,20 +13,20 @@ namespace Barbar_Salon.ViewModels
     {
         
         public ICommand UpDateDataServices { get; }
-        public ICommand BackPage { get; }
+        public ICommand BackButton { get; }
 
-        private MyServicesModel myservices;
+        private MyServicesModel _myServices;
 
-        HaloHairServices fireBase;
+        private HaloHairServices _firebase;
 
         public MyServicesModel MyServices {
             get
             {
-                return myservices;
+                return _myServices;
             }
             set
             {
-                myservices = value;
+                _myServices = value;
                 OnPropertyChanged();
             }
         }
@@ -34,20 +34,20 @@ namespace Barbar_Salon.ViewModels
 
         public EditServicesViewModel(MyServicesModel myServices)
         {
-            MyServices = myServices;    
-            fireBase = new HaloHairServices();
+            MyServices = myServices;
+            _firebase = new HaloHairServices();
             UpDateDataServices = new Command(async () => await UpdateServices());
-            BackPage = new Command(Back_Page);
+            BackButton = new Command(BackPage);
         }
 
         private async Task UpdateServices()
         {
 
-            await fireBase.UpdateService(MyServices);
+            await _firebase.UpdateService(MyServices);
             await Application.Current.MainPage.Navigation.PopModalAsync();
 
         }
-        private async void Back_Page(object obj)
+        private async void BackPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }

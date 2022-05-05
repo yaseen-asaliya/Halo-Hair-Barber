@@ -7,7 +7,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="Add Offer" CommandParameter="{Binding BackPage}">
+            <controls:NavigationComponent Titles="Add Offer" CommandParameter="{Binding BackButton}">
             </controls:NavigationComponent>
             <StackLayout>
                 <Label Text="Select the Offer image that contains its details" Margin="20" FontSize="Small"/>
@@ -23,7 +23,7 @@
                                 CornerRadius="20"
                                 Font="Segoe UI"
                                 FontSize="16"    
-                                Command="{Binding BtnPick}"/>
+                                Command="{Binding PickButton}"/>
 
                         <Image x:Name="ResultImage" Source="{Binding ImgSource}"/>
                     </StackLayout>
@@ -38,7 +38,7 @@
                 CornerRadius="20"
                 Font="Segoe UI"
                 FontSize="16" 
-                Command="{Binding BtnStore}"/>
+                Command="{Binding StoredButton}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

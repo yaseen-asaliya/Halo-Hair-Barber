@@ -16,17 +16,24 @@ namespace Barbar_Salon.ViewModels
 {
     public class MyServicesViewModel : BaseViewModel
     {
-        HaloHairServices firebase;
+        private HaloHairServices _firebase;
+        public ICommand EditButton { get; }
+        public ICommand DeleteButton { get; }
 
+        public ICommand BackButton { get; }
+        public ICommand PageAddServices { get; }
 
-        private ObservableCollection<MyServicesModel> myservices;
+        private ObservableCollection<MyServicesModel> _myServices;
+
+        private ObservableCollection<MyServicesModel> _filltedServices;
+        private static string _accessToken { get; set; }
 
         public ObservableCollection<MyServicesModel> MyServices
         {
-            get { return myservices; }
+            get { return _myServices; }
             set
             {
-                myservices = value;
+                _myServices = value;
                 OnPropertyChanged();
 
             }
@@ -34,30 +41,25 @@ namespace Barbar_Salon.ViewModels
 
 
 
-        private ObservableCollection<MyServicesModel> filltedServices;
         public ObservableCollection<MyServicesModel> FilltedServices
         {
             get
             {
-                return filltedServices;
+                return _filltedServices;
             }
             set
             {
-                filltedServices = value;
+                _filltedServices = value;
                 OnPropertyChanged();
             }
         }
 
-
-
-        private static string accessToken { get; set; }
-
-        private async Task AccessToken()
+        private async void AccessToken()
         {
             try
             {
                 var oauthToken = await SecureStorage.GetAsync("oauth_token");
-                accessToken = oauthToken;
+                _accessToken = oauthToken;
             }
             catch (Exception ex)
             {
@@ -65,38 +67,34 @@ namespace Barbar_Salon.ViewModels
             }
         }
 
-        public ICommand EditCommand { get; }
-        public ICommand DeleteCommand { get; }
 
-        public ICommand BackPage { get; }
-        public ICommand PageAddServices { get; }
         public MyServicesViewModel()
         {
             AccessToken();
-            firebase = new HaloHairServices();
+            _firebase = new HaloHairServices();
             FilltedServices = new ObservableCollection<MyServicesModel>();
             MyServices = new ObservableCollection<MyServicesModel>();
-            MyServices = firebase.getServices();
+            MyServices = _firebase.GetServices();
 
-            MyServices.CollectionChanged += serviceschanged;
-            EditCommand = new Command(onEditTapped);
-            DeleteCommand = new Command(onDeleteTapped);
+            MyServices.CollectionChanged += ServicesChanged;
+            EditButton = new Command(OnEditTapped);
+            DeleteButton = new Command(OnDeleteTapped);
 
-            BackPage = new Command(Back_Page);
-            PageAddServices = new  Command(addServicePage);
+            BackButton = new Command(BackPage);
+            PageAddServices = new  Command(AddServicePage);
 
         }
 
-        private void serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void ServicesChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                MyServicesModel services = e.NewItems[0] as MyServicesModel;
+                MyServicesModel myService = e.NewItems[0] as MyServicesModel;
          
-                if (services.AccessToken_Barbar == accessToken)
+                if (myService.BarberAccessToken == _accessToken)
                 {
 
-                    FilltedServices.Add(services);
+                    FilltedServices.Add(myService);
                 }
             }
             else if (e.Action == NotifyCollectionChangedAction.Remove)
@@ -110,28 +108,28 @@ namespace Barbar_Salon.ViewModels
         }
       
     
-        private async void onEditTapped(object obj)
+        private async void OnEditTapped(object obj)
         {
             MyServicesModel serviceModel = (MyServicesModel)obj;
             await Application.Current.MainPage.Navigation.PushModalAsync(new EditServicesPage(serviceModel));
 
         }
-        private async void onDeleteTapped(object obj)
+        private async void OnDeleteTapped(object obj)
         {
             var control = obj as MyServicesModel;
-            var res = await App.Current.MainPage.DisplayAlert("Delete Services ", $"Your data are delete \n Name Service {control.Service_Name}", "Yes", "Cancel");
-            if (res)
+            var result = await App.Current.MainPage.DisplayAlert("Delete Services ", $"Your data are delete \nName Service {control.ServiceName}", "Yes", "Cancel");
+            if (result)
             {
-                await firebase.DeleteService(control);
+                await _firebase.DeleteService(control);
             }
         }
 
 
-        private async void Back_Page(object obj)
+        private async void BackPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }
-        private async void addServicePage(object obj)
+        private async void AddServicePage(object obj)
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new AddServicesPage());
         }
