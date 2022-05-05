@@ -70,7 +70,7 @@
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
-            <StackLayout Margin="20">
+            <StackLayout Margin="20,15,20,25">
                 <ActivityIndicator IsRunning="{Binding IsBusy}" Color="#603D8F"  />
             </StackLayout>
         </StackLayout>

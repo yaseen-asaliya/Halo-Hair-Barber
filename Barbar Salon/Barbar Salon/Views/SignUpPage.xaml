@@ -1,56 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:Barbar_Salon.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodel="clr-namespace:Barbar_Salon.ViewModels"
              x:Class="Barbar_Salon.Views.SignUpPage">
     <ContentPage.BindingContext>
         <viewmodel:SignUpViewModel/>
         </ContentPage.BindingContext>
         <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="15">
             <StackLayout>
-            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="0,30,0,0">
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0">
                 <Label Text="Welcome!" FontSize="Title" />
                 <Label Text="Create Your Account" FontSize="Small"/>
             </StackLayout>
             <StackLayout>
-                <Frame Margin="16" Padding="16" HasShadow="True">
+                <Frame Margin="4" Padding="16" HasShadow="True">
                     <StackLayout >
-                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="10" Padding="0">
                             <Entry Text="{Binding BarberName}" Placeholder="Name"/>
                         </Frame>
-                        <Frame CornerRadius="15"  HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                        <Frame CornerRadius="15"  HasShadow="True" HeightRequest="40" Margin="10" Padding="0">
                             <Entry Text="{Binding Email}" Placeholder="Email"/>
                         </Frame>
-                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0" >
-                                <Entry Text="{Binding Phone}" Placeholder="Phone 05-XX-XXX-XXX" MaxLength="10"/>
+                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="10" Padding="0" >
+                                <Entry Text="{Binding Phone}" Keyboard="Numeric" Placeholder="Phone 05-XX-XXX-XXX" MaxLength="10"/>
                         </Frame>
-                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="10" Padding="0">
                             <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
                         </Frame>
-                            <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                            <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="10" Padding="0">
                                 <Entry Text="{Binding ConfirmPassword}" Placeholder="Confirm Password" IsPassword="True"/>
                             </Frame>
-                            <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                            <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="10" Padding="0">
                             <Entry Text="{Binding SalonName}" Placeholder="Salon Name"/>
                         </Frame>
-                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="16" Padding="0">
+                        <Frame CornerRadius="15" HasShadow="True" HeightRequest="40" Margin="10" Padding="0">
                             <Entry Text="{Binding Location}" Placeholder="Location"/>
                         </Frame>
                         <Frame HasShadow="True" Padding="0" WidthRequest="150" HorizontalOptions="Center" CornerRadius="15">
                         </Frame>
-                    </StackLayout>
+                            <StackLayout >
+                                <Button Margin="0,10,0,20"
+                                    WidthRequest="207"
+                                    HeightRequest="46"
+                                    Text="Sign Up"
+                                    TextColor="#FFFFFF"
+                                    BackgroundColor="#603D8F"
+                                    CornerRadius="20"  FontFamily="Segoe UI"
+                                    Command="{Binding SigUpButton}"
+                                    FontSize="16"
+                                    HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                         
+                        </StackLayout>
                     
                 </Frame>
-                    <Button Margin="20"
-                    WidthRequest="207"
-                    HeightRequest="46"
-                    Text="Sign Up"
-                    TextColor="#FFFFFF"
-                    BackgroundColor="#603D8F"
-                    CornerRadius="20"  FontFamily="Segoe UI"
-                    Command="{Binding SigUpButton}"
-                    FontSize="16"
-                    HorizontalOptions="CenterAndExpand"/>   
+                
                 </StackLayout>
         </StackLayout>
         </StackLayout>
