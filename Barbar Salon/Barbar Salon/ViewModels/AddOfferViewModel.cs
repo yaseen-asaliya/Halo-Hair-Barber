@@ -42,11 +42,11 @@ namespace Barbar_Salon.ViewModels
         {
             _haloHairSercvice = new HaloHairServices();
             _offerModel = new OfferModel();
-            PickButton = new Command(onPickTappedAsync);
+            PickButton = new Command(OnPickTappedAsync);
             StoredButton = new Command(OnStoreTappedAsync);
             BackButton = new Command(BackPage);
         }
-        private async  void onPickTappedAsync(object obj)
+        private async  void OnPickTappedAsync(object obj)
         {
             await CrossMedia.Current.Initialize();
             try
@@ -80,6 +80,8 @@ namespace Barbar_Salon.ViewModels
                 string image = await _haloHairSercvice.StoreImage(_file.GetStream(), Path.GetFileName(_file.Path));
                 _offerModel.ImageUrl = image;
                 await _haloHairSercvice.StoreImageUrl(_offerModel);
+                await Application.Current.MainPage.DisplayAlert("Successful","Uploaded Image", "Ok");
+                await Application.Current.MainPage.Navigation.PopModalAsync();
             }
             catch (Exception ex)
             {
