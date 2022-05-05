@@ -14,62 +14,59 @@ namespace Barbar_Salon.ViewModels
 {
     public class ReservationsViewModel:BaseViewModel
     {
-        HaloHairServices firebase;
+        private HaloHairServices _firebase;
 
-        private ObservableCollection<ReservationsModel> reservations;
-        private ObservableCollection<ReservationsModel> filltedReservations;
+        private ObservableCollection<ReservationsModel> _reservations;
+        private ObservableCollection<ReservationsModel> _filltedReservations;
+        private static string _accessToken { get; set; }
+
+        public ICommand DeleteButton { get; }
+
+
         public ObservableCollection<ReservationsModel> FilltedReservations
         {
             get
             {
-                return filltedReservations;
+                return _filltedReservations;
             }
             set
             {
-                filltedReservations = value;
+                _filltedReservations = value;
                 OnPropertyChanged();
             }
         }
 
         public ObservableCollection<ReservationsModel> Reservations 
         { 
-            get { return reservations; }
-            set { reservations = value;
+            get { return _reservations; }
+            set { _reservations = value;
                 OnPropertyChanged();
             
             }
         }
 
-      
-
-        public ICommand DeleteCommand { get; }
-        
-    
-
         public ReservationsViewModel()
         {
             AccessToken();
-            firebase = new HaloHairServices();
+            _firebase = new HaloHairServices();
             Reservations = new ObservableCollection<ReservationsModel>();
             FilltedReservations = new ObservableCollection<ReservationsModel>();
 
-            Reservations = firebase.getReservation();
+            Reservations = _firebase.GetReservation();
 
-            Reservations.CollectionChanged += reservationschanged;
+            Reservations.CollectionChanged += ReservationsChanged;
 
-            DeleteCommand = new Command(OnDeleteTappend);
+            DeleteButton = new Command(OnDeleteTappend);
             
             
 
         }
-        private static string accessToken { get; set; }
 
-        private async Task AccessToken()
+        private async void  AccessToken()
         {
             try
             {
-                var oauthToken = await SecureStorage.GetAsync("oauth_token");
-                accessToken = oauthToken;
+                _accessToken = await SecureStorage.GetAsync("oauth_token");
             }
             catch (Exception ex)
             {
@@ -78,14 +75,14 @@ namespace Barbar_Salon.ViewModels
         }
 
 
-        private void reservationschanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void ReservationsChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
            if(e.Action== NotifyCollectionChangedAction.Add)
             {
                
                     ReservationsModel reservation = e.NewItems[0] as ReservationsModel;
 
-                    if (reservation.AccessToken_Barbar == accessToken)
+                    if (reservation.BarberAccessToken == _accessToken)
                     {
                        FilltedReservations.Add(reservation);
                     }
@@ -93,21 +90,15 @@ namespace Barbar_Salon.ViewModels
             else if(e.Action == NotifyCollectionChangedAction.Remove)
             {
                 ReservationsModel reservation = e.OldItems[0] as ReservationsModel;
-
-
-                  FilltedReservations.Remove(reservation);
+                FilltedReservations.Remove(reservation);
                 
             }
-
-            
         }
 
         private async void  OnDeleteTappend(object obj)
         {
-           
             var control = obj as ReservationsModel;
-
-             await firebase.DeleteReservations(control);
+             await _firebase.DeleteReservations(control);
 
         }
 

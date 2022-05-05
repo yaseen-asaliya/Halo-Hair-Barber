@@ -6,7 +6,6 @@ namespace Barbar_Salon.Models
 {
     public class OfferModel
     {
-
         public string ImageUrl { get; set; }    
     }
 }

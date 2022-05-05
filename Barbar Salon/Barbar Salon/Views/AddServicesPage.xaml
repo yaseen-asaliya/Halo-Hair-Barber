@@ -10,17 +10,17 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="Add Services" CommandParameter="{Binding BackPage}">
+            <controls:NavigationComponent Titles="Add Services" CommandParameter="{Binding BackButton}">
             </controls:NavigationComponent>
             <StackLayout >
                 <Frame Margin="15"  >
                     <StackLayout  >
                         <Label Margin="15,0,0,0" Text="Services Name "></Label>
-                        <controls:EntryComponent  Text="{Binding Service_Name}"  />
+                        <controls:EntryComponent  Text="{Binding ServiceName}"  />
                         <Label Margin="15,0,0,0" Text="Time  Min"></Label>
-                        <controls:EntryNumberComponent  Text="{Binding Time_Needed} "/>
+                        <controls:EntryNumberComponent  Text="{Binding TimeNeed} "/>
                         <Label Margin="15,0,0,0" Text="Prices  ₪"></Label>
-                        <controls:EntryNumberComponent  Text="{Binding Prices}"/>
+                        <controls:EntryNumberComponent  Text="{Binding Price}"/>
                         <Label Margin="15,0,0,0" Text="Deseription "></Label>
                         <controls:EntryComponent  Text="{Binding Deseription}"/>
                     </StackLayout>

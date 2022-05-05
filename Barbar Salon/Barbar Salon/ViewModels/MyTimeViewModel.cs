@@ -17,32 +17,41 @@ namespace Barbar_Salon.ViewModels
     public class MyTimeViewModel : BaseViewModel
     {
 
-        HaloHairServices firebase;
+        private HaloHairServices _firebase;
 
+        private ObservableCollection<ScheduleTimeModel> _myTimes;
 
+        private ObservableCollection<ScheduleTimeModel> _filltedMyTimes;
+        private static string _accessToken { get; set; }
+        public ICommand DeleteButton { get; }
+
+        public ICommand BackButton { get; }
+        public ICommand PageAddTime { get; }
+
+        private int _count = 0;
         public MyTimeViewModel()
         {
             AccessToken();
-            firebase = new HaloHairServices();
+            _firebase = new HaloHairServices();
             FilltedMyTimes = new ObservableCollection<ScheduleTimeModel>();
             MyTimes = new ObservableCollection<ScheduleTimeModel>();
-            MyTimes = firebase.GeMyTime();
+            MyTimes = _firebase.GeMyTime();
 
-            MyTimes.CollectionChanged += serviceschanged;
-            DeleteCommand = new Command(onDeleteTapped);
+            MyTimes.CollectionChanged += ServicesChanged;
+            DeleteButton = new Command(OnDeleteTapped);
 
-            BackPage = new Command(Back_Page);
-            PageAddTime = new Command(addTimePage);
+            BackButton = new Command(BackPage);
+            PageAddTime = new Command(AddTimePage);
 
         }
-        private ObservableCollection<ScheduleTimeModel> myTimes;
+
 
         public ObservableCollection<ScheduleTimeModel> MyTimes
         {
-            get { return myTimes; }
+            get { return _myTimes; }
             set
             {
-                myTimes = value;
+                _myTimes = value;
                 OnPropertyChanged();
 
             }
@@ -50,30 +59,29 @@ namespace Barbar_Salon.ViewModels
 
 
 
-        private ObservableCollection<ScheduleTimeModel> filltedMyTimes;
+
         public ObservableCollection<ScheduleTimeModel> FilltedMyTimes
         {
             get
             {
-                return filltedMyTimes;
+                return _filltedMyTimes;
             }
             set
             {
-                filltedMyTimes = value;
+                _filltedMyTimes = value;
                 OnPropertyChanged();
             }
         }
 
 
 
-        private static string accessToken { get; set; }
+   
 
-        private async Task AccessToken()
+        private async void AccessToken()
         {
             try
             {
-                var oauthToken = await SecureStorage.GetAsync("oauth_token");
-                accessToken = oauthToken;
+                _accessToken = await SecureStorage.GetAsync("oauth_token");
             }
             catch (Exception ex)
             {
@@ -81,55 +89,47 @@ namespace Barbar_Salon.ViewModels
             }
         }
 
-        public ICommand DeleteCommand { get; }
-
-        public ICommand BackPage { get; }
-        public ICommand PageAddTime { get; }
-
-        private int count = 0;
-        private void serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
+      
+        private void ServicesChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 ScheduleTimeModel mytime = e.NewItems[0] as ScheduleTimeModel;
 
-                if (mytime.AccessToken_Barbar == accessToken)
+                if (mytime.BarberAccessToken == _accessToken)
                 {
-
                     FilltedMyTimes.Add(mytime);
-                    count = 1;
+                    _count = 1;
                 }
             }
             else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
                 ScheduleTimeModel Time = e.OldItems[0] as ScheduleTimeModel;
-
-
                 FilltedMyTimes.Remove(Time);
-                count = 0;
+                _count = 0;
 
             }
         }
 
-        private async void onDeleteTapped(object obj)
+        private async void OnDeleteTapped(object obj)
         {
             var control = obj as ScheduleTimeModel;
-            var res = await App.Current.MainPage.DisplayAlert("Delete Time ", $"Your data are delete \n Start Time {control.StartTime}\nEnd Time {control.EndTime}", "Yes", "Cancel");
-            if (res)
+            var result = await App.Current.MainPage.DisplayAlert("Delete Time ", $"Your data are delete \nStart Time {control.StartTime}\nEnd Time {control.EndTime}", "Yes", "Cancel");
+            if (result)
             {
-                await firebase.DeleteMyTime(control);
+                await _firebase.DeleteMyTime(control);
 
             }
         }
 
 
-        private async void Back_Page(object obj)
+        private async void BackPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }
-        private async void addTimePage(object obj)
+        private async void AddTimePage(object obj)
         {
-            if (count == 0)
+            if (_count == 0)
             {
                 await Application.Current.MainPage.Navigation.PushModalAsync(new AddTimePage());
             }

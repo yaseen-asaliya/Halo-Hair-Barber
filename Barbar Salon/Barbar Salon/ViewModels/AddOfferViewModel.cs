@@ -16,37 +16,37 @@ namespace Barbar_Salon.ViewModels
     public class AddOfferViewModel: BaseViewModel
     {
        public ImageSource ImgSource { get; set; }
-        public ICommand BtnPick { get; }
-        public ICommand BtnStore { get; }
-        public ICommand BtnBack { get; }
-        MediaFile file;
-        HaloHairServices haloHairServices;
-        OfferModel offerModel;
+        public ICommand PickButton { get; }
+        public ICommand StoredButton { get; }
+        public ICommand BackButton { get; }
 
-        public ICommand BackPage { get; }
+        MediaFile _file;
+        HaloHairServices _haloHairSercvice;
+        OfferModel _offerModel;
+
+     
         public AddOfferViewModel()
         {
-            haloHairServices = new HaloHairServices();
-            offerModel = new OfferModel();
-            BtnPick = new Command(OnPickTappedAsync);
-            BtnStore = new Command(OnStoreTappedAsync);
-            BackPage = new Command(Back_Page);
+            _haloHairSercvice = new HaloHairServices();
+            _offerModel = new OfferModel();
+            PickButton = new Command(onPickTappedAsync);
+            StoredButton = new Command(onStoreTappedAsync);
+            BackButton = new Command(backPage);
         }
-        private async  void OnPickTappedAsync(object obj)
+        private async  void onPickTappedAsync(object obj)
         {
             await CrossMedia.Current.Initialize();
             try
             {
-                file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
+                _file = await Plugin.Media.CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions
                 {
                     PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium
                 });
-                if (file == null)
+                if (_file == null)
                     return;
-                await Application.Current.MainPage.DisplayAlert("successful", "Picture selected", "Ok");
                 ImgSource = ImageSource.FromStream(() =>
                  {
-                     var imageStram = file.GetStream();
+                     var imageStram = _file.GetStream();
                      return imageStram;
                  });
             }
@@ -55,26 +55,25 @@ namespace Barbar_Salon.ViewModels
                 Debug.WriteLine(ex.Message);
             }
         }
-        private async void OnStoreTappedAsync(object obj)
+        private async void onStoreTappedAsync(object obj)
         {
-            if (file == null)
+            if (_file == null)
             {
                 await Application.Current.MainPage.DisplayAlert("Faild", "You didn't choose an Picture", "Ok");
                 return;
             }
             try
             {
-                string image = await haloHairServices.StoreImage(file.GetStream(), Path.GetFileName(file.Path));
-                Console.WriteLine("nulllsadasd image :: "+ image);
-                offerModel.ImageUrl = image;
-                await haloHairServices.StoreImageUrl(offerModel);
+                string image = await _haloHairSercvice.StoreImage(_file.GetStream(), Path.GetFileName(_file.Path));
+                _offerModel.ImageUrl = image;
+                await _haloHairSercvice.StoreImageUrl(_offerModel);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-        private async void Back_Page(object obj)
+        private async void backPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }

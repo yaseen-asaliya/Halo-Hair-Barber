@@ -29,7 +29,7 @@
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="Name Customer :" FontAttributes="Bold"/>
-                                            <Label Text="{Binding PersonName}" VerticalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding CustomerName}" VerticalOptions="StartAndExpand"/>
                                         </StackLayout>
 
                                         <StackLayout Orientation="Horizontal">
@@ -38,13 +38,13 @@
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="Time :" FontAttributes="Bold"/>
-                                            <Label Text="{Binding Time}" VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding TimeSelected}" VerticalOptions="CenterAndExpand"/>
                                         </StackLayout>
 
                                     </StackLayout>
                                     <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
                                         <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
-                                                        <Button Text= "Delete"  Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference MyReservations}}" TextColor="#ffff"
+                                                        <Button Text= "Delete"  Command="{Binding Path=BindingContext.DeleteButton,Source={x:Reference MyReservations}}" TextColor="#ffff"
                                                         FontSize="Micro" 
                                                         FontFamily="Segoe UI"
                                                         BackgroundColor="#603D8F"

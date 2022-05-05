@@ -9,7 +9,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <controls:NavigationComponent Titles="My Time" CommandParameter="{Binding BackPage}">
+            <controls:NavigationComponent Titles="My Time" CommandParameter="{Binding BackButton}">
             </controls:NavigationComponent>
             <StackLayout HeightRequest="500">
                 <CollectionView x:Name="MyTime"   ItemsSource="{Binding FilltedMyTimes}" >
@@ -34,7 +34,7 @@
 
                                                 <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
 
-                                                    <Button Text= "Delete" Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference MyTime}}" TextColor="#FFFFFF"
+                                                    <Button Text= "Delete" Command="{Binding Path=BindingContext.DeleteButton,Source={x:Reference MyTime}}" TextColor="#FFFFFF"
                                                         FontSize="Micro" 
                                                         FontFamily="Segoe UI"
                                                         BackgroundColor="#603D8F"

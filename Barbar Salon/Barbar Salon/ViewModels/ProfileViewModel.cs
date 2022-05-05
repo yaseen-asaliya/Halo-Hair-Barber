@@ -14,146 +14,153 @@ namespace Barbar_Salon.ViewModels
 {
     public class ProfileViewModel : BaseViewModel
     {
-        HaloHairServices firebase;
-        private ObservableCollection<ProfilePageModel> profile;
+        private HaloHairServices _firebase;
+        public ICommand TapLanguageButton { get; }
+        public ICommand LogOut { get; }
+        public ICommand Aboutbutton { get; }
+        public ICommand Settingsbutton { get; }
+        public ICommand AddTimeButton { get; }
+        public ICommand MyTimeButton { get; }
+        public ICommand MyServiceButton { get; }
+        public ICommand AddOfferButton { get; }
+        public ICommand EditlocationButton { get; }
+        public ICommand EditPhoneButton { get; }
+        public ICommand EditNameButton { get; }
+        public ICommand EditNameSalonButton { get; }
+        private static string _accessToken { get; set; }
+
+        private bool _isVisibleAbout;
+
+        private bool _isVisibleSettings;
+        public string Action { get; set; }
+        private string _language;
+
+
+        private ObservableCollection<ProfilePageModel> _profile;
+        private ObservableCollection<ProfilePageModel> _myProfile;
+
+
         public ObservableCollection<ProfilePageModel> Profile
         {
-            get { return profile; }
+            get { return _profile; }
             set
             {
-                profile = value;
+                _profile = value;
                 OnPropertyChanged();
             }
         }
-        private ObservableCollection<ProfilePageModel> myprofile;
-        public ObservableCollection<ProfilePageModel> Myprofile
+        public ObservableCollection<ProfilePageModel> MyProfile
         {
             get
             {
-                return myprofile;
+                return _myProfile;
             }
             set
             {
-                myprofile = value;
+                _myProfile = value;
                 OnPropertyChanged();
             }
         }
-        private static string accessToken { get; set; }
-
-        private async Task AccessToken()
+   
+        private async void AccessToken()
         {
             try
             {
-                var oauthToken = await SecureStorage.GetAsync("oauth_token");
-                accessToken = oauthToken;
+                _accessToken = await SecureStorage.GetAsync("oauth_token");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-        private bool isVisibleAbout;
+    
         public bool IsVisibleAbout 
         {
             get
             {
-                return isVisibleAbout;
+                return _isVisibleAbout;
             }
             set
             {
-                isVisibleAbout = value;
-                OnPropertyChanged();
-            }
-        }
-        private bool isVisibleSettings;
-        public bool IsVisibleSettings
-        {
-            get
-            {
-                return isVisibleSettings;
-            }
-            set
-            {
-                isVisibleSettings = value;
+                _isVisibleAbout = value;
                 OnPropertyChanged();
             }
         }
 
-        public string Action { get; set; }
-        private string language; 
+        public bool IsVisibleSettings
+        {
+            get
+            {
+                return _isVisibleSettings;
+            }
+            set
+            {
+                _isVisibleSettings = value;
+                OnPropertyChanged();
+            }
+        }
+
+       
         public string Language 
         {
             get
             {
-                return language;
+                return _language;
             }
             set
             {
-                language = value;
+                _language = value;
                 OnPropertyChanged();
             }
         }
-        public ICommand BackPage { get; }
-        public ICommand TapLanguage { get; }
-        public ICommand LogOut { get; }
-        public ICommand Aboutbutton { get; }
-        public ICommand Settingsbutton { get; }
-        public ICommand AddTime { get; }
-        public ICommand MyTime { get; }
-        public ICommand MyService { get; }
-        public ICommand AddOffer { get; }
-        public ICommand EditlocationCommand { get; }
-        public ICommand EditPhoneCommand { get; }
-        public ICommand EditNameCommand { get; }
-        public ICommand EditNameSalonCommand { get; }
+
         public ProfileViewModel()
         {
             AccessToken();
-            firebase = new HaloHairServices();
-            Myprofile = new ObservableCollection<ProfilePageModel>();
+            _firebase = new HaloHairServices();
+            MyProfile = new ObservableCollection<ProfilePageModel>();
             Profile = new ObservableCollection<ProfilePageModel>();
-            Profile = firebase.ProfilePage();
+            Profile = _firebase.ProfilePage();
             Profile.CollectionChanged += Servicechanged;
             LogOut = new Command(PerformLogOut);
-            BackPage = new Command(Back_Page);
-            TapLanguage = new Command(Tap_Language);
+            TapLanguageButton = new Command(TapLanguage);
             Aboutbutton = new Command(About_button);
             Settingsbutton = new Command(Settings_button);
-            AddTime = new Command(Add_Time);
-            MyService = new Command(My_Service);
-            AddOffer = new Command(Add_Offer);
-            MyTime = new Command(My_Time);
-            EditNameCommand = new Command(onEditNameCommand);
-            EditlocationCommand = new Command(onEditLocationCommand);
-            EditNameSalonCommand = new Command(onEditNameSalonCommand);
-            EditPhoneCommand = new Command(onEditPhoneCommand);
+            AddTimeButton = new Command(AddTime);
+            MyServiceButton = new Command(MyService);
+            AddOfferButton = new Command(AddOffer);
+            MyTimeButton = new Command(MyTime);
+            EditNameButton = new Command(OnEditNameCommand);
+            EditlocationButton = new Command(OnEditLocationCommand);
+            EditNameSalonButton = new Command(OnEditNameSalonCommand);
+            EditPhoneButton = new Command(OnEditPhoneCommand);
             Language = "English";
             IsVisibleAbout = true;
             IsVisibleSettings = false;
 
         }
 
-        private async void My_Time(object obj)
+        private async void MyTime(object obj)
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new MyTimePage());
         }
 
-        private async void Add_Offer(object obj)
+        private async void AddOffer(object obj)
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new AddOfferPage());
         }
         
-        private async void My_Service(object obj)
+        private async void MyService(object obj)
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new MyServicesPage());
         }
 
-        private async void Add_Time(object obj)
+        private async void AddTime(object obj)
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new AddTimePage());
         }
 
-        private async void Tap_Language(object obj)
+        private async void TapLanguage(object obj)
         {
             Action = await Application.Current.MainPage.DisplayActionSheet("Select Language", "Cancel", null, "English", "Arabic");
             if (Action == "Cancel")
@@ -180,12 +187,12 @@ namespace Barbar_Salon.ViewModels
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 ProfilePageModel profilePageModel = e.NewItems[0] as ProfilePageModel;
-                if (profilePageModel.AccessToken_Barbar == accessToken)
+                if (profilePageModel.BarberAccessToken == _accessToken)
                 {
-                    Myprofile.Remove(profilePageModel);
-                    Myprofile.Add(profilePageModel);
-                    SecureStorage.SetAsync("NameSoaln", profilePageModel.NameSalon.ToString());
-                    SecureStorage.SetAsync("location", profilePageModel.location.ToString());
+                    MyProfile.Remove(profilePageModel);
+                    MyProfile.Add(profilePageModel);
+                    SecureStorage.SetAsync("NameSoaln", profilePageModel.SalonName.ToString());
+                    SecureStorage.SetAsync("location", profilePageModel.Location.ToString());
                 }
             }
         }
@@ -193,43 +200,40 @@ namespace Barbar_Salon.ViewModels
         {
             var auth = DependencyService.Resolve<IAuth>();
             auth.IsSigOut();
-            var oauthToken = SecureStorage.Remove("oauth_token");
+             SecureStorage.Remove("oauth_token");
+             SecureStorage.Remove("NameSoaln");
+             SecureStorage.Remove("location");
             Xamarin.Forms.Shell.Current.GoToAsync("//LoginPage");
         }
-        private async void Back_Page(object obj)
-        {
-            await Application.Current.MainPage.Navigation.PopModalAsync();
 
-        }
-
-        private async void onEditNameCommand(object obj)
+        private async void OnEditNameCommand(object obj)
         {
-            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Name", "New Name");
-            if (result != null)
+            string NewName = await App.Current.MainPage.DisplayPromptAsync("Edit Name", "New Name");
+            if (NewName != null)
             {
-                Myprofile[0].Name = result;
-                await firebase.UpdateUser(Myprofile[0]);
+                MyProfile[0].BarberName = NewName;
+                await _firebase.UpdateUser(MyProfile[0]);
             }
         }
 
-        private async void onEditLocationCommand(object sender)
+        private async void OnEditLocationCommand(object sender)
         {
-            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Address", "New Address");
-            if (result != null)
+            string NewAddress = await App.Current.MainPage.DisplayPromptAsync("Edit Address", "New Address");
+            if (NewAddress != null)
             {
-                Myprofile[0].location = result;
-                await firebase.UpdateUser(Myprofile[0]);
+                MyProfile[0].Location = NewAddress;
+                await _firebase.UpdateUser(MyProfile[0]);
             }
         }
-        private async void onEditPhoneCommand(object sender)
+        private async void OnEditPhoneCommand(object sender)
         {
-            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Phone", "New Phone");
-            if (result != null)
+            string NewPhone = await App.Current.MainPage.DisplayPromptAsync("Edit Phone", "New Phone");
+            if (NewPhone != null)
             {
-                if (result.Length <= 10)
+                if (NewPhone.Length <= 10)
                 {
-                    Myprofile[0].Phone = result;
-                    await firebase.UpdateUser(Myprofile[0]);
+                    MyProfile[0].Phone = NewPhone;
+                    await _firebase.UpdateUser(MyProfile[0]);
                 }
                 else
                 {
@@ -238,13 +242,13 @@ namespace Barbar_Salon.ViewModels
             }
 
         }
-        private async void onEditNameSalonCommand(object sender)
+        private async void OnEditNameSalonCommand(object sender)
         {
-            string result = await App.Current.MainPage.DisplayPromptAsync("Edit Name Salon", "New Name Salon");
-            if (result != null)
+            string NewNameSalon = await App.Current.MainPage.DisplayPromptAsync("Edit Name Salon", "New Name Salon");
+            if (NewNameSalon != null)
             {
-                Myprofile[0].NameSalon = result;
-                await firebase.UpdateUser(Myprofile[0]);
+                MyProfile[0].SalonName = NewNameSalon;
+                await _firebase.UpdateUser(MyProfile[0]);
             }
 
         }

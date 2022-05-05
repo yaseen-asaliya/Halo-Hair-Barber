@@ -6,19 +6,12 @@ namespace Barbar_Salon.Models
 {
     public class ReservationsRequestModel
     {
-        public string PersonName { get; set; }
-        public int ID_Reservations { get; set; }
-
+        public string CustomerName { get; set; }
+        public int ReservationsId { get; set; }
         public string ListOfService { get; set; }
-        public int id { get; set; }
-
-        public string Time { get; set; }
-
-        public bool Accept { get; set; }
-
-        public string AccessToken_Barbar { get; set; }
-
-
+        public int Id { get; set; }
+        public string TimeSelected { get; set; }
+        public string BarberAccessToken { get; set; }
         public string DateSelected { get; set; }
 
 

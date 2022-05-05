@@ -12,121 +12,100 @@ namespace Barbar_Salon.ViewModels
     public class AddTimeViewModel : BindableObject
     {
 
-        public int StartTime { set; get; }
-        public int EndTime { set; get; }
+
+
+        private HaloHairServices _firebase;
+
+        private Random _random;
         public TimeSpan StartTimeSelected { set; get; }
         public TimeSpan EndTimeSelected { get; set; }
         public ICommand AddTimeCommand { get; }
+        public ICommand BackButton { get; }
 
-        public ICommand BackPage { get; }
-        private string date;
-        public string Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                date = value;
-                OnPropertyChanged();
-            }
-        }
+        public int StartTime { set; get; }
+        public int EndTime { set; get; }
 
-
-        public ICommand AddTime1Command { get; }
-
-        private HaloHairServices fireBase;
-
-        public AddTimeViewModel()
-        {
-            fireBase = new HaloHairServices();
-            AddTimeCommand = new Command(OnAddTimeTapped);
-            BackPage = new Command(Back_Page);
-        }
-
-        private async void Back_Page(object obj)
-        {
-            await Application.Current.MainPage.Navigation.PopModalAsync();
-        }
-
-
-
-        Random rnd;
-
-
-        private async void OnAddTimeTapped(object obj)
-        {
-            rnd = new Random();
-            int id = rnd.Next(0, 1236963000);
-
-            ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
-            {
-
-                Id = id,
-                StartTime = StartTimeSelected,
-                EndTime = EndTimeSelected,
-            };
-            await fireBase.AddTime(scheduleTimeModel);
-            SearchTime();
-            await AddTIME();
-            await Application.Current.MainPage.DisplayAlert("Successful", $" Add the working time of the day {Date} \n From hour {StartTimeSelected} to hour {EndTimeSelected}", "Ok");
-            await Application.Current.MainPage.Navigation.PopModalAsync();
-
-        }
-
-        struct time
+        private List<(string, bool)> _listTimes;
+        private struct Time
         {
             public int hour;
             public int minute;
         }
-        time getTimeSplitedAsInt(string time)
+
+        public AddTimeViewModel()
         {
-            time temp = new time();
+            _firebase = new HaloHairServices();
+            AddTimeCommand = new Command(OnAddTimeTapped);
+            BackButton = new Command(BackPage);
+        }
+
+        private async void OnAddTimeTapped(object obj)
+        {
+            _random = new Random();
+            int id = _random.Next(0, 1236963000);
+
+            ScheduleTimeModel scheduleTimeModel = new ScheduleTimeModel
+            {
+                Id = id,
+                StartTime = StartTimeSelected,
+                EndTime = EndTimeSelected,
+            };
+            await _firebase.AddTime(scheduleTimeModel);
+            SearchTime();
+            await AddScheduleTimes(id);
+            await Application.Current.MainPage.DisplayAlert("Successful", $" Add the working time\nFrom {StartTimeSelected} to {EndTimeSelected}", "Ok");
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+
+        }
+
+
+        private Time GetTimeSplitedAsInt(string time)
+        {
+            Time temp = new Time();
             string[] tempTime = time.Split(':');
             temp.hour = Int32.Parse(tempTime[0]);
             temp.minute = Int32.Parse(tempTime[1]);
             return temp;
         }
-        string getTimeAsString(int time)
+        private string GetTimeAsString(int timeminutes)
         {
-            int hours = time / 60;
-            int minutes = time % 60;
-            string Time = "";
+            int hours = timeminutes / 60;
+            int minutes = timeminutes % 60;
+            string time = "";
             if (hours > 12)
             {
                 if (minutes < 10)
                 {
-                    Time = (hours - 12) + ":0" + minutes + " PM";
+                    time = (hours - 12) + ":0" + minutes + " PM";
 
                 }
                 else
                 {
-                    Time = (hours - 12) + ":" + minutes + " PM";
+                    time = (hours - 12) + ":" + minutes + " PM";
                 }
             }
             else
             {
                 if (minutes < 10)
                 {
-                    Time = hours + ":0" + minutes + " AM";
+                    time = hours + ":0" + minutes + " AM";
                 }
                 else
                 {
-                    Time = hours + ":" + minutes + " AM";
+                    time = hours + ":" + minutes + " AM";
                 }
             }
-            return Time;
+            return time;
 
         }
-        private List<(string, bool)> ListTimes;
 
-        public async void SearchTime()
+
+        private void SearchTime()
         {
-            ListTimes = new List<(string, bool)>();
+            _listTimes = new List<(string, bool)>();
 
-            time startTime = getTimeSplitedAsInt(StartTimeSelected.ToString());
-            time endTime = getTimeSplitedAsInt(EndTimeSelected.ToString());
+            Time startTime = GetTimeSplitedAsInt(StartTimeSelected.ToString());
+            Time endTime = GetTimeSplitedAsInt(EndTimeSelected.ToString());
 
             int start = (startTime.hour * 60) + startTime.minute;
             int end = (endTime.hour * 60) + endTime.minute;
@@ -135,14 +114,21 @@ namespace Barbar_Salon.ViewModels
             for (int i = start; i < end; i += 30)
             {
                 string tempTime = "";
-                tempTime = getTimeAsString(i);
+                tempTime = GetTimeAsString(i);
                 isBooked = false;
-                ListTimes.Add((tempTime, isBooked));
+                _listTimes.Add((tempTime, isBooked));
             }
         }
-        public async Task AddTIME()
+        private async Task AddScheduleTimes(int id)
         {
-            await fireBase.AddTimes(ListTimes);
+            await _firebase.StoreScheduleTimes(_listTimes, id);
         }
+
+        private async void BackPage(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
+
     }
 }

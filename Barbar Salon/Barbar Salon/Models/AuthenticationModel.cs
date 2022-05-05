@@ -8,12 +8,11 @@ namespace Barbar_Salon.Models
     {
         public string Email { get; set; }
         public string Password { get; set; }
-        public string ulr { get; set; }
-        public string NameSalon { get; set; }
-        public string Name { get; set; }
+        public string SalonName { get; set; }
+        public string BarberName { get; set; }
         public long Phone { get; set; }
-        public string location { get; set; }
-        public string AccessToken_Barbar { get; set; }
+        public string Location { get; set; }
+        public string BarberAccessToken { get; set; }
 
     }
 }
