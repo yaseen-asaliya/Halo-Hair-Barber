@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using System.Collections.Specialized;
 
+
 namespace Barbar_Salon.ViewModels
 {
     public class HomePageViewModel:BaseViewModel
@@ -87,6 +88,8 @@ namespace Barbar_Salon.ViewModels
                     FilltedReservationsRequest.Add(reservationRequest);
                 }
             }
+
+        
             else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
                 ReservationsRequestModel reservationRequest = e.OldItems[0] as ReservationsRequestModel;

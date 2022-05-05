@@ -15,7 +15,20 @@ namespace Barbar_Salon.ViewModels
 {
     public class AddOfferViewModel: BaseViewModel
     {
-       public ImageSource ImgSource { get; set; }
+        private ImageSource _imgSource;
+        public ImageSource ImgSource 
+        {
+            get
+            {
+                return _imgSource;
+            }
+          set
+            {
+                _imgSource = value;
+                OnPropertyChanged();
+            }
+                
+         }
         public ICommand PickButton { get; }
         public ICommand StoredButton { get; }
         public ICommand BackButton { get; }
@@ -29,11 +42,11 @@ namespace Barbar_Salon.ViewModels
         {
             _haloHairSercvice = new HaloHairServices();
             _offerModel = new OfferModel();
-            PickButton = new Command(onPickTappedAsync);
-            StoredButton = new Command(onStoreTappedAsync);
-            BackButton = new Command(backPage);
+            PickButton = new Command(OnPickTappedAsync);
+            StoredButton = new Command(OnStoreTappedAsync);
+            BackButton = new Command(BackPage);
         }
-        private async  void onPickTappedAsync(object obj)
+        private async  void OnPickTappedAsync(object obj)
         {
             await CrossMedia.Current.Initialize();
             try
@@ -55,7 +68,7 @@ namespace Barbar_Salon.ViewModels
                 Debug.WriteLine(ex.Message);
             }
         }
-        private async void onStoreTappedAsync(object obj)
+        private async void OnStoreTappedAsync(object obj)
         {
             if (_file == null)
             {
@@ -67,13 +80,15 @@ namespace Barbar_Salon.ViewModels
                 string image = await _haloHairSercvice.StoreImage(_file.GetStream(), Path.GetFileName(_file.Path));
                 _offerModel.ImageUrl = image;
                 await _haloHairSercvice.StoreImageUrl(_offerModel);
+                await Application.Current.MainPage.DisplayAlert("Successful","Uploaded Image", "Ok");
+                await Application.Current.MainPage.Navigation.PopModalAsync();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
-        private async void backPage(object obj)
+        private async void BackPage(object obj)
         {
             await Application.Current.MainPage.Navigation.PopModalAsync();
         }

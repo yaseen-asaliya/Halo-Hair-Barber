@@ -15,8 +15,6 @@ using Xamarin.Forms.Xaml;
 using Barbar_Salon.Services;
 using Barbar_Salon.Models;
 using Firebase.Database.Query;
-using Barbar_Salon.Services;
-using Barbar_Salon.Models;
 namespace Barbar_Salon.Views
 
 {
