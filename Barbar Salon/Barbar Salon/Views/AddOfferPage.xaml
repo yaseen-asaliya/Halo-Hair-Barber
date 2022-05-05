@@ -11,7 +11,7 @@
             </controls:NavigationComponent>
             <StackLayout>
                 <Label Text="Select the Offer image that contains its details" Margin="20" FontSize="Small"/>
-                <Frame Padding="10" Margin="20,0,0,0">
+                <Frame Padding="10" Margin="20,0,20,0">
                     <StackLayout>
                         <Button Margin="20"
                                 WidthRequest="207"
