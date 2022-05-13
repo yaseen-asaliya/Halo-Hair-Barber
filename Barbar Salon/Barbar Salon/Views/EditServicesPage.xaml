@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
+             x:Class="Barbar_Salon.Views.EditServicesPage">
+   
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationComponent Titles="Edit Services" CommandParameter="{Binding BackButton}">
+            </controls:NavigationComponent>
+            <StackLayout>
+                <StackLayout VerticalOptions="CenterAndExpand" BindingContext="{Binding MyServices}">
+                    <Frame Margin="16" >
+                        <StackLayout>
+                            <Label Text =" Service_Name"  />
+                            <Frame CornerRadius="10" Padding="0" >
+                                <Entry x:Name="Service_Name" IsReadOnly="True" Text="{Binding ServiceName}" TextColor="Black"   />
+                            </Frame>
+                            <Label Text="Time"/>
+                            <Frame CornerRadius="10" Padding="0">
+                                <Entry x:Name="Time" Keyboard="Numeric" Text="{Binding TimeNeed}"/>
+                            </Frame>
+                            <Label Text ="Prices" />
+                            <Frame CornerRadius="10" Padding="0"  >
+                                <Entry x:Name="Prices"  Keyboard="Numeric"  Text="{Binding Price}"/>
+                            </Frame >
+                            <Label Text ="Deseription" />
+                            <Frame CornerRadius="10" Padding="0"  >
+                                <Entry x:Name="Deseription"    Text="{Binding Deseription}"/>
+                            </Frame >
+                        </StackLayout>
+                    </Frame>
+                   
+                </StackLayout>
+                
+                <StackLayout>
+
+                    <controls:ButtonComponent NameButton="UpDate Services" CommandParameter="{Binding UpDateDataServices}" ></controls:ButtonComponent>
+                </StackLayout>
+
+            </StackLayout>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
