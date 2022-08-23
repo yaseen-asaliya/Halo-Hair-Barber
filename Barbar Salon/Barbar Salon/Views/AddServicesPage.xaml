@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
+               Shell.NavBarIsVisible="False"
+             xmlns:viewmodel="clr-namespace:Barbar_Salon.ViewModels"
+             x:Class="Barbar_Salon.Views.AddServicesPage">
+    <ContentPage.BindingContext>
+        <viewmodel:AddServicesViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationComponent Titles="Add Services" CommandParameter="{Binding BackButton}">
+            </controls:NavigationComponent>
+            <StackLayout >
+                <Frame Margin="15"  >
+                    <StackLayout  >
+                        <Label Margin="15,0,0,0" Text="Services Name "></Label>
+                        <controls:EntryComponent  Text="{Binding ServiceName}"  />
+                        <Label Margin="15,0,0,0" Text="Time  min"></Label>
+                        <controls:EntryNumberComponent  Text="{Binding TimeNeed} "/>
+                        <Label Margin="15,0,0,0" Text="Prices  ₪"></Label>
+                        <controls:EntryNumberComponent  Text="{Binding Price}"/>
+                        <Label Margin="15,0,0,0" Text="Deseription "></Label>
+                        <controls:EntryComponent  Text="{Binding Deseription}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <controls:ButtonComponent NameButton="Add"
+                                     CommandParameter="{Binding AddServicesCommand}">
+            </controls:ButtonComponent>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

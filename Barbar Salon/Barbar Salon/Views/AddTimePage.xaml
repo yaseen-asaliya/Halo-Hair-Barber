@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Barbar_Salon.Views.AddTimePage"
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" xmlns:controls="clr-namespace:Barbar_Salon.Views.Components">
+    <ContentPage.BindingContext>
+        <viewmodels:AddTimeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationComponent Titles="Add Time" CommandParameter="{Binding BackButton}">
+            </controls:NavigationComponent>
+            <StackLayout >
+                <ScrollView>
+                    <StackLayout>
+
+                        <StackLayout>
+                            <StackLayout>
+                                <Label Text="Select the working time for the specified day " FontSize="Small" TextColor="Black" Margin="16,0,0,0"/>
+                                <StackLayout Margin="18,30,5,0" BackgroundColor="White" Padding="0,0,0,15">
+                                    <Label Text="Start Time" TextColor="Black"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame CornerRadius="10" WidthRequest="190" HeightRequest="45" Margin="18,0,0,0" Padding="0">
+                                            <TimePicker Time="{Binding StartTimeSelected}" Format="H:mm" />
+                                        </Frame>
+                                    </StackLayout>
+                                    <Label Text="End Time" TextColor="Black"/>
+                                    <StackLayout Orientation="Horizontal" Margin="18,0,0,0" >
+                                        <Frame Padding="0" CornerRadius="10" WidthRequest="190" HeightRequest="45">
+                                            <TimePicker Time="{Binding EndTimeSelected}" Format="H:mm"/>
+                                        </Frame>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout>
+                                <Button Margin="110"
+                                        WidthRequest="207"
+                                        HeightRequest="46"
+                                        Text="Add"
+                                        TextColor="#FFFFFF"
+                                        FontAttributes="Bold"
+                                        BackgroundColor="#603D8F"
+                                        CornerRadius="20"
+                                        Font="Segoe UI"
+                                        FontSize="16"
+                                        Command="{Binding AddTimeCommand}"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

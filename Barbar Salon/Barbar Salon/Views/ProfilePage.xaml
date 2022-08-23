@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels" 
+             xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
+             Shell.NavBarIsVisible="False"
+             x:Class="Barbar_Salon.Views.ProfilePage">
+    <ContentPage.BindingContext>
+        <viewmodels:ProfileViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+            <controls:NavigationComponent Titles="Profile Page" isVisible="false">
+            </controls:NavigationComponent>
+            <StackLayout>
+
+
+                <Frame CornerRadius="100" 
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    HorizontalOptions="Center"
+                                    Padding="0"
+                                    HasShadow="False">
+                    <Image Source="profile.png"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center" />
+                </Frame>
+            </StackLayout>
+            <StackLayout  Margin="60,15,50,15">
+                <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                    <StackLayout Orientation="Vertical" x:Name="Button1">
+                        <Button x:Name="aboutbutton" Text="About" Command="{Binding Aboutbutton}" BackgroundColor="White"
+                                    TextColor="Black" BorderColor="White"
+                                    Padding="0" HeightRequest="25" WidthRequest="70" />
+                        <BoxView x:Name="BoxAbout" Color="#603D8F" HeightRequest="3" WidthRequest="90" HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsVisibleAbout}" />
+                    </StackLayout  >
+                    <StackLayout Orientation="Vertical" Margin="80,0,50,0" >
+                        <Button x:Name="settingsbutton" Text="SETTINGS" Command="{Binding Settingsbutton}" BackgroundColor="White"
+                                    TextColor="Black" BorderColor="White" 
+                                    Padding="0" HeightRequest="25" WidthRequest="70"  />
+                        <BoxView x:Name="BoxSettings" Color="#603D8F" HeightRequest="3" WidthRequest="90" 
+                                     HorizontalOptions="CenterAndExpand" IsVisible="{Binding IsVisibleSettings}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="aboutview" Orientation="Vertical" Padding="0,10,0,0" IsVisible="{Binding IsVisibleAbout}" HeightRequest="350"  >
+                    <CollectionView x:Name="MyProfile" ItemsSource="{Binding MyProfile}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <StackLayout>
+                                                <Label Text="Name :"/>
+                                                <Label Text= "{Binding BarberName}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditNameButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout>
+                                                <Label Text="Salon Name :"/>
+                                                <Label Text= "{Binding SalonName}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditNameSalonButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout  >
+                                                <Label Text="Phone Number :"/>
+                                                <Label Text= "{Binding Phone}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditPhoneButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                    <Frame>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout>
+                                                <Label Text="Address :"/>
+                                                <Label Text= "{Binding Location}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand">
+                                                <Button Text="EDIT" Command="{Binding Path=BindingContext.EditlocationButton,Source={x:Reference MyProfile}}" BackgroundColor="White"
+                                        TextColor="Black" BorderColor="White" HorizontalOptions="CenterAndExpand"
+                                        Padding="0,0,0,0" HeightRequest="20" WidthRequest="50"/>
+                                                <BoxView Color="#603D8F" HeightRequest="3" WidthRequest="40" 
+                                         HorizontalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout >
+                <StackLayout x:Name="Settingsview" Orientation="Vertical"  Margin="60,5,50,15" Padding="0,5,0,0" IsVisible="{Binding IsVisibleSettings}" HeightRequest="400">
+                    <Frame Padding="0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding MyTimeButton}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label x:Name="labe" Text="My Time" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
+                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding MyServiceButton}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="My Service" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
+                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddOfferButton}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Add Offer" FontSize="Medium" VerticalOptions="Center" Padding="12"/>
+                            <Image Source="arrowright.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="12">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapLanguageButton}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Language :" FontSize="Medium"/>
+                            <Label Text="{Binding Language}" VerticalOptions="CenterAndExpand" FontSize="Medium"/>
+                            <Image Source="arrowdown.png" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Padding="12">
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Notification" FontSize="Medium"/>
+                            <Switch HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <Button Margin="20"
+                            HeightRequest="46"
+                            Text="Log Out"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            BackgroundColor="#603D8F"
+                            CornerRadius="20"
+                            Font="Segoe UI"
+                            Command="{Binding LogOut}"
+                            FontSize="16"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

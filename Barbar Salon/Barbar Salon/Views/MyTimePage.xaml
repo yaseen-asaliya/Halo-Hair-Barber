@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Barbar_Salon.ViewModels"
+             xmlns:controls="clr-namespace:Barbar_Salon.Views.Components"
+             x:Class="Barbar_Salon.Views.MyTimePage">
+    <ContentPage.BindingContext>
+        <viewmodels:MyTimeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationComponent Titles="My Time" CommandParameter="{Binding BackButton}">
+            </controls:NavigationComponent>
+            <StackLayout HeightRequest="500">
+                <CollectionView x:Name="MyTime"   ItemsSource="{Binding FilltedMyTimes}" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <ScrollView>
+                                    <Frame Margin="35,16" Padding="10" >
+                                        <StackLayout Orientation="Horizontal" >
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Strar Time :" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding StartTime}" VerticalOptions="StartAndExpand"/>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="End Time" FontAttributes="Bold"/>
+                                                    <Label Text="{Binding EndTime}" VerticalOptions="CenterAndExpand"/>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+
+                                                <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+
+                                                    <Button Text= "Delete" Command="{Binding Path=BindingContext.DeleteButton,Source={x:Reference MyTime}}" TextColor="#FFFFFF"
+                                                        FontSize="Micro" 
+                                                        FontFamily="Segoe UI"
+                                                        BackgroundColor="#603D8F"
+                                                        CornerRadius="15"  Margin="1"  WidthRequest="70" HeightRequest="30"
+                                                        CommandParameter="{Binding .}"/>
+
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </ScrollView>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <controls:ButtonComponent NameButton="Add Time" CommandParameter="{Binding PageAddTime}" ></controls:ButtonComponent>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
